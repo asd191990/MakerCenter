@@ -41,7 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #app
     'BackEnd',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
+
+CKEDITOR_UPLOAD_PATH = 'upload/'  #上傳文件的目錄
+# CKEDITOR_IMAGE_BACKEND = 'pillow'   #pillow做爲backend
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -107,6 +112,32 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#ckeditor
+CKEDITOR_CONFIGS = {
+    'default': {
+        'skin': 'moono-lisa',        
+    'toolbar_Basic': [
+            ['Source', '-', 'Bold', 'Italic']
+        ],        
+    'toolbar_Full': [
+            [ 'Source','-','Save','NewPage','DocProps','Preview','Print','-','Templates' ],            
+            [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ],
+            [ 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ],            
+            [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ],            '/',        [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ],            
+            [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv', '-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ],            
+            [ 'Link','Unlink','Anchor' ],            
+            [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak','Iframe' ],            '/',            
+            [ 'Styles','Format','Font','FontSize' ] ,            
+            [ 'TextColor','BGColor' ] ,            
+            [ 'Maximize', 'ShowBlocks','-','About' ] ,                         
+            ['CodeSnippet'],  #插入程式code按鈕
+
+        ],        
+    'toolbar': 'Full', #工具欄全部功能     
+    'extraPlugins': 'codesnippet',   #插入程式code
+    }
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
@@ -135,6 +166,8 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+CKEDITOR_UPLOAD_PATH = 'upload/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

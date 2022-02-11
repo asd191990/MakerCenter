@@ -3,12 +3,15 @@ from importlib.resources import contents
 from turtle import update
 from django.db import models
 from django.utils import timezone
+# django-ckeditor
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # 最新消息
 
 class News(models.Model):
     title = models.CharField(max_length=30)
-    content = models.TextField()
+    content = RichTextUploadingField()
     date = models.DateField(default=timezone.now)
 
 # 課程(專業、核心)
