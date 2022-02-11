@@ -21,17 +21,9 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path,include
 
-# 網路上寫可能是版本問題，但我試了也無改變
-# if django.VERSION >= (1, 8):
 urlpatterns = [
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include("BackEnd.urls")),
     path('admin/', admin.site.urls),
-    path('ckeditor/', include('ckeditor_uploader.urls')),
+    
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
-# else:
-#     from django.conf.urls import patterns
-
-#     admin.autodiscover()
-#     path('', include("BackEnd.urls")),
-#     path('admin/', admin.site.urls),
-#     path('ckeditor/', include('ckeditor_uploader.urls')),

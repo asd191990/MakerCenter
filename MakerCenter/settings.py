@@ -44,9 +44,37 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
 ]
+    ####################################
+        ##  CKEDITOR CONFIGURATION ##
+    ####################################
+    
+CKEDITOR_UPLOAD_PATH = 'uploads/'  #上傳文件的目錄
+CKEDITOR_IMAGE_BACKEND = 'pillow'   #pillow做爲backend
 
-CKEDITOR_UPLOAD_PATH = 'upload/'  #上傳文件的目錄
-# CKEDITOR_IMAGE_BACKEND = 'pillow'   #pillow做爲backend
+CKEDITOR_CONFIGS = {
+    'default': {
+        'skin': 'moono-lisa',        
+    'toolbar_Basic': [
+            ['Source', '-', 'Bold', 'Italic']
+        ],        
+    'toolbar_Full': [
+            [ 'Source','-','Save','NewPage','DocProps','Preview','Print','-','Templates' ],            
+            [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ],
+            [ 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ],            
+            [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ],            '/',        [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ],            
+            [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv', '-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ],            
+            [ 'Link','Unlink','Anchor' ],            
+            [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak','Iframe' ],            '/',            
+            [ 'Styles','Format','Font','FontSize' ] ,            
+            [ 'TextColor','BGColor' ] ,            
+            [ 'Maximize', 'ShowBlocks','-','About' ] ,                         
+            ['CodeSnippet'],  #插入程式code按鈕
+
+        ],        
+    'toolbar': 'Full', #工具欄全部功能     
+    'extraPlugins': 'codesnippet',   #插入程式code
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -112,31 +140,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-#ckeditor
-CKEDITOR_CONFIGS = {
-    'default': {
-        'skin': 'moono-lisa',        
-    'toolbar_Basic': [
-            ['Source', '-', 'Bold', 'Italic']
-        ],        
-    'toolbar_Full': [
-            [ 'Source','-','Save','NewPage','DocProps','Preview','Print','-','Templates' ],            
-            [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ],
-            [ 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ],            
-            [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ],            '/',        [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ],            
-            [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv', '-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ],            
-            [ 'Link','Unlink','Anchor' ],            
-            [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak','Iframe' ],            '/',            
-            [ 'Styles','Format','Font','FontSize' ] ,            
-            [ 'TextColor','BGColor' ] ,            
-            [ 'Maximize', 'ShowBlocks','-','About' ] ,                         
-            ['CodeSnippet'],  #插入程式code按鈕
 
-        ],        
-    'toolbar': 'Full', #工具欄全部功能     
-    'extraPlugins': 'codesnippet',   #插入程式code
-    }
-}
 
 
 # Internationalization
@@ -158,15 +162,17 @@ DATETIME_FORMAT = "Y-m-d H:i:s"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+# STATIC_ROOT = 'static/'
 STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-CKEDITOR_UPLOAD_PATH = 'upload/'
+# MEDIA_ROOT = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "/media/")
+# CKEDITOR_UPLOAD_PATH = 'upload/'
 
 
 # Default primary key field type

@@ -11,7 +11,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 class News(models.Model):
     title = models.CharField(max_length=30)
-    content = RichTextUploadingField()
+    content = RichTextUploadingField(verbose_name='content' ,blank=True, null=True)
     date = models.DateField(default=timezone.now)
 
 # 課程(專業、核心)
