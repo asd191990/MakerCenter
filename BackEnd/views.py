@@ -4,7 +4,6 @@ from .forms import NewsForm
 from .models import News
 from django.views.decorators.csrf import csrf_exempt
 
-# @csrf_exempt
 def Index(request):
 
     user = News.objects.all()

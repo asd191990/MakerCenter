@@ -93,8 +93,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates').replace('\\', '/'),
-            # os.path.join(BASE_DIR, 'Frontend', 'templates').replace("\\", '/'),
-            # os.path.join(BASE_DIR, 'Backend', 'templates').replace("\\", '/')
+            os.path.join(BASE_DIR, 'Frontend', 'templates').replace("\\", '/'),
+            os.path.join(BASE_DIR, 'Backend', 'templates').replace("\\", '/')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
