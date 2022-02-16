@@ -15,5 +15,6 @@ urlpatterns = [
     path('newsmanage/', views.NewsManage, name='NewsManage'),
     # path('newsupdate/', views.NewsUpdate, name='NewsUpdate'),
     path('newsupdate/<int:id>', views.NewsUpdate, name='NewsUpdate'),
+    path('news_show/<int:id>', views.NewsShow, name='NewsShow'),
     path('', views.Index, name='Index'),
 ]

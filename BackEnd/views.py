@@ -62,3 +62,13 @@ def NewsUpdate(request,id):
     }
 
     return render(request, "news_update.html", context)
+
+def NewsShow(request,id):
+    news = News.objects.get(id=id)
+    
+
+    context = {
+        'news': news,
+    }
+
+    return render(request, "news_show.html", context)

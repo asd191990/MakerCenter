@@ -8,7 +8,7 @@
 </head>
 <body>
     {% block content %}
-    <form action="" method="POST">
+    <form action="" enctype="multipart/form-data" method="POST">
         {% csrf_token %}
         <div class="form-group col-md-6">
 
@@ -19,6 +19,6 @@
             <input class="btn btn-success" type="submit" value="更新" />
         </div>
     </form>
-    {% endblock  %}  
+    {% endblock  %}
 </body>
 </html>
