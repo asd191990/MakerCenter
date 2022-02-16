@@ -26,7 +26,7 @@ def Index(request):
         'form': form
     }
 
-    return render(request, "index.html", context)
+    return render(request, "index/index.html", context)
 
 #消息管理
 
@@ -45,9 +45,8 @@ def NewsManage(request):
 
 # 更新消息
 
-def NewsUpdate(request, pk):
-
-    news = News.objects.get(id=pk)
+def NewsUpdate(request,id):
+    news = News.objects.get(id=id)
     
     form = NewsForm(instance=news)
 
