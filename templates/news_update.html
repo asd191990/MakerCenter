@@ -8,15 +8,14 @@
 </head>
 <body>
     {% block content %}
-    <form action="" method="POST">
+    <form action="" enctype="multipart/form-data" method="POST">
         {% csrf_token %}
-        <div class="form-group col-md-6">
-
-            {{ form.as_p}}
-
-            <input class="btn btn-success" type="submit" value="更新" />
+        {{ form.media }}
+        {{ form.as_p }}
+        <div class="form-group col-md-2">
+            <input class="btn btn-success" style="margin-top: 30px;" type="submit" value="新增" />
         </div>
     </form>
-    {% endblock  %}  
+    {% endblock  %}
 </body>
 </html>
