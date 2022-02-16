@@ -13,13 +13,13 @@
         {% for n in news %}
         <div class="card">
             <div class="card-title">
-                {{ n.title }}
+                {{ n.title | safe }}
             </div>
             <div class="card-content-date">
-                {{ n.date }}
+                {{ n.date | safe}}
             </div>
             <div class="card-context">
-                {{ n.content }}
+                {{ n.content | safe }}
             </div>
             {{ n.pk }}
             <div class="form-group col-md-2">

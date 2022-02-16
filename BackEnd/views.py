@@ -26,7 +26,7 @@ def Index(request):
         'form': form
     }
 
-    return render(request, "index/index.html", context)
+    return render(request, "news_manage.html", context)
 
 #消息管理
 

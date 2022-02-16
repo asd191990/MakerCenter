@@ -58,20 +58,21 @@ CKEDITOR_CONFIGS = {
     'toolbar_Basic': [
             ['Source', '-', 'Bold', 'Italic']
         ],        
-    'toolbar_Full': [
-            [ 'Source','-','Save','NewPage','DocProps','Preview','Print','-','Templates' ],            
-            [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ],
+    'toolbar_Full': [        
+            [ '-','Undo','Redo' ],
             [ 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ],            
             [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ],            '/',        [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ],            
             [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv', '-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ],            
             [ 'Link','Unlink','Anchor' ],            
-            [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak','Iframe' ],            '/',            
+            [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak' ],            '/',            
             [ 'Styles','Format','Font','FontSize' ] ,            
             [ 'TextColor','BGColor' ] ,            
-            [ 'Maximize', 'ShowBlocks','-','About' ] ,                         
+            [ 'ShowBlocks','-','About' ] ,                         
             ['CodeSnippet'],  #插入程式code按鈕
 
-        ],        
+        ],
+    'tabSpaces': 2,
+    'width': '700px',        
     'toolbar': 'Full', #工具欄全部功能     
     'extraPlugins': 'codesnippet',   #插入程式code
     }
@@ -172,7 +173,7 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 # MEDIA_ROOT = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "/media/")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # CKEDITOR_UPLOAD_PATH = 'upload/'
 
 
