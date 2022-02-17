@@ -23,7 +23,8 @@ from django.urls import path,include
 
 urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('', include("BackEnd.urls")),
+    path('manage/', include("BackEnd.urls")),
+    path('', include("FrontEnd.urls")),
     path('admin/', admin.site.urls),
     
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

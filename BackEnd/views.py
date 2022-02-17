@@ -26,7 +26,7 @@ def Index(request):
         'form': form
     }
 
-    return render(request, "news_manage.html", context)
+    return render(request, "BackEnd/index/index.html", context)
 
 #消息管理
 
@@ -41,7 +41,7 @@ def NewsManage(request):
         'form': form
     }
     
-    return render(request, "news_manage.html", context)
+    return render(request, "BackEnd/news_manage.html", context)
 
 # 更新消息
 
@@ -61,7 +61,7 @@ def NewsUpdate(request,id):
         'form': form
     }
 
-    return render(request, "news_update.html", context)
+    return render(request, "BackEnd/news_update.html", context)
 
 def NewsShow(request,id):
     news = News.objects.get(id=id)
@@ -71,4 +71,4 @@ def NewsShow(request,id):
         'news': news,
     }
 
-    return render(request, "news_show.html", context)
+    return render(request, "BackEnd/news_show.html", context)

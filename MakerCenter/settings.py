@@ -94,7 +94,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates').replace('\\', '/'),
+            # os.path.join(BASE_DIR, 'templates').replace('\\', '/'),
             os.path.join(BASE_DIR, 'Frontend', 'templates').replace("\\", '/'),
             os.path.join(BASE_DIR, 'Backend', 'templates').replace("\\", '/')
         ],
@@ -172,9 +172,7 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_URL = '/media/'
-# MEDIA_ROOT = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-# CKEDITOR_UPLOAD_PATH = 'upload/'
 
 
 # Default primary key field type
