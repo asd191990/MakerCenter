@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import NewsForm
 from .models import News
-from django.views.decorators.csrf import csrf_exempt
+from .filters import NewsFilter
 
 #新增消息
 
@@ -28,17 +28,23 @@ def Index(request):
 
     return render(request, "BackEnd/index/index.html", context)
 
-#消息管理
+#消息管理及查詢
 
 def NewsManage(request):
 
     news = News.objects.all()
 
+    newsFilter = NewsFilter(queryset=news)
+
+    if request.method == "POST":
+        newsFilter = NewsFilter(request.POST, queryset=news)
+
     form = NewsForm()
 
     context = {
         'news': news,
-        'form': form
+        'form': form,
+        'newsFilter': newsFilter
     }
     
     return render(request, "BackEnd/news_manage.html", context)

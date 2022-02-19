@@ -23,6 +23,8 @@ from django.urls import path,include
 
 urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    # grappelli URLS
+    path('grappelli/', include('grappelli.urls')),
     path('manage/', include("BackEnd.urls")),
     path('', include("FrontEnd.urls")),
     path('admin/', admin.site.urls),

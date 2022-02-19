@@ -33,6 +33,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #要加在admin前
+    'bootstrap_admin',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,7 +47,19 @@ INSTALLED_APPS = [
     'FrontEnd',
     'ckeditor',
     'ckeditor_uploader',
+    'django_filters',
 ]
+    ####################################
+        ##  Bootstrap-admin  CONFIGURATION ##
+    ####################################
+# 啟用或關閉 sidebar
+BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
+    ####################################
+        ##  Grappelli  CONFIGURATION ##
+    ####################################
+GRAPPELLI_ADMIN_TITLE = '管理介面'
+
+
     ####################################
         ##  CKEDITOR CONFIGURATION ##
     ####################################
