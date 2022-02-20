@@ -74,20 +74,18 @@ CKEDITOR_CONFIGS = {
             ['Source', '-', 'Bold', 'Italic']
         ],        
     'toolbar_Full': [        
-            [ '-','Undo','Redo' ],
-            [ 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ],            
-            [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ],            '/',        [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ],            
+            [ 'SpellChecker', 'Scayt', 'Image','Flash','Table','HorizontalRule','Smiley' ],            
+            [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select'],            '/',        [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ],            
             [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv', '-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ],            
-            [ 'Link','Unlink','Anchor' ],            
-            [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak' ],            '/',            
+            [ 'Link','Unlink'],            '/',            
             [ 'Styles','Format','Font','FontSize' ] ,            
             [ 'TextColor','BGColor' ] ,            
-            [ 'ShowBlocks','-','About' ] ,                         
-            ['CodeSnippet'],  #插入程式code按鈕
+            [ 'ShowBlocks']
 
         ],
     'tabSpaces': 2,
-    'width': '700px',        
+    'width': '650px',
+    'height': '200px',       
     'toolbar': 'Full', #工具欄全部功能     
     'extraPlugins': 'codesnippet',   #插入程式code
     }
