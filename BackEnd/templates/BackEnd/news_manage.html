@@ -1,40 +1,35 @@
 <!-- news_manage.html -->
 
-<!DOCTYPE html> 
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>最新消息</title>
-    </head>
-<body>
-    {% block content %}
 
-    <form method='POST'>
-        {% csrf_token %}
-        標題{{ newsFilter.form.title }}
-        <!-- 內容：{{ newsFilter.form.content }} -->
-        日期：{{ newsFilter.form.date }}
-        <input type="submit" class="btn btn-primary" value="查詢" />
-    </form>
-    <br>
+{% extends 'BackEnd/base/base.html' %}
 
-    <table class="table">
-        <thead>
-            <th>標題</th>
-            <th>日期</th>
-        </thead>
-        <tbody>
-            {% for news in newsFilter.qs %}
-            <tr>
-                <td>{{ news.title }}</td>
-                <td>{{ news.date }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <!-- 所有news
+
+{% block main %}
+
+<form method='POST'>
+    {% csrf_token %}
+    標題{{ newsFilter.form.title }}
+    <!-- 內容：{{ newsFilter.form.content }} -->
+    日期：{{ newsFilter.form.date }}
+    <input type="submit" class="btn btn-primary" value="查詢" />
+</form>
+<br>
+
+<table class="table">
+    <thead>
+        <th>標題</th>
+        <th>日期</th>
+    </thead>
+    <tbody>
+        {% for news in newsFilter.qs %}
+        <tr>
+            <td>{{ news.title }}</td>
+            <td>{{ news.date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<!-- 所有news
     {% for n in news %}
     <div class="card">
         <div class="card-title">
@@ -53,6 +48,4 @@
         </div>
     </div>
     {% endfor%} -->
-    {% endblock  %}
-</body>
-</html>
+{% endblock %}

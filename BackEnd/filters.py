@@ -12,7 +12,7 @@ class NewsFilter(django_filters.FilterSet):
         widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     date = django_filters.CharFilter(
-        widget=forms.NumberInput(attrs={'class': 'form-control'}))
+        widget=forms.TextInput(attrs={'type': 'date'}))
 
     class Meta:
         model = News

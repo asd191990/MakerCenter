@@ -35,7 +35,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     #要加在admin前
     'bootstrap_admin',
-    'grappelli',
+    # 'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -109,7 +109,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            # os.path.join(BASE_DIR, 'templates').replace('\\', '/'),
+            os.path.join(BASE_DIR, 'templates').replace('\\', '/'),
             os.path.join(BASE_DIR, 'Frontend', 'templates').replace("\\", '/'),
             os.path.join(BASE_DIR, 'Backend', 'templates').replace("\\", '/')
         ],

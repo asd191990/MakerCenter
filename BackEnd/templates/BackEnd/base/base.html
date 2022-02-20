@@ -6,18 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
-    {% include "../base/include.html" %}
+
+    {% load static%}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css '%}" />
+
+    <!-- 外加引入 -->
+    {% block import %}
+
+    {% endblock %}
 </head>
 
 <body>
-    {% include '../base/header.html' %}
-    {% include '../base/nav.html' %}
+    {% include 'BackEnd/base/header.html' %}
+    {% include 'BackEnd/base/nav.html' %}
 
     {% block main %}
 
     {% endblock %}
 
-    {% include 'footer.html' %}
+    {% include 'BackEnd/base/footer.html' %}
 </body>
 
 </html>
