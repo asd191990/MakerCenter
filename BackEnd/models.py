@@ -10,9 +10,17 @@ from ckeditor_uploader.fields import RichTextUploadingField
 # 最新消息
 
 class News(models.Model):
-    title = models.CharField(max_length=30)
-    content = RichTextUploadingField(verbose_name='content' ,blank=True, null=True)
-    date = models.DateField(default=timezone.now)
+    title = models.CharField(max_length=30, verbose_name="標題")
+    content = RichTextUploadingField(verbose_name='編輯器內文' ,blank=True, null=True)
+    date = models.DateField(default=timezone.now,verbose_name='建立日期')
+    class Meta:
+        verbose_name = "最新公告"   # 單數
+        verbose_name_plural = verbose_name   #複數
+    def __str__(self):
+        return self.title
+
+
+
 
 # 課程(專業、核心)
 
