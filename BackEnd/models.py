@@ -10,16 +10,21 @@ from ckeditor_uploader.fields import RichTextUploadingField
 # 最新消息
 
 class News(models.Model):
+    News_type = (
+        ('1', '專業實作課程'),
+        ('2', '核心實作課程'),
+        ('3', '微學分課程及工作坊'),
+    )
     title = models.CharField(max_length=30, verbose_name="標題")
     content = RichTextUploadingField(verbose_name='編輯器內文' ,blank=True, null=True)
-    date = models.DateField(default=timezone.now,verbose_name='建立日期')
+    type = models.CharField(max_length=1, choices=News_type, null=True)
+    created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
+    update_date = models.DateField(auto_now=True, verbose_name='更新日期')
     class Meta:
         verbose_name = "最新公告"   # 單數
         verbose_name_plural = verbose_name   #複數
     def __str__(self):
         return self.title
-
-
 
 
 # 課程(專業、核心)
@@ -28,25 +33,79 @@ class Coures(models.Model):
     Coure_type = (
         ('1', '專業實作課程'),
         ('2', '核心實作課程'),
+        ('3', '微學分課程及工作坊'),
     )
-    title = models.CharField(max_length=30)
-    content = models.TextField()
+    title = models.CharField(max_length=30, verbose_name='課程名稱')
+    content = RichTextUploadingField(verbose_name='課程內容',blank=True, null=True)
     type = models.CharField(max_length=1, choices=Coure_type)
-    date = models.DateField(default=timezone.now)
+    created_date = models.DateField(default=timezone.now, verbose_name='建立日期')
+    update_date = models.DateField(auto_now=True, verbose_name='更新日期')
+
 
 # 校級共用實驗室借用情形
 
-class classroomintroducts(models.Model):
+class ClassroomIntroducts(models.Model):
     title = models.CharField(max_length=30)
     content = models.TextField()
-    date = models.DateField(default=timezone.now)
+    created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
+    update_date = models.DateField(auto_now=True, verbose_name='更新日期')
     imageone = models.ImageField(upload_to="classimage")
     # 可能有照片要加 但先這樣
 
-# 各類申請及說明
+
+# 各類申請及說明 / 相關辦法
 
 class DownLoadFiles(models.Model):
+    DownLoadFiles_type = (
+        ('1', '專業領域小組'),
+        ('2', '課程'),
+        ('3', '設備及物品借用'),
+        ('4', 'TA實習申請'),
+    )
     title = models.CharField(max_length=30)
-    content = models.TextField()
+    type = models.CharField(max_length=1, choices=DownLoadFiles_type, null=True)
+    content = models.TextField(verbose_name='說明')
     filepath = models.FileField(upload_to='uploads')
-    date = models.DateField(default=timezone.now)
+    created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
+    update_date = models.DateField(auto_now=True, verbose_name='更新日期')
+
+
+# 成員
+
+class Memebers(models.Model):
+    name = models.CharField(max_length=30, verbose_name='姓名')
+    extension = models.IntegerField(verbose_name='分機')
+    email = models.EmailField(max_length=30,unique=True, verbose_name='電子信箱')
+    work = models.TextField(verbose_name='業務職掌')
+    location = models.TextField(verbose_name='位置')
+    created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
+    update_date = models.DateField(auto_now=True, verbose_name='更新日期')
+
+
+# 專業領域小組
+
+class Group(models.Model):
+    Group_type = (
+        ('1', '智慧製造'),
+        ('2', '資訊通'),
+        ('3', '機器人'),
+        ('4', '創課'),
+        ('5', '元宇宙'),
+    )
+    title = models.CharField(max_length=30, verbose_name='標題',null=True)
+    content = RichTextUploadingField(blank=True,null=True)
+    type = models.CharField(max_length=1, choices=Group_type, null=True)
+    created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
+    update_date = models.DateField(auto_now=True, verbose_name='更新日期')
+
+
+# 空間介紹及設備
+
+class Space(models.Model):
+    code = models.CharField(max_length=4,verbose_name='教室代碼')
+    name = models.CharField(max_length=30,verbose_name='教室名稱')
+    space_description = models.TextField(verbose_name='空間介紹')
+    number = models.CharField(max_length=30,verbose_name='容納人數')
+    equipment_description = models.CharField(max_length=30,verbose_name='設備資訊')
+    created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
+    update_date = models.DateField(auto_now=True, verbose_name='更新日期')
