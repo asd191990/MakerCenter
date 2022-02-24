@@ -1,10 +1,23 @@
-
 {% extends '../base/base.html' %}
 
 {% block title %}
 首頁
 {% endblock %}
 
+{% block import %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/bootstrap.min.css '%}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome-free-6.0.0-web/css/all.min.css '%}" />
+
+{% endblock %}
+
 {% block main %}
 main
+
+<li>
+
+    <i class="fa-solid fa-user"></i>
+</li>
+
 {% endblock %}
