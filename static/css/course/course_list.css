@@ -1,3 +1,6 @@
+.cintainer-0{
+    font-family: Roboto;  font-style: normal;
+}
 .container{
     margin: auto;
     width: 80%;
@@ -14,13 +17,7 @@
 .coursephoto{
     width: 100%; height: 200px; background-color: #c4c4c4;
 }
-.coursephoto{
-    width: 100%;
-    /*margin: auto;*/
-}
 .classtitle{
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 28px;
     line-height: 33px;
@@ -44,8 +41,6 @@
     color: rgb(255, 255, 255);
 }
 .classdate{
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 24px;
     line-height: 28px;
@@ -55,8 +50,6 @@
     margin-top: 9px; margin-bottom: 12px;
 }
 .classcontent{
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 22px;
     line-height: 26px;
