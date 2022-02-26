@@ -29,15 +29,16 @@ class News(models.Model):
 
 # 課程(專業、核心)
 
-class Coures(models.Model):
-    Coure_type = (
+class Course(models.Model):
+    Courese_type = (
         ('1', '專業實作課程'),
         ('2', '核心實作課程'),
         ('3', '微學分課程及工作坊'),
     )
     title = models.CharField(max_length=30, verbose_name='課程名稱')
     content = RichTextUploadingField(verbose_name='課程內容',blank=True, null=True)
-    type = models.CharField(max_length=1, choices=Coure_type)
+    type = models.CharField(max_length=1, choices=Courese_type)
+    image = models.ImageField(upload_to="courseimage", verbose_name='封面圖')
     created_date = models.DateField(default=timezone.now, verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
 
@@ -107,5 +108,13 @@ class Space(models.Model):
     space_description = models.TextField(verbose_name='空間介紹')
     number = models.CharField(max_length=30,verbose_name='容納人數')
     equipment_description = models.CharField(max_length=30,verbose_name='設備資訊')
+    created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
+    update_date = models.DateField(auto_now=True, verbose_name='更新日期')
+
+# 設備介紹
+
+class Equipment(models.Model):
+    name = models.CharField(max_length=30,verbose_name='設備名稱')
+    description = models.TextField(verbose_name='設備介紹')
     created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')

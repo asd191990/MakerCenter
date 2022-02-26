@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import News, Coures, ClassroomIntroducts, DownLoadFiles, Memebers, Group, Space
+from .models import News, Course, ClassroomIntroducts, DownLoadFiles, Memebers, Group, Space
 # Register your models here.
 
 
@@ -14,7 +14,7 @@ class NewsAdmin(admin.ModelAdmin):
     # list_filter 後面要有 , 
     list_filter = ('update_date',)
     
-class CouresAdmin(admin.ModelAdmin):
+class CourseAdmin(admin.ModelAdmin):
     list_display = ('title', 'content', 'type', 'created_date', 'update_date')
 class ClassroomIntroductsAdmin(admin.ModelAdmin):
     list_display = ('title', 'content', 'created_date', 'update_date')
@@ -29,7 +29,7 @@ class SpaceAdmin(admin.ModelAdmin):
 
 # admin要註冊才可以管理這些Table
 admin.site.register(News, NewsAdmin)
-admin.site.register(Coures, CouresAdmin)
+admin.site.register(Course, CourseAdmin)
 admin.site.register(ClassroomIntroducts, ClassroomIntroductsAdmin)
 admin.site.register(DownLoadFiles, DownLoadFilesAdmin)
 admin.site.register(Memebers, MemebersAdmin)

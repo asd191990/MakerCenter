@@ -1,5 +1,5 @@
 from django import forms
-from .models import News, Coures, ClassroomIntroducts, DownLoadFiles, Memebers, Group, Space
+from .models import News, Course, ClassroomIntroducts, DownLoadFiles, Memebers, Group, Space
 
 # 新增最新消息填寫表單
 
@@ -27,7 +27,7 @@ class NewsForm(forms.ModelForm):
 class CouresForm(forms.ModelForm):
 
     class Meta:
-        model = Coures
+        model = Course
         
         fields = ('title', 'content', 'type')
 
