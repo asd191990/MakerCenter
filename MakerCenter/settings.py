@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-7%p9qm@(jy0t1zh)38v@@jjmg*6r2)da6%%bzgp4k(g&_p6$2r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -35,7 +35,6 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     #要加在admin前
     'admin_volt',
-    # 'bootstrap_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,12 +49,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'django_filters',
 ]
-    ####################################
-        ##  Bootstrap-admin  CONFIGURATION ##
-    ####################################
-# 啟用或關閉 sidebar
-BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
-
+ 
 
     ####################################
         ##  CKEDITOR CONFIGURATION ##
