@@ -1,4 +1,13 @@
-<link rel="stylesheet" href="../../../../static/css/base_single/base_single.css">
+{% extends 'FrontEnd/base/base.html' %}
+
+{% block import %}
+
+{% load static%}
+<link rel="stylesheet" href="{% static 'css/base_single/base_single.css' %}">
+
+{% endblock %}
+
+{% block main %}
 
 <section class="container">
     <div class="title">專業領域小組 / 元宇宙</div>
@@ -36,3 +45,5 @@
     </div>
 
 </section>
+
+{% endblock %}
