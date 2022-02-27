@@ -4,6 +4,7 @@
 
 {% load static%}
 <link rel="stylesheet" href="{% static 'css/course/course_list.css' %}">
+<script src="{% static 'js/vue.js' %}"> </script>
 <link rel="stylesheet" href="{% static 'base/css/fontawesome-free-6.0.0-web/css/all.min.css' %}">
 
 
@@ -12,37 +13,26 @@
 {% block main %}
 
 
-<section class="container-0">
+<section class="container-0" id="app">
     <div class="searchspace">
-        <div class="searchbox"><p class="searchtext">　Search..</p></div>
-        <span><div class="rightspace">
-            <i class="fa-solid fa-wrench"></i><div class="wire"><p class="content">專業實作課程</p></div>
-            <i class="fa-solid fa-gavel"></i><div class="wire"><p class="content">核心實作課程</p></div>
-            <i class="fa-solid fa-hammer"></i><p class="content">微學分課程及工作訪</p>
-        </div></span>
+        <input class="searchbox" type="text" v-model="search" placeholder="Search 課程名稱.." />
+            <div class="rightspace">
+                <span class="fa-solid fa-wrench"></span>
+                <div class="wire">
+                    <p class="content">專業實作課程</p>
+                </div>
+                <span class="fa-solid fa-gavel"></span>
+                <div class="wire">
+                    <p class="content">核心實作課程</p>
+                </div>
+                <span class="fa-solid fa-hammer"></span>
+                <p class="content">微學分課程及工作訪</p>
+            </div>
     </div>
 
     <div class="container">
-       
-        <div class="box" id="app">
-            <div class="markbox">
-                <p class="amark">核心</p>
-            </div>
-            <div class="coursephoto"></div><br>
-            <div class="classdate">2022/01/01</div>
-            <div class="classtitle">課程名稱</div>
-            <div class="classcontent">[課程介紹]<br>　　介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介...... </div>
-        </div>
-        <div class="box">
-            <div class="markbox">
-                <p class="mark">專業</p>
-            </div>
-            <div class="coursephoto"></div><br>
-            <div class="classdate">2022/01/01</div>
-            <div class="classtitle">課程名稱</div>
-            <div class="classcontent">[課程介紹]<br>　　介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介...... </div>
-        </div>
-        <div class="box">
+
+        <div class="box" v-for="classbox in filteredList">
             <div class="markbox">
                 <p class="amark">${classbox.type}</p>
             </div>
