@@ -1,0 +1,31 @@
+{% extends 'FrontEnd/base/base.html' %}
+
+{% block import %}
+
+{% load static%}
+<link rel="stylesheet" href="{% static 'css/position/position.css' %}">
+
+{% endblock %}
+
+{% block main %}
+
+<section class="content">
+    <div class="container">
+        <p class="title">位置</p>
+    </div>
+    <div class="contenttext-0">
+        <img src="../../../../static/img/position/map-pin.png" width="40px" height="40px">　位置 : 雲林縣斗六市大學路三段123號
+    </div>
+    <div class="contenttext-0">
+        <img src="../../../../static/img/position/locate-fixed.png" width="40px" height="40px">　教室位置 : A101
+    </div>
+    <div class="contenttext-1">
+        雲科平面地圖：<p></div>    
+        <img src="../../../../static/img/position/yuntech_map.png" width="555px" height="561px" class="img">
+    <div class="contenttext-1">
+        google地圖：<p></div>
+        <img src="../../../../static/img/position/yuntech_map2.png" width="618px" height="358px" class="img">
+    
+</section>>
+
+{% endblock %}

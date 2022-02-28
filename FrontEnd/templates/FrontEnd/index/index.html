@@ -7,16 +7,20 @@
 {% block import %}
 
 {% load static %}
+
 <link rel="stylesheet" type="text/css" href="{% static 'base/css/fontawesome-free-6.0.0-web/css/all.min.css '%}" />
+
+{% load sass_tags %}
+<link href="{% sass_src 'scss/teststyle.scss' %}" rel="stylesheet" type="text/css" />
 
 {% endblock %}
 
 {% block main %}
 main
-
+<a>eee</a>
 <li>
 
-    <i class="fa-solid fa-user"></i>
+    <i class="fa-solid fa-user"></i>    
 </li>
 
 {% endblock %}

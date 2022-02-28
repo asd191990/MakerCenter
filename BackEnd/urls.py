@@ -12,5 +12,8 @@ urlpatterns = [
     path('newsmanage/', views.NewsManage, name='NewsManage'),
     path('newsupdate/<int:id>', views.NewsUpdate, name='NewsUpdate'),
     path('newsshow/<int:id>', views.NewsShow, name='NewsShow'),
+
+    #corrout
+    path('list/<str:dbtype>', views.DBlist, name='manage'),
     path('', views.Index, name='Index'),
 ]

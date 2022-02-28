@@ -1,0 +1,41 @@
+{% extends 'FrontEnd/base/base.html' %}
+
+{% block import %}
+
+{% load static%}
+<link rel="stylesheet" href="{% static 'css/space_intro/space_intro.css' %}">
+<link rel="stylesheet" href="{% static 'base/css/bootstrap/bootstrap.min.css' %}">
+
+{% endblock %}
+
+{% block main %}
+
+<section class="container">
+    <div class="title">空間介紹</div>
+    
+    <div class="searchbox"><p class="searchtext">　Search..</p></div>
+    
+    <table cellpadding="10"; style="width: 100%; " border=" 1px solid; border-collapse:collapse;" class="tablestyle">
+        <thead>
+            <tr class="bg-danger" style="height: 80px; ">
+                <th style="width: 10%; padding:25px">教室代碼</th>
+                <th style="width: 18%; padding-left: 25px;">教室名稱</th>
+                <th style="width: 42%; padding-left: 25px;">空間介紹</th>
+                <th style="width: 8%; padding-left: 15px;">容納人數</th>
+                <th style="width: 22%; padding-left: 25px;">設備資訊</th>
+            </tr>
+        </thead>
+        <tbody style="height: auto;">
+            <tr style="height: 280px; line-height: 32px;">
+            <td style="text-align: center;">A201</td>
+                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">名稱名稱名稱名稱名稱名稱名稱名稱</td>
+                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹</td>
+                <td style="text-align: center;">nn-nn</td>
+                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹</td>                </tr>
+        </tbody>
+    </table>
+
+
+</section>
+
+{% endblock %}
