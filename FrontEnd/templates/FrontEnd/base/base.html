@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 
 <head>
     <meta charset="UTF-8">
@@ -7,8 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
 
-    {% load static%}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-4.6.1/dist/css/bootstrap.min.css '%}" />
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome-free-6.0.0-web/css/all.min.css '%}" />
+
+    {% load sass_tags %}
+    <link href="{% sass_src 'scss/all.scss' %}" rel="stylesheet" type="text/css" />
 
     <!-- 外加引入 -->
     {% block import %}
@@ -25,6 +28,9 @@
     {% endblock %}
 
     {% include 'FrontEnd/base/footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>
