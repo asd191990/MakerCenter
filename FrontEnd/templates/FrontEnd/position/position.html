@@ -1,4 +1,13 @@
-<link rel="stylesheet" href="../../../../static/css/position/position.css">
+{% extends 'FrontEnd/base/base.html' %}
+
+{% block import %}
+
+{% load static%}
+<link rel="stylesheet" href="{% static 'css/position/position.css' %}">
+
+{% endblock %}
+
+{% block main %}
 
 <section class="content">
     <div class="container">
@@ -18,3 +27,5 @@
         <img src="../../../../static/img/position/yuntech_map2.png" width="618px" height="358px" class="img">
     
 </section>>
+
+{% endblock %}

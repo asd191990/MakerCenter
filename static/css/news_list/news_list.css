@@ -1,0 +1,79 @@
+.cintainer{
+    font-family: Roboto;  font-style: normal;
+}
+.container-1{
+    margin: auto;  width: 80%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.searchspace{
+    margin: 30px auto; display: flex; align-items: center;
+    width:59%; height:8%;
+}
+.searchbox{
+    width: 24%; height: 35px ; position: relative;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 5px;
+    display: flex; align-items: center;
+}
+.searchtext{
+    font-size: 20px; color: #CCCCCC;
+}
+.rightspace{
+    display: flex; align-items: center;
+    width: auto; height: 50%;
+    position: relative; right:-90%;
+    font-size: 22px; ;line-height: 26px;
+    text-shadow: 1px 1px 0.5px rgba(106, 106, 106, 0.67);
+}
+.content{
+    margin: auto 12px auto 10px;
+}
+.wire{
+     border-right: 2px solid #C4C4c4;
+     margin-right:18px ;
+}
+.newbox{
+    float: left;
+    width: 340px; height: 135px;
+    margin: 22px 25px;
+    padding: auto;
+    background: #FF7171;
+    border: 3px solid #FF7171;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 1px rgba(92, 3, 3, 0.25);
+}
+.datebox{
+    width: 30%; height: 100%;
+    position: relative;  right: 0;
+    background-color: #FA7575;
+    font-weight: 500;   font-size: 20px;  line-height: 23px;
+    align-items: center;  display: flex;
+}
+.date{
+    /*padding-left: 12px;*/margin: auto;
+    color: rgb(255, 255, 255);
+}
+.whitebox{
+    width: 70%; height: 100%; position: relative;
+    background-color: #ffffff; top: -100%; left: 30%;
+    display: flex; align-items: center;
+}
+.title{
+    display: flex ;align-items: center;
+    margin: auto;   width: 80%;
+    /*flex-flow: row wrap;*/
+    justify-content: center;
+    line-height: 56px; font-size: 48px;
+    padding-top: 85px; padding-bottom: 20px;
+    text-shadow: 1px 1px 0.5px rgba(106, 106, 106, 0.67);
+}
+.second_title{
+    width: 85%; position: relative;
+    margin-left: 5%;
+    font-size: 28px;  line-height: 36px;
+    color: #000000; text-align: center;
+}
