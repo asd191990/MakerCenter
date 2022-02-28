@@ -31,8 +31,8 @@ class News(models.Model):
 
 class Course(models.Model):
     Courese_type = (
-        ('1', '專業實作課程'),
-        ('2', '核心實作課程'),
+        ('1', '專業'),
+        ('2', '核心'),
         ('3', '微學分課程及工作坊'),
     )
     title = models.CharField(max_length=30, verbose_name='課程名稱')
