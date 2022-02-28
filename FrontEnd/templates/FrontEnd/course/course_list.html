@@ -37,12 +37,7 @@
             <div class="markbox">
                 <p class="amark">${classbox.type}</p>
             </div>
-            <!-- <div class="coursephoto">
-
-            </div><br> -->
-            <figure>
-                <img class="coursephoto" v-bind:src="'media/'+classbox.image" v-bind:alt="classbox.image">
-            </figure>
+            <img class="coursephoto" v-bind:src="'media/'+classbox.image" v-bind:alt="classbox.image">
             <div class="classdate">${classbox.update_date}</div>
             <div class="classtitle">${classbox.title}</div>
             <div class="classcontent" v-html="classbox.content"> </div>
@@ -53,8 +48,8 @@
 
 <script>
 
-    axios.defaults.xsrfCookieName = 'csrftoken'; //need this for method:post
-    axios.defaults.xsrfHeaderName = 'X-CSRFToken'; //need this for method:post
+    axios.defaults.xsrfCookieName = 'csrftoken';
+    axios.defaults.xsrfHeaderName = 'X-CSRFToken';
     let classvue = new Vue({
         el: '#app',
         delimiters: ['${', '}'],
