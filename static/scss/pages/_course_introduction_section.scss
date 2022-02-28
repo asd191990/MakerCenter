@@ -1,0 +1,37 @@
+// ====== course_introduction_section Start ======
+
+.course {
+    .card-title {
+        padding: 30px;
+    }
+    .hover-text {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    &-item {
+        margin-top: 10px;
+    }
+
+    &-item:hover {
+        .hover-text {
+            transition: 0.5s;
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    .btn-primary {
+        background-color: #ff8f8f;
+        border-color: #ff8f8f;
+        &:hover,
+        &:focus,
+        &:not(:disabled):not(.disabled):active {
+            background-color: #fd6c6c;
+            border-color: #fd6c6c;
+            box-shadow: 0 0 0 0.2rem rgba(253, 108, 108, 0.5);
+        }
+    }
+}
+
+// ====== course_introduction_section End ======
