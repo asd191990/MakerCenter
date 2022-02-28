@@ -1,5 +1,6 @@
 .cintainer{
     font-family: Roboto;  font-style: normal;
+    
 }
 .container-1{
     margin: auto;  width: 80%;
@@ -8,15 +9,15 @@
     justify-content: center;
 }
 .searchspace{
-    margin: 30px auto; display: flex; align-items: center;
-    width:59%; height:8%;
+    margin: 50px auto; display: flex; align-items: center;
+    width:100%; height:8%;
 }
 .searchbox{
     width: 24%; height: 35px ; position: relative;
     background-color: #ffffff;
     border: 1px solid #000000;
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 5px; padding-left: 10px;
     display: flex; align-items: center;
 }
 .searchtext{
@@ -25,16 +26,16 @@
 .rightspace{
     display: flex; align-items: center;
     width: auto; height: 50%;
-    position: relative; right:-90%;
+    position: relative; left: 45%;
     font-size: 22px; ;line-height: 26px;
     text-shadow: 1px 1px 0.5px rgba(106, 106, 106, 0.67);
 }
 .content{
-    margin: auto 12px auto 10px;
+    margin: auto 20px auto 10px;
 }
 .wire{
      border-right: 2px solid #C4C4c4;
-     margin-right:18px ;
+     margin-right:18px ; margin: auto 20px;
 }
 .newbox{
     float: left;

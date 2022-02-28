@@ -28,8 +28,8 @@
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 5px;
-    display: flex;
-    align-items: center;
+    display: flex;  align-items: center;
+    padding-left: 10px;
 }
 
 .searchtext {
@@ -38,15 +38,10 @@
 }
 
 .rightspace {
-    display: flex;
-    align-items: center;
-    width: auto;
-    height: 50%;
-    position: relative;
-    left: 43%;
-    font-size: 22px;
-    ;
-    line-height: 26px;
+    display: flex;  align-items: center;
+    width: auto;  height: 50%;
+    position: relative;  left: 23%;
+    font-size: 22px;  line-height: 26px;
     text-shadow: 1px 1px 0.5px rgba(106, 106, 106, 0.67);
 }
 
