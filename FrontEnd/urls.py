@@ -15,4 +15,3 @@ urlpatterns = [
     path('course_list/', views.courselist, name='course_list'),
     path('single/', views.single, name='single'),
 ]
-urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
