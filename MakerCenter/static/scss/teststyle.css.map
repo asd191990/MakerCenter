@@ -1,9 +1,0 @@
-{
-	"version": 3,
-	"file": "../../Github_Desktop/MakerCenter/static/scss/teststyle.css",
-	"sources": [
-		"../../Github_Desktop/MakerCenter/static/scss/teststyle.scss"
-	],
-	"names": [],
-	"mappings": "AAEA,AAAA,CAAC,CAAC;EACA,gBAAgB,EAHH,OAAO;EAIpB,OAAO,EAAE,SAAS,GACnB;;AAED,AAAA,CAAC,CAAC,KAAK,CAAC;EACN,gBAAgB,EARH,OAAO,GASrB"
-}

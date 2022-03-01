@@ -3,34 +3,34 @@
 }
 .titlespace{
     display: flex ;align-items: center;
-    width: 60%; height: 70px;
+    width: 80%; height: 70px;
     margin: 100px auto auto;
 }
 .date{
     display: flex;
     position: relative;
-    width: 9.7%; height: 28px ;right:-84%; top: 10%;
+    width: 9.7%; height: 28px ;right:-63%; 
     font-size: 24px;line-height: 28px;
     text-shadow: 1px 1px 0.5px rgba(106, 106, 106, 0.67);
 }
-.title{
-    position: relative;  left: -16%;
-    font-weight: 500;  font-size: 36px;
-    line-height: 42px;
+.left{
+    display: flex; left: -7%;
+    font-size: 36px;  line-height: 42px;
+    position: relative; 
     text-shadow: 1px 1px 0.5px rgba(106, 106, 106, 0.67);
 }
-.titleimg{
-    position: relative;  left: -8.5%;
+.title{
+    padding-left: 20px;
 }
 .wire{
-    width: 60%; margin: 10px auto 70px;
+    width: 80%; margin: 10px auto 70px;
     position: relative;
     border: 2px solid #A3A3A3;
 }
 .content{
-    width: 60%;margin: auto;
-    font-weight: 500;  font-size: 28px;
-    line-height: 33px;
+    width: 81%;margin: auto; display: flex;
+    font-size: 28px;  line-height: 33px;
+    justify-content: center;
     text-shadow: 1px 1px 0.5px rgba(106, 106, 106, 0.67);
 }
 .img{

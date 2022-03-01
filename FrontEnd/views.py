@@ -8,7 +8,7 @@ def index(request):
 def basesingle(request):
     return render(request, "FrontEnd/base_single/base_single.html")
 def coursepage(request):
-    return render(request, "FrontEnd/course_page/course_page.html")
+    return render(request, "FrontEnd/course-page/course-page.html")
 def position(request):
     return render(request, "FrontEnd/position/position.html")
 def newslist(request):
