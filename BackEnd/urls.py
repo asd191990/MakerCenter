@@ -14,6 +14,6 @@ urlpatterns = [
     path('newsshow/<int:id>', views.NewsShow, name='NewsShow'),
 
     #corrout
-    path('list/<str:dbtype>', views.DBlist, name='manage'),
+    path('getlist/<str:dbtype>', views.DBlist, name='apigetdblist'),
     path('', views.Index, name='Index'),
 ]
