@@ -27,6 +27,8 @@ SECRET_KEY = 'django-insecure-7%p9qm@(jy0t1zh)38v@@jjmg*6r2)da6%%bzgp4k(g&_p6$2r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
+
 ALLOWED_HOSTS = ["*"]
 
 
@@ -78,8 +80,8 @@ CKEDITOR_CONFIGS = {
 
         ],
     'tabSpaces': 2,
-    'width': '650px',
-    'height': '200px',       
+    'width': '100%',
+    'height': '100%',   
     'toolbar': 'Full', #工具欄全部功能     
     'extraPlugins': 'codesnippet',   #插入程式code
     }
@@ -173,7 +175,7 @@ DATETIME_FORMAT = "Y-m-d H:i:s"
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static')
+STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'collect_static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
@@ -198,3 +200,14 @@ SASS_PRECISION = 8
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# CSRF_COOKIE_HTTPONLY = True
+if  DEBUG :
+    SESSION_COOKIE_SECURE = False
+    SECURE_SSL_REDIRECT = False
+else:
+    SESSION_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT = True
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
