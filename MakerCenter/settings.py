@@ -80,8 +80,8 @@ CKEDITOR_CONFIGS = {
 
         ],
     'tabSpaces': 2,
-    'width': '650px',
-    'height': '200px',       
+    'width': '100%',
+    'height': '100%',   
     'toolbar': 'Full', #工具欄全部功能     
     'extraPlugins': 'codesnippet',   #插入程式code
     }
