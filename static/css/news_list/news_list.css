@@ -1,17 +1,14 @@
 .cintainer{
     font-family: Roboto;  font-style: normal;
-    
+    background-color: #FF7171;
 }
 .container-1{
-    margin: auto;  width: 80%;
+    margin: 70px auto; 
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
 }
-.searchspace{
-    margin: 50px auto; display: flex; align-items: center;
-    width:100%; height:8%;
-}
+
 .searchbox{
     width: 24%; height: 35px ; position: relative;
     background-color: #ffffff;
@@ -26,7 +23,7 @@
 .rightspace{
     display: flex; align-items: center;
     width: auto; height: 50%;
-    position: relative; left: 45%;
+    position: relative; float: right;
     font-size: 22px; ;line-height: 26px;
     text-shadow: 1px 1px 0.5px rgba(106, 106, 106, 0.67);
 }
@@ -40,7 +37,7 @@
 .newbox{
     float: left;
     width: 340px; height: 135px;
-    margin: 22px 25px;
+    margin: 22px 15px;
     padding: auto;
     background: #FF7171;
     border: 3px solid #FF7171;
@@ -65,11 +62,10 @@
 }
 .title{
     display: flex ;align-items: center;
-    margin: auto;   width: 80%;
+    margin: 70px auto;   width: 80%;
     /*flex-flow: row wrap;*/
     justify-content: center;
     line-height: 56px; font-size: 48px;
-    padding-top: 85px; padding-bottom: 20px;
     text-shadow: 1px 1px 0.5px rgba(106, 106, 106, 0.67);
 }
 .second_title{
@@ -77,4 +73,12 @@
     margin-left: 5%;
     font-size: 28px;  line-height: 36px;
     color: #000000; text-align: center;
+}
+
+
+@media (max-width:992px) {
+    .rightspace{
+        float:left;width: 550px;
+        margin-bottom: 30px;
+    }
 }

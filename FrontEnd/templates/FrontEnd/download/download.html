@@ -1,0 +1,47 @@
+{% extends 'FrontEnd/base/base.html' %}
+
+{% block import %}
+
+{% load static%}
+<link rel="stylesheet" href="{% static 'css/download/download.css' %}">
+<link rel="stylesheet" href="{% static 'bootstrap-4.6.1/dist/css/bootstrap.min.css' %}">
+
+{% endblock %}
+
+{% block main %}
+
+<section class="container">
+    <div class="rightspace">
+        <div class="text-1">專業領域小組</div>
+        <div class="text-2">課程</div>
+        <div class="text-3">設備及物品借用</div>
+        <div class="text-4">TA實習申請</div>
+    </div>
+    
+    <div class="searchbox"><p class="searchtext">　Search..</p></div>
+    
+    <table cellpadding="10"; style="width: 100%; " border=" 1px solid; border-collapse:collapse;" class="tablestyle">
+        <thead>
+            <tr class="bg-danger">
+                <th style="width: 18%; padding:25px">標題</th>
+                <th style="width: 23%; padding-left: 25px;">類型</th>
+                <th style="width: 26%; padding-left: 25px;">說明</th>
+                <th style="width: 18%; padding-left: 25px;">日期</th>
+                <th style="width: 15%; padding-left: 25px;">下載</th>
+            </tr>
+        </thead>
+        <tbody style="height: auto;">
+            <tr style="height: auto; line-height: 32px;">
+            <td style="text-align: justify;padding-left: 20px;">檔案名稱名稱</td>
+                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">專業領域小組</td>
+                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">課程申請書</td>
+                <td style="text-align: justify; padding-left: 20px;">2021/12/30</td>
+                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">icon</td>                
+            </tr>
+        </tbody>
+    </table>
+
+
+</section>
+
+{% endblock %}

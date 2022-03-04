@@ -1,0 +1,37 @@
+{% extends 'FrontEnd/base/base.html' %}
+
+{% block import %}
+
+{% load static%}
+<link rel="stylesheet" href="{% static 'css/equipment_intro/equipment_intro.css' %}">
+<link rel="stylesheet" href="{% static 'base/css/bootstrap/bootstrap.min.css' %}">
+
+{% endblock %}
+
+{% block main %}
+
+
+<section class="container">
+    <div class="title">設備介紹</div>
+    
+    <div class="searchbox"><p class="searchtext">　Search..</p></div>
+    
+    <table cellpadding="10"; style="width: 100%; " border=" 1px solid; border-collapse:collapse;" class="tablestyle">
+        <thead>
+            <tr class="bg-danger" style="height: 100px; ">
+                <th style="width: 25%; padding:30px">設備名稱</th>
+                <th style="width: 75%; padding-left: 30px;">設備介紹</th>
+            </tr>
+        </thead>
+        <tbody style="height: auto;">
+            <tr style="height: auto; line-height: 32px;">
+                <td style="text-align: left; padding: 30px;">名稱名稱名稱</td>
+                <td style="padding: 30px; text-align: justify;">介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</section>
+
+{% endblock %}

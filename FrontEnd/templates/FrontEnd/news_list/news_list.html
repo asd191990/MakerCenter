@@ -11,10 +11,8 @@
 {% block main %}
 
 <section class="container">
-    <div class="title"><img src="../../../../static/img/news-list/img.png">所有公告</div>
-    
-    <div class="searchspace">
-        <input class="searchbox" type="text" v-model="search" placeholder="Search.." />
+    <div class="title"><img src="../../../../static/img/news-list/img.png">所有公告</div>    
+        
         <div class="rightspace">
             <span class="fa-solid fa-wrench"></span>
             <div class="wire">
@@ -27,8 +25,8 @@
             <span class="fa-solid fa-hammer"></span>
             <p class="content">空間/設備</p>
         </div>
-
-    </div>
+        <input class="searchbox" type="text" v-model="search" placeholder="Search.." />
+    
 
     <div class="container-1">
         <div class="newbox">
@@ -39,7 +37,11 @@
                 <div class="second_title">公告標題標題標題標題標題標...</div>
             </div>
         </div>
+
     </div>
+
 </section>
+
+
 
 {% endblock %}
