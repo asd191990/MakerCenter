@@ -10,9 +10,13 @@
 {% block main %}
 
 <section class="container">
-    <div class="title">專業領域小組 / 元宇宙</div>
+    <div class="title">{{datatitle}}{{data.title}}</div>
     <hr class="wire">
-    <div class="content">內榮</div>
+    
+    
+    <div>
+        {{data.content | safe}}
+    </div>
 
 </section>
 

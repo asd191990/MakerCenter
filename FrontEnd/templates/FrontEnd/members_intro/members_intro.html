@@ -1,0 +1,43 @@
+{% extends 'FrontEnd/base/base.html' %}
+
+{% block import %}
+
+{% load static%}
+<link rel="stylesheet" href="{% static 'css/space_intro/space_intro.css' %}">
+<link rel="stylesheet" href="{% static 'base/css/bootstrap/bootstrap.min.css' %}">
+
+{% endblock %}
+
+{% block main %}
+
+
+<section class="container">
+    <div class="title">成員快訊</div>
+    
+    <div class="searchbox"><p class="searchtext">　Search..</p></div>
+    
+    <table cellpadding="10"; style="width: 100%; " border=" 1px solid; border-collapse:collapse;" class="tablestyle">
+        <thead>
+            <tr class="bg-danger" style="height: 100px; ">
+                <th style="width: 10%; padding-left: 25px;">姓名</th>
+                <th style="width: 17%; padding-left: 25px;">分機</th>
+                <th style="width: 28%; padding-left: 25px;">信箱</th>
+                <th style="width: 26%; padding-left: 25px;">業務職掌</th>
+                <th style="width: 19%; padding-left: 25px;">位置</th>
+            </tr>
+        </thead>
+        <tbody style="height: auto;">
+            <tr style="height: auto; line-height: 32px;">
+            <td style="text-align: left; padding-left: 25px;">姓名</td>
+                <td style="padding: 25px; text-align: justify;">00000000</td>
+                <td style="padding: 25px; text-align: justify;">abc123@email.address</td>
+                <td style="text-align: justify; padding:25px;">內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容</td>
+                <td style="padding: 25px;  text-align: center;">地址<br>/<br>google map</td>                
+            </tr>
+        </tbody>
+    </table>
+
+
+</section>
+
+{% endblock %}

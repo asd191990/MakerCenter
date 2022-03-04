@@ -1,41 +1,55 @@
-.container{
-    font-family: Roboto;  font-style: normal;
+.container {
+    font-family: Roboto;
+    font-style: normal;
 }
-.wire{
-    position: relative;  width: 75%;
+
+.wire {
+    position: relative;
+    width: 75%;
     border: 2px solid #000000;
 }
-.title{
+
+.title {
     width: 74%;
-    font-size: 48px;  line-height: 56px;
-    display: flex; margin: 90px auto 30px;
-    align-items: center;  text-align: center;
+    font-size: 48px;
+    line-height: 56px;
+    display: flex;
+    margin: 90px auto 30px;
+    align-items: center;
+    text-align: center;
 }
-.second-title{
-    width: 70%; margin: 60px auto 50px;
-    font-size: 36px;  line-height: 42px;
-    display: flex;  align-items: center; 
+
+
+.second-title {
+    width: 70%;
+    margin: 60px auto 50px;
+    font-size: 36px;
+    line-height: 42px;
+    display: flex;
+    align-items: center;
 }
-.second-title-2{
-    font-size: 36px;  line-height: 42px;
+
+.second-title-2 {
+    font-size: 36px;
+    line-height: 42px;
     position: relative;
     /*display: flex;  align-items: center; */
 }
-.content{
-    width: 22%; position: relative ; margin: auto auto 50px;
-    left: -21%;
-    font-size: 24px;  line-height: 28px;
-    display: flex;  align-items: center;
-}
-.img{
+
+.img {
     display: block;
     margin: auto;
 }
-.tablesection{
-    width: 60%; margin: 120px auto auto;
+
+.tablesection {
+    width: 60%;
+    margin: 120px auto auto;
 }
-.tablestyle{
-    border-style: solid; border-color: #000000;
-    border-collapse: collapse; margin: 20px auto 110px;
+
+.tablestyle {
+    border-style: solid;
+    border-color: #000000;
+    border-collapse: collapse;
+    margin: 20px auto 110px;
     font-size: 24px;
 }

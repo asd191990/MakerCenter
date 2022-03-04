@@ -4,23 +4,29 @@
 
 {% load static%}
 <link rel="stylesheet" href="{% static 'css/news_list/news_list.css' %}">
-<link rel="stylesheet" href="{% static 'base/css/fontawesome-free-6.0.0-web/css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/fontawesome-free-6.0.0-web/css/all.min.css' %}">
 
 {% endblock %}
 
 {% block main %}
 
 <section class="container">
-    <div class="title"><img src="../../../../static/img/news-list/img.png">所有公告</div>
+    <div class="title"><img src="../../../../static/img/news-list/img.png">所有公告</div>    
+        
+        <div class="rightspace">
+            <span class="fa-solid fa-wrench"></span>
+            <div class="wire">
+                <p class="content">公告</p>
+            </div>
+            <span class="fa-solid fa-gavel"></span>
+            <div class="wire">
+                <p class="content">課程</p>
+            </div>
+            <span class="fa-solid fa-hammer"></span>
+            <p class="content">空間/設備</p>
+        </div>
+        <input class="searchbox" type="text" v-model="search" placeholder="Search.." />
     
-    <div class="searchspace">
-        <div class="searchbox"><p class="searchtext">　Search..</p></div>
-        <span><div class="rightspace">
-            <i class="fa-solid fa-wrench"></i><div class="wire"><p class="content">　公告　</p></div>
-            <i class="fa-solid fa-gavel"></i><div class="wire"><p class="content">　課程　</p></div>
-            <i class="fa-solid fa-hammer"></i><p class="content">　空間/設備　</p>
-        </div></span>
-    </div>
 
     <div class="container-1">
         <div class="newbox">
@@ -31,7 +37,11 @@
                 <div class="second_title">公告標題標題標題標題標題標...</div>
             </div>
         </div>
+
     </div>
+
 </section>
+
+
 
 {% endblock %}

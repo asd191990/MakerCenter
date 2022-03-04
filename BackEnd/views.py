@@ -2,7 +2,7 @@ from multiprocessing import context
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect,JsonResponse
 from .forms import NewsForm
-from .models import News,Course
+from .models import News,Course,Group
 from .filters import NewsFilter
 
 #新增消息
@@ -79,7 +79,20 @@ def NewsShow(request,id):
 
     return render(request, "BackEnd/news_show.html", context)
 
+def classshow(request,id):
+    data = Group.objects.get(id=id)
+    datatitle="課程教室 /"
+    context = {
+        'data': data,
+        'datatitle': datatitle,
+    }
 
+    return render(request, "Frontend/base_single/base_single.html", context)
+
+
+from django.views.decorators.csrf import csrf_exempt
+
+@csrf_exempt 
 def DBlist(request,dbtype):
     print(dbtype)
     

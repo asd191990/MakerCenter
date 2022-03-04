@@ -16,33 +16,36 @@
 
 <section class="container-0" id="app">
     <div class="searchspace">
-        <input class="searchbox" type="text" v-model="search" placeholder="Search 課程名稱.." />
+        
         <div class="rightspace">
-            <span class="fa-solid fa-wrench"></span>
             <div class="wire">
-                <p class="content" @click="changeType('專業')">專業實作課程</p>
+                <div class="color-1">
+                    <span class="fa-solid fa-wrench"></span>                
+                    <p class="content" @click="changeType('專業')">專業實作課程</p>
+                </div>
             </div>
-            <span class="fa-solid fa-gavel"></span>
             <div class="wire">
-                <p class="content" @click="changeType('核心')">核心實作課程</p>
+                <div class="color-2">
+                    <span class="fa-solid fa-gavel"></span>
+                    <p class="content" @click="changeType('核心')">核心實作課程</p>
+                </div>
             </div>
-            <span class="fa-solid fa-hammer"></span>
-            <p class="content">微學分課程及工作訪</p>
+            <div class="color-3">
+                <span class="fa-solid fa-hammer"></span>
+                <p class="content">微學分課程及工作訪</p>
+            </div>
+
         </div>
+        <input class="searchbox" type="text" v-model="search" placeholder="Search 課程名稱.." />
     </div>
 
-    <div class="container">
 
+    <div class="container">
         <div class="box" v-for="classbox in filteredList">
             <div class="markbox">
                 <p class="amark">${classbox.type}</p>
             </div>
-            <!-- <div class="coursephoto">
-
-            </div><br> -->
-            <figure>
-                <img class="coursephoto" v-bind:src="'media/'+classbox.image" v-bind:alt="classbox.image">
-            </figure>
+            <img class="coursephoto" v-bind:src="'{{MEDIA_URL}}'+classbox.image" v-bind:alt="classbox.image"/>
             <div class="classdate">${classbox.update_date}</div>
             <div class="classtitle">${classbox.title}</div>
             <div class="classcontent" v-html="classbox.content"> </div>
@@ -53,8 +56,8 @@
 
 <script>
 
-    axios.defaults.xsrfCookieName = 'csrftoken'; //need this for method:post
-    axios.defaults.xsrfHeaderName = 'X-CSRFToken'; //need this for method:post
+    axios.defaults.xsrfCookieName = 'csrftoken';
+    axios.defaults.xsrfHeaderName = 'X-CSRFToken';
     let classvue = new Vue({
         el: '#app',
         delimiters: ['${', '}'],
@@ -64,13 +67,11 @@
             classbox: []
         },
         mounted: function () {
-            axios.post("{% url 'manage' 'course' %}")
+            axios.post("{% url 'apigetdblist' 'course' %}")
                 .then((response) => {
-                    console.log(response.data.datalist[0]);
                     this.classbox = response.data.datalist;
                 })
                 .catch((error) => console.log(error));
-
         },
         methods: {
             changeType(gettype) {

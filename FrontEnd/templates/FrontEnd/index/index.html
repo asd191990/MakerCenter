@@ -1,26 +1,15 @@
-{% extends '../base/base.html' %}
+{% extends 'FrontEnd/base/base.html' %}
+
 
 {% block title %}
 首頁
 {% endblock %}
 
-{% block import %}
-
-{% load static %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'base/css/fontawesome-free-6.0.0-web/css/all.min.css '%}" />
-
-{% load sass_tags %}
-<link href="{% sass_src 'scss/teststyle.scss' %}" rel="stylesheet" type="text/css" />
-
-{% endblock %}
 
 {% block main %}
-main
-<a>eee</a>
-<li>
 
-    <i class="fa-solid fa-user"></i>    
-</li>
+<!-- 會匯入其他頁面 -->
+{% include 'FrontEnd/course_introduction_section/course_introduction_section.html' %}
+{% include 'FrontEnd/about_us_section/about_us_section.html' %}
 
 {% endblock %}
