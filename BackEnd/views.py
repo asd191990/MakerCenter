@@ -90,6 +90,9 @@ def classshow(request,id):
     return render(request, "Frontend/base_single/base_single.html", context)
 
 
+from django.views.decorators.csrf import csrf_exempt
+
+@csrf_exempt 
 def DBlist(request,dbtype):
     print(dbtype)
     
