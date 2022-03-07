@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
+from BackEnd.models import News,Course,ClassroomIntroducts,DownLoadFiles,Memebers,Group,Space,Equipment
+# from .filters import SpaceFilter
 # Create your views here.
 
 
@@ -14,7 +15,14 @@ def position(request):
 def newslist(request):
     return render(request, "FrontEnd/news_list/news_list.html")
 def spaceintro(request):
-    return render(request, "FrontEnd/space_intro/space_intro.html")
+
+    space = Space.objects.all()
+
+    contex = {
+        'space': space,
+    }
+
+    return render(request, "FrontEnd/space_intro/space_intro.html",contex)
 def equipmentintro(request):
     return render(request, "FrontEnd/equipment_intro/equipment_intro.html")
 def membersintro(request):

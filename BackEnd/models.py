@@ -27,7 +27,7 @@ class News(models.Model):
         return self.title
 
 
-# 課程(專業、核心)
+# 課程列表(專業、核心)
 
 class Course(models.Model):
     Courese_type = (
@@ -41,7 +41,9 @@ class Course(models.Model):
     image = models.ImageField(upload_to="courseimage", verbose_name='封面圖')
     created_date = models.DateField(default=timezone.now, verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
-
+    class Meta:
+        verbose_name = "課程列表"   # 單數
+        verbose_name_plural = verbose_name   #複數
 
 # 校級共用實驗室借用情形
 
@@ -52,6 +54,9 @@ class ClassroomIntroducts(models.Model):
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
     imageone = models.ImageField(upload_to="classimage")
     # 可能有照片要加 但先這樣
+    class Meta:
+        verbose_name = "教室借用情形"   # 單數
+        verbose_name_plural = verbose_name   #複數
 
 
 # 各類申請及說明 / 相關辦法
@@ -69,7 +74,9 @@ class DownLoadFiles(models.Model):
     filepath = models.FileField(upload_to='uploads')
     created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
-
+    class Meta:
+        verbose_name = "相關辦法"   # 單數
+        verbose_name_plural = verbose_name   #複數
 
 # 成員
 
@@ -81,7 +88,9 @@ class Memebers(models.Model):
     location = models.TextField(verbose_name='位置')
     created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
-
+    class Meta:
+        verbose_name = "成員"   # 單數
+        verbose_name_plural = verbose_name   #複數
 
 # 專業領域小組
 
@@ -98,19 +107,23 @@ class Group(models.Model):
     type = models.CharField(max_length=1, choices=Group_type, null=True)
     created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
+    class Meta:
+        verbose_name = "專業領域小組"   # 單數
+        verbose_name_plural = verbose_name   #複數
 
-
-# 空間介紹及設備
+# 空間介紹
 
 class Space(models.Model):
     code = models.CharField(max_length=4,verbose_name='教室代碼')
     name = models.CharField(max_length=30,verbose_name='教室名稱')
     space_description = models.TextField(verbose_name='空間介紹')
     number = models.CharField(max_length=30,verbose_name='容納人數')
-    equipment_description = models.CharField(max_length=30,verbose_name='設備資訊')
+    equipment_description = models.TextField(verbose_name='設備資訊')
     created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
-
+    class Meta:
+        verbose_name = "空間介紹"   # 單數
+        verbose_name_plural = verbose_name   #複數
 # 設備介紹
 
 class Equipment(models.Model):
@@ -118,3 +131,6 @@ class Equipment(models.Model):
     description = models.TextField(verbose_name='設備介紹')
     created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
+    class Meta:
+        verbose_name = "設備介紹"   # 單數
+        verbose_name_plural = verbose_name   #複數

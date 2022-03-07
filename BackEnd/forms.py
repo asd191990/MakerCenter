@@ -1,5 +1,5 @@
 from django import forms
-from .models import News, Course, ClassroomIntroducts, DownLoadFiles, Memebers, Group, Space
+from .models import News, Course, ClassroomIntroducts, DownLoadFiles, Memebers, Group, Space, Equipment
 
 # 新增最新消息填寫表單
 
@@ -159,4 +159,24 @@ class SpaceForm(forms.ModelForm):
             'space_description': '空間介紹',
             'number': '容納人數',
             'equipment_description': '設備資訊',
+        }
+
+# 設備介紹
+
+class EquipmentForm(forms.ModelForm):
+
+    class Meta:
+        model = Equipment
+        
+        fields = ('name', 'description')
+
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'description': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
+        #預設會是顯示英文欄位，可用labels改成對應中文欄位
+        labels = {
+            'name': '設備名稱',
+            'description': '設備描述',
         }
