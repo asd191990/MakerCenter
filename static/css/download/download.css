@@ -1,7 +1,7 @@
 .container {
     font-family: Roboto;
     font-style: normal;
-    margin: 100px auto;
+    /*margin: 100px auto;*/
 }
 
 .title {
@@ -55,6 +55,10 @@
     font-size: 20px;
     line-height: 23px;
     color: #ffffff;
+}
+
+.searchspsace {
+    margin-top: 40px;
 }
 
 .text-1 {
