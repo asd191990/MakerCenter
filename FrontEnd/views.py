@@ -1,14 +1,15 @@
 from django.shortcuts import render
 
-# Create your views here.
+from django.shortcuts import get_object_or_404
+from BackEnd.models import Group,ClassroomIntroducts,Course
 
-from BackEnd.models import Group
-
+def DBprocess(dbtype):
+    switch_db = {"classroom":Course,"ClassroomIntroducts":ClassroomIntroducts}
+    return switch_db.get(dbtype)
 
 def index(request):
     return render(request, "FrontEnd/index/index.html")
-def basesingle(request):
-    return render(request, "FrontEnd/base_single/base_single.html")
+
 def coursepage(request):
     return render(request, "FrontEnd/course-page/course-page.html")
 def position(request):
@@ -30,6 +31,19 @@ def courselist(request):
     
     return render(request, "FrontEnd/course/course_list.html")
 
+
+def basesingle(request,dbtype,id):
+    getdb = DBprocess(dbtype)
+    data={}
+    if getdb ==None:
+        print("error")
+    else:
+        
+        data["data"]=get_object_or_404(getdb,id=id)
+    # print(data["showdata"])
+    # if(dbtype=="classroom")
+    
+    return render(request, "FrontEnd/base_single/base_single.html",data)
 
 def classshow(request,id):
     data = Group.objects.get(id=id)

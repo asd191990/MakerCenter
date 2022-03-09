@@ -7,7 +7,6 @@ from django.conf import settings
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('base_single/', views.basesingle, name='base_single'),
     path('course-page/', views.coursepage, name='course-page'),
     path('position/', views.position, name='position'),
     path('news_list/', views.newslist, name='news_list'),
@@ -17,6 +16,8 @@ urlpatterns = [
     path('equipment_intro/', views.equipmentintro, name='equipment_intro'),
     path('members_intro/', views.membersintro, name='members_intro'),
     path('download/', views.download, name='download'),
+    #分頁
+    path('single/<str:dbtype>/<int:id>', views.basesingle, name='single'),
     #專業小組
     path('class/<int:id>', views.classshow, name='classshow'),
 ]

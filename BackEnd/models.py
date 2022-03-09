@@ -43,7 +43,7 @@ class Course(models.Model):
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
 
 
-# 校級共用實驗室借用情形
+#空間介紹 - 校級共用實驗室借用情形
 
 class ClassroomIntroducts(models.Model):
     title = models.CharField(max_length=30)
