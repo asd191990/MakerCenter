@@ -2,6 +2,8 @@ from django.shortcuts import render
 
 # Create your views here.
 
+from BackEnd.models import Group
+
 
 def index(request):
     return render(request, "FrontEnd/index/index.html")
@@ -27,3 +29,14 @@ def single(request):
 def courselist(request):
     
     return render(request, "FrontEnd/course/course_list.html")
+
+
+def classshow(request,id):
+    data = Group.objects.get(id=id)
+    datatitle="課程教室 /"
+    context = {
+        'data': data,
+        'datatitle': datatitle,
+    }
+
+    return render(request, "Frontend/base_single/base_single.html", context)

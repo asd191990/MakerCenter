@@ -17,4 +17,6 @@ urlpatterns = [
     path('equipment_intro/', views.equipmentintro, name='equipment_intro'),
     path('members_intro/', views.membersintro, name='members_intro'),
     path('download/', views.download, name='download'),
+    #專業小組
+    path('class/<int:id>', views.classshow, name='classshow'),
 ]
