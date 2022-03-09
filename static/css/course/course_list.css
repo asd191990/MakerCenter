@@ -5,7 +5,8 @@
 
 .container {
     /*margin: 40px auto;*/
-    width: 80%;
+    padding-top: 60px;
+    /*width: 80%;*/
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -13,7 +14,7 @@
 
 .searchspace {
     width: 67%;
-    margin: auto;
+    margin: auto auto 20px;
 }
 
 .searchbox {
@@ -111,14 +112,35 @@
 .box {
     float: left;
     width: 323px;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 42px;
+    margin-right: 42px;
     margin-bottom: 30px;
     padding: auto;
+}
+.coursecolor-1{
+    display: inline-block;
+    vertical-align: middle;
+}
+.coursecolor-1:hover{
+    /*height: min-content;*/
+    border: solid #FF4F18 2px;
+}
+.coursecolor-2{
+    display: inline-block;
+    vertical-align: middle;
+}
+.coursecolor-2:hover{
+    border: solid #449BEB 2px;
+}
+
+.coursephoto:hover{
+    border: #FA7575;
 }
 
 .coursephoto {
     width: 100%;
+    position: relative;
+    /*top: -6.7%;*/
 }
 
 
@@ -137,15 +159,13 @@
     width: 20%;
     height: 32px;
     position: relative;
-    top: 58%;
-    right: 0;
+    /*top: 58%;*/
+    margin-top: -8%;
     left: 80%;
     background-color: #FA7575;
     font-weight: 500;
     font-size: 20px;
     line-height: 23px;
-    /*margin-left: 85%;*/
-    /*align-items: center;*/
     display: flex;
 }
 
@@ -179,7 +199,8 @@
 @media (max-width:1320px) {
     .rightspace {
         float: right;
-        margin-left: 20px;
+       
+        margin-right: -10px;
         display: block;
     }
 

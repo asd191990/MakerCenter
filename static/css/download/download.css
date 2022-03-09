@@ -2,6 +2,7 @@
     font-family: Roboto;
     font-style: normal;
     /*margin: 100px auto;*/
+    padding-top: 40px;
 }
 
 .title {
@@ -37,7 +38,6 @@
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 5px;
-    margin-top: -3%;
     display: flex;
     align-items: center;
 }
