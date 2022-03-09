@@ -1,19 +1,9 @@
-.container {
+.container-1 {
     font-family: Roboto;
     font-style: normal;
-    /*margin: 100px auto;*/
+    margin: auto;
     padding-top: 40px;
-}
-
-.title {
-    font-size: 48px;
-    line-height: 56px;
-    display: flex;
-    margin: 90px auto 30px;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    text-shadow: 1px 1px 0.5px rgba(106, 106, 106, 0.67);
+    width: 60%;
 }
 
 .tablestyle {

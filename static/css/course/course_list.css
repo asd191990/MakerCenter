@@ -1,14 +1,16 @@
 .cintainer-0 {
     font-family: Roboto;
     font-style: normal;
+    justify-content: center;
 }
 
-.container {
-    /*margin: 40px auto;*/
+.container-1 {
+    margin:auto;
     padding-top: 60px;
-    /*width: 80%;*/
+    position: relative;
+    width: 80%;
     display: flex;
-    flex-flow: row wrap;
+    /*flex-flow: row wrap;*/
     justify-content: center;
 }
 
