@@ -45,7 +45,7 @@ class Course(models.Model):
         verbose_name = "課程列表"   # 單數
         verbose_name_plural = verbose_name   #複數
 
-# 校級共用實驗室借用情形
+#空間介紹 - 校級共用實驗室借用情形
 
 class ClassroomIntroducts(models.Model):
     title = models.CharField(max_length=30)

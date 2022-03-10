@@ -1,9 +1,11 @@
-.container {
+.container-1 {
     font-family: Roboto;
     font-style: normal;
+    margin: auto;
+    width: 60%;
 }
 
-.title {
+.title-1 {
     font-size: 48px;
     line-height: 56px;
     display: flex;

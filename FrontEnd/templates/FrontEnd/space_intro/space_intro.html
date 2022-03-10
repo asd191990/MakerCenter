@@ -10,10 +10,10 @@
 
 {% block main %}
 
-<section class="container">
-    <div class="title">空間介紹</div>
-
-    <div class="searchbox"><p class="searchtext">　search...</p></div>
+<section class="container-1">
+    <div class="title-1">空間介紹</div>
+    
+    <div class="searchbox"><p class="searchtext">　Search..</p></div>
     
     <table cellpadding="10"; style="width: 100%; " border=" 1px solid; border-collapse:collapse;" class="tablestyle">
         <thead>
@@ -26,15 +26,12 @@
             </tr>
         </thead>
         <tbody style="height: auto;">
-            {% for s in space %}
             <tr style="height: 280px; line-height: 32px;">
-                <td style="text-align: center;"> {{ s.code | safe }} </td>
-                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">{{ s.name | safe }}</td>
-                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">{{ s.space_description | safe }}</td>
-                <td style="text-align: center;">{{ s.number | safe }}</td>
-                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">{{ s.equipment_description | safe }}</td>
-            </tr>
-            {% endfor %}
+            <td style="text-align: center;">A201</td>
+                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">名稱名稱名稱名稱名稱名稱名稱名稱</td>
+                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹</td>
+                <td style="text-align: center;">nn-nn</td>
+                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹</td>                </tr>
         </tbody>
     </table>
 
