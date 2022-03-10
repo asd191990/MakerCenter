@@ -1,6 +1,6 @@
 from multiprocessing import context
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect,JsonResponse
+from django.http import HttpResponse, HttpResponseRedirect,JsonResponse, Http404
 from .forms import NewsForm
 from .models import News,Course,Group
 from .filters import NewsFilter
@@ -78,8 +78,6 @@ def NewsShow(request,id):
     }
 
     return render(request, "BackEnd/news_show.html", context)
-
-
 
 
 def DBlist(request,dbtype):

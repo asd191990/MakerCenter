@@ -44,6 +44,7 @@ class Course(models.Model):
     class Meta:
         verbose_name = "課程列表"   # 單數
         verbose_name_plural = verbose_name   #複數
+    # 
 
 #空間介紹 - 校級共用實驗室借用情形
 
