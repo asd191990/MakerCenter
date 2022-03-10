@@ -1,7 +1,7 @@
-.cintainer-0 {
+.container-0 {
     font-family: Roboto;
     font-style: normal;
-    width: 70%;
+    width: 65%;
     margin: auto;
 }
 
@@ -57,7 +57,7 @@
     float: left;
     width: 340px;
     height: 135px;
-    margin: 22px 15px;
+    margin: 22px 30px;
     padding: auto;
     background: #FF7171;
     border: 3px solid #FF7171;
