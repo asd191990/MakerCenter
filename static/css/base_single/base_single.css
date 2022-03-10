@@ -1,6 +1,8 @@
-.container {
+.container-1 {
     font-family: Roboto;
     font-style: normal;
+    width: 58%;
+    margin: auto;
 }
 
 .wire {
@@ -9,7 +11,7 @@
     border: 2px solid #000000;
 }
 
-.title {
+.title-1 {
     width: 74%;
     font-size: 48px;
     line-height: 56px;
