@@ -1,13 +1,15 @@
 from django.shortcuts import render
-from BackEnd.models import News,Course,ClassroomIntroducts,DownLoadFiles,Memebers,Group,Space,Equipment
-# from .filters import SpaceFilter
-# Create your views here.
 
+from django.shortcuts import get_object_or_404
+from BackEnd.models import Group,ClassroomIntroducts,Course
+
+def DBprocess(dbtype):
+    switch_db = {"classroom":Course,"ClassroomIntroducts":ClassroomIntroducts}
+    return switch_db.get(dbtype)
 
 def index(request):
     return render(request, "FrontEnd/index/index.html")
-def basesingle(request):
-    return render(request, "FrontEnd/base_single/base_single.html")
+
 def coursepage(request):
     return render(request, "FrontEnd/course-page/course-page.html")
 def position(request):
@@ -15,14 +17,7 @@ def position(request):
 def newslist(request):
     return render(request, "FrontEnd/news_list/news_list.html")
 def spaceintro(request):
-
-    space = Space.objects.all()
-
-    contex = {
-        'space': space,
-    }
-
-    return render(request, "FrontEnd/space_intro/space_intro.html",contex)
+    return render(request, "FrontEnd/space_intro/space_intro.html")
 def equipmentintro(request):
     return render(request, "FrontEnd/equipment_intro/equipment_intro.html")
 def membersintro(request):
@@ -35,3 +30,27 @@ def single(request):
 def courselist(request):
     
     return render(request, "FrontEnd/course/course_list.html")
+
+
+def basesingle(request,dbtype,id):
+    getdb = DBprocess(dbtype)
+    data={}
+    if getdb ==None:
+        print("error")
+    else:
+        
+        data["data"]=get_object_or_404(getdb,id=id)
+    # print(data["showdata"])
+    # if(dbtype=="classroom")
+    
+    return render(request, "FrontEnd/base_single/base_single.html",data)
+
+def classshow(request,id):
+    data = Group.objects.get(id=id)
+    datatitle="課程教室 /"
+    context = {
+        'data': data,
+        'datatitle': datatitle,
+    }
+
+    return render(request, "Frontend/base_single/base_single.html", context)

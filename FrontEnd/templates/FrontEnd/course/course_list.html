@@ -16,11 +16,11 @@
 
 <section class="container-0" id="app">
     <div class="searchspace">
-        
+
         <div class="rightspace">
             <div class="wire">
                 <div class="color-1">
-                    <span class="fa-solid fa-wrench"></span>                
+                    <span class="fa-solid fa-wrench"></span>
                     <p class="content" @click="changeType('專業')">專業實作課程</p>
                 </div>
             </div>
@@ -40,13 +40,15 @@
     </div>
 
 
-    <div class="container">
-        <div class="box" v-for="classbox in filteredList">
+    <div class="container-1">
+        <div class="box" v-for="classbox in filteredList" v-bind:class="classbox.typecss">
+            <img class="coursephoto" v-bind:src="'{{MEDIA_URL}}'+classbox.image" v-bind:alt="classbox.image" />
+            <div class="classdate">${classbox.update_date}</div>
+
             <div class="markbox">
                 <p class="amark">${classbox.type}</p>
             </div>
-            <img class="coursephoto" v-bind:src="'{{MEDIA_URL}}'+classbox.image" v-bind:alt="classbox.image"/>
-            <div class="classdate">${classbox.update_date}</div>
+
             <div class="classtitle">${classbox.title}</div>
             <div class="classcontent" v-html="classbox.content"> </div>
         </div>
@@ -69,7 +71,15 @@
         mounted: function () {
             axios.post("{% url 'apigetdblist' 'course' %}")
                 .then((response) => {
-                    this.classbox = response.data.datalist;
+                    let getdata = response.data.datalist;
+                    for (let i = 0; i < getdata.length; i++) {
+                        if (getdata[i].type == "專業")
+                            getdata[i]["typecss"] = 'coursecolor-1';
+                        else
+                            getdata[i]["typecss"] = 'coursecolor-2';
+                    }
+                    console.log(getdata)
+                    this.classbox = getdata;
                 })
                 .catch((error) => console.log(error));
         },
