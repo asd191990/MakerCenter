@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
-from django.http import Http404
+from django.http import Http404, HttpResponse
 from django.shortcuts import get_object_or_404
 from BackEnd.models import Group,ClassroomIntroducts,Course,DownLoadFiles
-
+import os
 
 def DBprocess(dbtype):
     switch_db = {"classroom":Course,"ClassroomIntroducts":ClassroomIntroducts}
@@ -24,19 +24,29 @@ def equipmentintro(request):
     return render(request, "FrontEnd/equipment_intro/equipment_intro.html")
 def membersintro(request):
     return render(request, "FrontEnd/members_intro/members_intro.html")
+# 相關辦法
 def download(request):
-    return render(request, "FrontEnd/download/download.html")
+    download = DownLoadFiles.objects.all()
 
+    context = {
+        'download': download
+    }
+
+    return render(request, "FrontEnd/download/download.html", context)
+    
+# 相關辦法 -> 下載檔案
 def downloadFile(request, getid):
-    x = DownLoadFiles.objects.get(id=getid)
+    x = get_object_or_404(DownLoadFiles, id=getid)
+    # x = DownLoadFiles.objects.get(id=getid)
+    usepath = x.filepath.path
+    with open(usepath, 'rb') as fh:
+        print(usepath)
+        response = HttpResponse(fh.read())
+        response['Content-Type'] = 'application/octet-stream'
+        response["Content-Disposition"] = "attachment; filename*=UTF-8''{}".format(os.path.basename(usepath))
+        return response
+    return render(request, "FrontEnd/index/index.html")
 
-    with open(x.filepath.path, 'rb') as fh:
-        print(x.filepath.path)
-        # response = HttpResponse(fh.read())
-        # response['Content-Type'] = 'application/octet-stream'
-        # response["Content-Disposition"] = "attachment; filename*=UTF-8''{}".format(os.path.basename(file_path))
-        # return response
-    raise Http404
 def courselist(request):
     
     return render(request, "FrontEnd/course/course_list.html")

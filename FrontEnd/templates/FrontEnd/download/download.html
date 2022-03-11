@@ -33,13 +33,15 @@
             </tr>
         </thead>
         <tbody style="height: auto;">
+            {% for d in download %}
             <tr style="height: auto; line-height: 32px;">
-            <td style="text-align: justify;padding-left: 20px;">檔案名稱名稱</td>
-                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">專業領域小組</td>
-                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">課程申請書</td>
-                <td style="text-align: justify; padding-left: 20px;">2021/12/30</td>
-                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">icon</td>                
+            <td style="text-align: justify;padding-left: 20px;">{{ d.title | safe }}</td>
+                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">{{ d.type | safe }}</td>
+                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">{{ d.content | safe }}</td>
+                <td style="text-align: justify; padding-left: 20px;">{{ d.update_date | safe }}</td>
+                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">下載</td>                
             </tr>
+            {% endfor%}
         </tbody>
     </table>
 

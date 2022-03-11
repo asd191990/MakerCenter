@@ -6,6 +6,7 @@ from django.utils import timezone
 # django-ckeditor
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
+from itertools import chain
 
 # 最新消息
 
@@ -44,8 +45,17 @@ class Course(models.Model):
     class Meta:
         verbose_name = "課程列表"   # 單數
         verbose_name_plural = verbose_name   #複數
-    # 
-
+    def to_dict(instance):
+        opts = instance._meta
+        data = {}
+        # 用chain合併多個list
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            # get the field’s value prior to serialization
+            data[f.name] = f.value_from_object(instance)
+        for f in opts.many_to_many:
+            data[f.name] = [i.id for i in f.value_from_object(instance)]
+        return data
+        
 #空間介紹 - 校級共用實驗室借用情形
 
 class ClassroomIntroducts(models.Model):
