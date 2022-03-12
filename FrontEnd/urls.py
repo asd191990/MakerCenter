@@ -12,15 +12,12 @@ urlpatterns = [
     path('news_list/', views.newslist, name='news_list'),
     path('space_intro/', views.spaceintro, name='space_intro'),
     path('course_list/', views.courselist, name='course_list'),
-    path('single/', views.single, name='single'),
+    # path('single/', views.single, name='single'),
     path('equipment_intro/', views.equipmentintro, name='equipment_intro'),
     path('members_intro/', views.membersintro, name='members_intro'),
     path('download/', views.download, name='download'),
-<<<<<<< Updated upstream
-=======
     # 相關辦法 下載
     path('download/<int:getid>',views.downloadFile, name='download_file'),
->>>>>>> Stashed changes
     #分頁
     path('single/<str:dbtype>/<int:id>', views.basesingle, name='single'),
     #專業小組

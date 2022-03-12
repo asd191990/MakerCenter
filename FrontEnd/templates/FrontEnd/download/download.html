@@ -4,7 +4,9 @@
 
 {% load static%}
 <link rel="stylesheet" href="{% static 'css/download/download.css' %}">
-<link rel="stylesheet" href="{% static 'bootstrap-4.6.1/dist/css/bootstrap.min.css' %}">
+
+<script src="{% static 'js/vue.js' %}"> </script>
+<script src="{% static 'js/axios.min.js' %}"> </script>
 
 {% endblock %}
 
@@ -17,10 +19,13 @@
         <div class="text-3">設備及物品借用</div>
         <div class="text-4">TA實習申請</div>
     </div>
-    
-    <div class="searchbox"><p class="searchtext">　Search..</p></div>
-    
-    <table cellpadding="10"; style="width: 100%; " border=" 1px solid; border-collapse:collapse;" class="tablestyle">
+
+    <div class="searchbox">
+        <input class="searchbox" type="text" v-model="search" placeholder="Search .." />
+    </div>
+
+    <!-- <table cellpadding="10" ; style="width: 100%; " border=" 1px solid; border-collapse:collapse;" class="tablestyle"> -->
+    <table class="tablestyle">
         <thead>
             <tr class="bg-danger">
                 <th style="width: 18%; padding:25px">標題</th>
@@ -31,23 +36,14 @@
             </tr>
         </thead>
         <tbody style="height: auto;">
-<<<<<<< Updated upstream
-            <tr style="height: auto; line-height: 32px;">
-            <td style="text-align: justify;padding-left: 20px;">檔案名稱名稱</td>
-                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">專業領域小組</td>
-                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">課程申請書</td>
-                <td style="text-align: justify; padding-left: 20px;">2021/12/30</td>
-                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">icon</td>                
-=======
-            <tr style="height: auto; line-height: 32px;" v-for="item in downloadList">
+            <tr style="height: auto; line-height: 32px;" v-for="item in downloadListSearch">
                 <td style="text-align: justify;padding-left: 20px;">${ item.title }</td>
                 <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">${item.type}</td>
                 <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">${item.content}</td>
                 <td style="text-align: justify; padding-left: 20px;">${item.update_date}</td>
                 <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">
-                    <a href="#" @click="onClick(${item.id})">下載</a>
-                </td>                
->>>>>>> Stashed changes
+                    <button href="#" @click="onClick(item.id)">下載</button>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -55,67 +51,42 @@
 
 </section>
 <script>
-    // new Vue({
-    //     delimiters: ['${', '}'],
-    //     data(){
-    //         return{
-    //             downloadList: [{
-    //                 title: 'first',
-    //                 type: 'type',
-    //                 content: 'content',
-    //                 update_date: 'update_date',
-    //                 filepath: 'http://127.0.0.1:8000/download/1',
-    //             }]
-    //         }
-    //     },
-    var downloadVue = new Vue({
+
+    axios.defaults.xsrfCookieName = 'csrftoken';
+    axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+    let downloadVue = new Vue({
         el: '#app',
         delimiters: ['${', '}'],
         data: {
-            downloadList: [{
-                id: '',
-                title: '',
-                type: '',
-                content: '',
-                update_date: '',
-                filepath: ''
-            }]
+            search: "",
+            type: "",
+            downloadList: [],
         },
-        mounted: function() {
-            axios.post("{% url 'download_file' 1 %}")
-            .then((response) => {
-                this.downloadList = response.data.id;
-            })
-            .catch((error) => console.log(error));
+        mounted: function () {
+            axios.post("{% url 'apigetdblist' 'download' %}")
+                .then((response) => {
+                    let getdata = response.data;
+                    console.log(getdata);
+                    this.downloadList = getdata;
+                })
+                .catch((error) => console.log(error));
         },
-        methods:{
-            onClick(id){
-                // url = filepath + '/'+ id
-                // window.open(this.filepath/this.id,)
-                window.open('http://127.0.0.1:8000/download/1')
+        methods: {
+            onClick(id) {
+                window.open(id);
+                // window.open('http://127.0.0.1:8000/download/1')
+            }
+        }, computed: {
+            downloadListSearch() {
+                if (this.type === "") {
+                    return this.downloadList.filter(box => {
+                        return box.title.includes(this.search)
+                    })
+                }
             }
         }
-        // methods:{
-        //     download(item) {
-        //         axios({
-        //             // url:item.filepath,
-        //             url: 'download_file',
-        //             method:'GET',
-        //             responseType:'blob'
-        //         }).then((response) => {
-        //             print(response)
-        //             var fileUrl = window.URL.createObjectURL(new Blob([response.data]))
-        //             var fileLink = document.createElement('a')
-        //             fileLink.href = fileUrl
 
-        //             fileLink.setAttribute('download','image.jpg')
-        //             document.body.appendChild(fileLink)
 
-        //             fileLink.click()
-        //         })
-        //         .catch((error) => console.log(error));
-        //     }
-        // }
     })
 </script>
 {% endblock %}
