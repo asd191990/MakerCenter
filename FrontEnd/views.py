@@ -1,15 +1,10 @@
 from django.shortcuts import render
 
-<<<<<<< Updated upstream
-from django.shortcuts import get_object_or_404
-from BackEnd.models import Group,ClassroomIntroducts,Course
-=======
 from django.http import Http404, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404
 from BackEnd.models import Group,ClassroomIntroducts,Course,DownLoadFiles
 from django.views.decorators.csrf import csrf_exempt
 import os
->>>>>>> Stashed changes
 
 def DBprocess(dbtype):
     switch_db = {"classroom":Course,"ClassroomIntroducts":ClassroomIntroducts}
@@ -31,12 +26,6 @@ def equipmentintro(request):
 def membersintro(request):
     return render(request, "FrontEnd/members_intro/members_intro.html")
 def download(request):
-<<<<<<< Updated upstream
-    return render(request, "FrontEnd/download/download.html")
-
-def single(request):
-    return render(request, "FrontEnd/base_single/base_single.html")
-=======
     download = DownLoadFiles.objects.all()
 
     context = {
@@ -78,7 +67,6 @@ def downloadFile_to_dict():
 
     return downloadList
 
->>>>>>> Stashed changes
 def courselist(request):
     
     return render(request, "FrontEnd/course/course_list.html")
