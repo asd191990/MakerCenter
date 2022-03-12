@@ -68,7 +68,6 @@ def downloadFile_to_dict():
     return downloadList
 
 def courselist(request):
-    
     return render(request, "FrontEnd/course/course_list.html")
 
 
