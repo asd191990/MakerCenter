@@ -10,7 +10,7 @@
 
 {% block main %}
 
-<section class="container-1">
+<section class="container-1" id="app">
     <div class="rightspace">
         <div class="text-1">專業領域小組</div>
         <div class="text-2">課程</div>
@@ -31,17 +31,91 @@
             </tr>
         </thead>
         <tbody style="height: auto;">
+<<<<<<< Updated upstream
             <tr style="height: auto; line-height: 32px;">
             <td style="text-align: justify;padding-left: 20px;">檔案名稱名稱</td>
                 <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">專業領域小組</td>
                 <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">課程申請書</td>
                 <td style="text-align: justify; padding-left: 20px;">2021/12/30</td>
                 <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">icon</td>                
+=======
+            <tr style="height: auto; line-height: 32px;" v-for="item in downloadList">
+                <td style="text-align: justify;padding-left: 20px;">${ item.title }</td>
+                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">${item.type}</td>
+                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">${item.content}</td>
+                <td style="text-align: justify; padding-left: 20px;">${item.update_date}</td>
+                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">
+                    <a href="#" @click="onClick(${item.id})">下載</a>
+                </td>                
+>>>>>>> Stashed changes
             </tr>
         </tbody>
     </table>
 
 
 </section>
+<script>
+    // new Vue({
+    //     delimiters: ['${', '}'],
+    //     data(){
+    //         return{
+    //             downloadList: [{
+    //                 title: 'first',
+    //                 type: 'type',
+    //                 content: 'content',
+    //                 update_date: 'update_date',
+    //                 filepath: 'http://127.0.0.1:8000/download/1',
+    //             }]
+    //         }
+    //     },
+    var downloadVue = new Vue({
+        el: '#app',
+        delimiters: ['${', '}'],
+        data: {
+            downloadList: [{
+                id: '',
+                title: '',
+                type: '',
+                content: '',
+                update_date: '',
+                filepath: ''
+            }]
+        },
+        mounted: function() {
+            axios.post("{% url 'download_file' 1 %}")
+            .then((response) => {
+                this.downloadList = response.data.id;
+            })
+            .catch((error) => console.log(error));
+        },
+        methods:{
+            onClick(id){
+                // url = filepath + '/'+ id
+                // window.open(this.filepath/this.id,)
+                window.open('http://127.0.0.1:8000/download/1')
+            }
+        }
+        // methods:{
+        //     download(item) {
+        //         axios({
+        //             // url:item.filepath,
+        //             url: 'download_file',
+        //             method:'GET',
+        //             responseType:'blob'
+        //         }).then((response) => {
+        //             print(response)
+        //             var fileUrl = window.URL.createObjectURL(new Blob([response.data]))
+        //             var fileLink = document.createElement('a')
+        //             fileLink.href = fileUrl
 
+        //             fileLink.setAttribute('download','image.jpg')
+        //             document.body.appendChild(fileLink)
+
+        //             fileLink.click()
+        //         })
+        //         .catch((error) => console.log(error));
+        //     }
+        // }
+    })
+</script>
 {% endblock %}

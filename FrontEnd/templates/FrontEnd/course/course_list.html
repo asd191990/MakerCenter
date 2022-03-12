@@ -71,7 +71,7 @@
         mounted: function () {
             axios.post("{% url 'apigetdblist' 'course' %}")
                 .then((response) => {
-                    let getdata = response.data.datalist;
+                    let getdata = response.data;
                     for (let i = 0; i < getdata.length; i++) {
                         if (getdata[i].type == "專業")
                             getdata[i]["typecss"] = 'coursecolor-1';

@@ -95,8 +95,4 @@ def DBlist(request,dbtype):
         del v['_state']
         datalist.append(v)
     print(datalist)
-
-    data = {
-        "datalist": datalist
-    }
-    return JsonResponse(data)
+    return JsonResponse(datalist)
