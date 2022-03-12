@@ -41,7 +41,7 @@
 
 
     <div class="container-1">
-        <div class="box" v-for="classbox in filteredList" v-bind:class="classbox.typecss">
+        <div class="box" v-for="classbox in filteredList" v-bind:class="classbox.typecss" @click='urllead(classbox.id)'>
             <img class="coursephoto" v-bind:src="'{{MEDIA_URL}}'+classbox.image" v-bind:alt="classbox.image" />
             <div class="classdate">${classbox.update_date}</div>
 
@@ -57,6 +57,7 @@
 </section>
 
 <script>
+    const url = "/single/classroom/"
 
     axios.defaults.xsrfCookieName = 'csrftoken';
     axios.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -89,6 +90,10 @@
                     this.type = ""
                 else
                     this.type = gettype
+            },
+            urllead(getid) {
+                console.log(getid);
+                location.href = url+getid;
             }
 
         },
