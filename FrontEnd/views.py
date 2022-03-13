@@ -1,13 +1,12 @@
 from django.shortcuts import render
 
-from django.http import Http404, HttpResponse
+from django.http import Http404, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404
 from BackEnd.models import Group,ClassroomIntroducts,Course,DownLoadFiles
+from BackEnd.fuc import DBprocess
+from django.views.decorators.csrf import csrf_exempt
 import os
 
-def DBprocess(dbtype):
-    switch_db = {"classroom":Course,"ClassroomIntroducts":ClassroomIntroducts}
-    return switch_db.get(dbtype)
 
 def index(request):
     return render(request, "FrontEnd/index/index.html")
@@ -24,16 +23,9 @@ def equipmentintro(request):
     return render(request, "FrontEnd/equipment_intro/equipment_intro.html")
 def membersintro(request):
     return render(request, "FrontEnd/members_intro/members_intro.html")
-# 相關辦法
 def download(request):
-    download = DownLoadFiles.objects.all()
-
-    context = {
-        'download': download
-    }
-
-    return render(request, "FrontEnd/download/download.html", context)
-    
+    return render(request, "FrontEnd/download/download.html")
+  
 # 相關辦法 -> 下載檔案
 def downloadFile(request, getid):
     x = get_object_or_404(DownLoadFiles, id=getid)
@@ -48,9 +40,7 @@ def downloadFile(request, getid):
     return render(request, "FrontEnd/index/index.html")
 
 def courselist(request):
-    
     return render(request, "FrontEnd/course/course_list.html")
-
 
 def basesingle(request,dbtype,id):
     getdb = DBprocess(dbtype)
@@ -58,11 +48,7 @@ def basesingle(request,dbtype,id):
     if getdb ==None:
         print("error")
     else:
-        
         data["data"]=get_object_or_404(getdb,id=id)
-    # print(data["showdata"])
-    # if(dbtype=="classroom")
-    
     return render(request, "FrontEnd/base_single/base_single.html",data)
 
 def classshow(request,id):
@@ -72,5 +58,4 @@ def classshow(request,id):
         'data': data,
         'datatitle': datatitle,
     }
-
     return render(request, "Frontend/base_single/base_single.html", context)

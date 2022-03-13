@@ -4,9 +4,9 @@
 
 {% load static%}
 <link rel="stylesheet" href="{% static 'css/course/course_list.css' %}">
+<link rel="stylesheet" href="{% static 'css/fontawesome-free-6.0.0-web/css/all.min.css' %}">
 <script src="{% static 'js/vue.js' %}"> </script>
 <script src="{% static 'js/axios.min.js' %}"> </script>
-<link rel="stylesheet" href="{% static 'css/fontawesome-free-6.0.0-web/css/all.min.css' %}">
 
 
 {% endblock %}
@@ -41,7 +41,7 @@
 
 
     <div class="container-1">
-        <div class="box" v-for="classbox in filteredList" v-bind:class="classbox.typecss">
+        <div class="box" v-for="classbox in filteredList" v-bind:class="classbox.typecss" @click='urllead(classbox.id)'>
             <img class="coursephoto" v-bind:src="'{{MEDIA_URL}}'+classbox.image" v-bind:alt="classbox.image" />
             <div class="classdate">${classbox.update_date}</div>
 
@@ -57,6 +57,7 @@
 </section>
 
 <script>
+    const url = "/single/classroom/"
 
     axios.defaults.xsrfCookieName = 'csrftoken';
     axios.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -71,7 +72,7 @@
         mounted: function () {
             axios.post("{% url 'apigetdblist' 'course' %}")
                 .then((response) => {
-                    let getdata = response.data.datalist;
+                    let getdata = response.data;
                     for (let i = 0; i < getdata.length; i++) {
                         if (getdata[i].type == "專業")
                             getdata[i]["typecss"] = 'coursecolor-1';
@@ -89,6 +90,10 @@
                     this.type = ""
                 else
                     this.type = gettype
+            },
+            urllead(getid) {
+                console.log(getid);
+                location.href = url+getid;
             }
 
         },
