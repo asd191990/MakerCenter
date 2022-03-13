@@ -79,12 +79,11 @@
             downloadListSearch() {
                 if (this.type === "") {
                     return this.downloadList.filter(box => {
-                        return box.title.includes(this.search)
+                        return box.title.includes(this.search);
                     })
                 }
             }
         }
-
 
     })
 </script>
