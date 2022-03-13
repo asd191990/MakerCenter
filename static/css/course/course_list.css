@@ -10,7 +10,7 @@
     position: relative;
     width: 80%;
     display: flex;
-    /*flex-flow: row wrap;*/
+    flex-flow: row wrap;
     justify-content: center;
 }
 
@@ -52,13 +52,13 @@
     align-items: center;
     margin-right: 10px;
     margin-left: 10px;
+    text-align: justify;
 }
 
 .color-1:hover {
     background-color: #FF4F18;
     color: #ffffff;
-    width: 181px;
-    height: 30px;
+    padding: 2px;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -71,13 +71,13 @@
     align-items: center;
     margin-left: 10px;
     margin-right: 10px;
+    text-align: justify;
 }
 
 .color-2:hover {
     background-color: #449BEB;
     color: #ffffff;
-    width: 181px;
-    height: 30px;
+    padding: 2px;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -89,14 +89,13 @@
     display: flex;
     align-items: center;
     margin-left: 10px;
-    text-align: center;
+    text-align: justify;
 }
 
 .color-3:hover {
     background-color: #A237C8;
     color: #ffffff;
-    width: 250;
-    height: 30px;
+    padding: 2px;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -112,31 +111,20 @@
 }
 
 .box {
-    float: left;
+
     width: 323px;
     margin-left: 42px;
     margin-right: 42px;
     margin-bottom: 30px;
     padding: auto;
 }
-.coursecolor-1{
-    display: inline-block;
-    vertical-align: middle;
-}
+
 .coursecolor-1:hover{
-    /*height: min-content;*/
     border: solid #FF4F18 2px;
 }
-.coursecolor-2{
-    display: inline-block;
-    vertical-align: middle;
-}
+
 .coursecolor-2:hover{
     border: solid #449BEB 2px;
-}
-
-.coursephoto:hover{
-    border: #FA7575;
 }
 
 .coursephoto {
@@ -161,7 +149,6 @@
     width: 20%;
     height: 32px;
     position: relative;
-    /*top: 58%;*/
     margin-top: -8%;
     left: 80%;
     background-color: #FA7575;
@@ -196,17 +183,29 @@
     display: block;
     align-items: center;
     color: #000000;
+    text-align: justify;
+    word-break: break-all;
 }
 
-@media (max-width:1320px) {
+@media (max-width:1340px) {
     .rightspace {
         float: right;
-       
         margin-right: -10px;
         display: block;
     }
-
     .wire {
         border-right: none;
+    }
+}
+@media (max-width:497px) {
+    .rightspace {
+        float: left;
+        margin-bottom: 20px;
+    }
+    .box{
+        margin: auto auto 30px;
+    }
+    .searchbox{
+        width: 70%;
     }
 }
