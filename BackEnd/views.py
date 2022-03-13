@@ -14,6 +14,8 @@ def DBlist(request,dbtype):
         for v in getlist:
             v =  v.__dict__
             del v['_state']
+            del v['filepath']
+            del v['_django_cleanup_original_cache']
             datalist.append(v)
         print(datalist)
 

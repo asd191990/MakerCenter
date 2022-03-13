@@ -36,7 +36,7 @@
         </thead>
         <tbody style="height: auto;">
             <tr style="height: auto; line-height: 32px;" v-for="item in downloadListSearch">
-                <td style="text-align: justify;" class="type-3">${ item.title }</td>
+                <td style="text-align: justify;" class="type-3" @click="onClick(item.id)" >${ item.title }</td>
                 <td style="text-align: center;" class="type-1">${item.type}</td>
                 <td style="text-align: left;padding-left: 25px;">${item.content}</td>
                 <td style="text-align: justify;">${item.update_date}</td>
