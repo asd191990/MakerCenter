@@ -6,7 +6,7 @@ from BackEnd.models import Group,ClassroomIntroducts,Course,DownLoadFiles
 from BackEnd.fuc import DBprocess
 from django.views.decorators.csrf import csrf_exempt
 import os
-
+from django.http import StreamingHttpResponse,FileResponse
 
 def index(request):
     return render(request, "FrontEnd/index/index.html")
@@ -28,16 +28,16 @@ def download(request):
   
 # 相關辦法 -> 下載檔案
 def downloadFile(request, getid):
-    x = get_object_or_404(DownLoadFiles, id=getid)
-    # x = DownLoadFiles.objects.get(id=getid)
-    usepath = x.filepath.path
-    with open(usepath, 'rb') as fh:
-        print(usepath)
-        response = HttpResponse(fh.read())
-        response['Content-Type'] = 'application/octet-stream'
-        response["Content-Disposition"] = "attachment; filename*=UTF-8''{}".format(os.path.basename(usepath))
-        return response
-    return render(request, "FrontEnd/index/index.html")
+    getfile = get_object_or_404(DownLoadFiles, id=getid)
+    usepath=getfile.filepath.path   
+    the_file_name  =os.path.basename(usepath)
+    readfile = open(usepath, 'rb')
+    response = StreamingHttpResponse(readfile)
+    response['Content-Type'] = 'application/octet-stream'
+    response["Content-Disposition"] = f'attachment; filename="{the_file_name}"'
+    return response
+
+    # return render(request, "FrontEnd/index/index.html")
 
 def courselist(request):
     return render(request, "FrontEnd/course/course_list.html")
