@@ -20,28 +20,27 @@
         <div class="text-4">TA實習申請</div>
     </div>
 
-    <div class="searchbox">
-        <input class="searchbox" type="text" v-model="search" placeholder="Search .." />
-    </div>
+  
+    <input class="searchbox" type="text" v-model="search" placeholder="Search .." />
+    
 
-    <!-- <table cellpadding="10" ; style="width: 100%; " border=" 1px solid; border-collapse:collapse;" class="tablestyle"> -->
-    <table class="tablestyle">
+    <table class="tablestyle" cellpadding="18">
         <thead>
             <tr class="bg-danger">
-                <th style="width: 18%; padding:25px">標題</th>
-                <th style="width: 23%; padding-left: 25px;">類型</th>
-                <th style="width: 26%; padding-left: 25px;">說明</th>
-                <th style="width: 18%; padding-left: 25px;">日期</th>
-                <th style="width: 15%; padding-left: 25px;">下載</th>
+                <th style="width: 20%; ">標題</th>
+                <th style="width: 14%; text-align: center;">類型</th>
+                <th style="width: 34%; padding-left: 25px;">說明</th>
+                <th style="width: 18%;">日期</th>
+                <th style="width: 14%; text-align: center;">下載</th>
             </tr>
         </thead>
         <tbody style="height: auto;">
             <tr style="height: auto; line-height: 32px;" v-for="item in downloadListSearch">
-                <td style="text-align: justify;padding-left: 20px;">${ item.title }</td>
-                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">${item.type}</td>
-                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">${item.content}</td>
-                <td style="text-align: justify; padding-left: 20px;">${item.update_date}</td>
-                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">
+                <td style="text-align: justify;">${ item.title }</td>
+                <td style="text-align: center;">${item.type}</td>
+                <td style="text-align: left;padding-left: 25px;">${item.content}</td>
+                <td style="text-align: justify;">${item.update_date}</td>
+                <td style="text-align: center;">
                     <button href="#" @click="onClick(item.id)">下載</button>
                 </td>
             </tr>
