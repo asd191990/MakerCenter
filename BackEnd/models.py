@@ -6,6 +6,7 @@ from django.utils import timezone
 # django-ckeditor
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
+from itertools import chain
 
 # 最新消息
 
@@ -25,6 +26,12 @@ class News(models.Model):
         verbose_name_plural = verbose_name   #複數
     def __str__(self):
         return self.title
+    def to_dict(instance):
+        opts = instance._meta
+        data ={}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            data[f.name] = [i.id for i in f.value_from_object(instance)]
+        return data
 
 
 # 課程(專業、核心)
@@ -41,6 +48,17 @@ class Course(models.Model):
     image = models.ImageField(upload_to="courseimage", verbose_name='封面圖')
     created_date = models.DateField(default=timezone.now, verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
+    class Meta:
+        verbose_name = "課程"   # 單數
+        verbose_name_plural = verbose_name   #複數
+    def __str__(self):
+        return self.title
+    def to_dict(instance):
+        opts = instance._meta
+        data ={}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            data[f.name] = [i.id for i in f.value_from_object(instance)]
+        return data
 
 
 #空間介紹 - 校級共用實驗室借用情形
@@ -52,6 +70,17 @@ class ClassroomIntroducts(models.Model):
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
     imageone = models.ImageField(upload_to="classimage")
     # 可能有照片要加 但先這樣
+    class Meta:
+        verbose_name = "教室借用情形"   # 單數
+        verbose_name_plural = verbose_name   #複數
+    def __str__(self):
+        return self.title
+    def to_dict(instance):
+        opts = instance._meta
+        data ={}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            data[f.name] = [i.id for i in f.value_from_object(instance)]
+        return data
 
 
 # 各類申請及說明 / 相關辦法
@@ -69,6 +98,17 @@ class DownLoadFiles(models.Model):
     filepath = models.FileField(upload_to='uploads')
     created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
+    class Meta:
+        verbose_name = "相關辦法"   # 單數
+        verbose_name_plural = verbose_name   #複數
+    def __str__(self):
+        return self.title
+    def to_dict(instance):
+        opts = instance._meta
+        data ={}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            data[f.name] = [i.id for i in f.value_from_object(instance)]
+        return data
 
 
 # 成員
@@ -81,6 +121,17 @@ class Memebers(models.Model):
     location = models.TextField(verbose_name='位置')
     created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
+    class Meta:
+        verbose_name = "成員"   # 單數
+        verbose_name_plural = verbose_name   #複數
+    def __str__(self):
+        return self.name
+    def to_dict(instance):
+        opts = instance._meta
+        data ={}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            data[f.name] = [i.id for i in f.value_from_object(instance)]
+        return data
 
 
 # 專業領域小組
@@ -98,9 +149,20 @@ class Group(models.Model):
     type = models.CharField(max_length=1, choices=Group_type, null=True)
     created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
+    class Meta:
+        verbose_name = "專業領域小組"   # 單數
+        verbose_name_plural = verbose_name   #複數
+    def __str__(self):
+        return self.title
+    def to_dict(instance):
+        opts = instance._meta
+        data ={}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            data[f.name] = [i.id for i in f.value_from_object(instance)]
+        return data
 
 
-# 空間介紹及設備
+# 空間介紹
 
 class Space(models.Model):
     code = models.CharField(max_length=4,verbose_name='教室代碼')
@@ -110,6 +172,17 @@ class Space(models.Model):
     equipment_description = models.CharField(max_length=30,verbose_name='設備資訊')
     created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
+    class Meta:
+        verbose_name = "空間介紹"   # 單數
+        verbose_name_plural = verbose_name   #複數
+    def __str__(self):
+        return self.name
+    def to_dict(instance):
+        opts = instance._meta
+        data ={}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            data[f.name] = [i.id for i in f.value_from_object(instance)]
+        return data
 
 # 設備介紹
 
@@ -118,3 +191,14 @@ class Equipment(models.Model):
     description = models.TextField(verbose_name='設備介紹')
     created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
+    class Meta:
+        verbose_name = "設備介紹"   # 單數
+        verbose_name_plural = verbose_name   #複數
+    def __str__(self):
+        return self.name
+    def to_dict(instance):
+        opts = instance._meta
+        data ={}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            data[f.name] = [i.id for i in f.value_from_object(instance)]
+        return data
