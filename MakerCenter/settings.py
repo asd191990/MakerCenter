@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'django_filters',
+    'django_cleanup',
     #scss
     'sass_processor',
 ]

@@ -24,23 +24,23 @@
     <input class="searchbox" type="text" v-model="search" placeholder="Search .." />
     
 
-    <table class="tablestyle" cellpadding="18">
+    <table class="tablestyle" cellpadding="18" style="word-break:break-all;">
         <thead>
             <tr class="bg-danger">
-                <th style="width: 20%; ">標題</th>
-                <th style="width: 14%; text-align: center;">類型</th>
-                <th style="width: 34%; padding-left: 25px;">說明</th>
-                <th style="width: 18%;">日期</th>
-                <th style="width: 14%; text-align: center;">下載</th>
+                <th style="width: 22%; ">標題</th>
+                <th style="width: 12%; text-align: center;" class="type-1">類型</th>
+                <th style="width: 32%; padding-left: 25px;">說明</th>
+                <th style="width: 20%;">日期</th>
+                <th style="width: 14%; text-align: center;" class="type-2">下載</th>
             </tr>
         </thead>
         <tbody style="height: auto;">
             <tr style="height: auto; line-height: 32px;" v-for="item in downloadListSearch">
-                <td style="text-align: justify;">${ item.title }</td>
-                <td style="text-align: center;">${item.type}</td>
+                <td style="text-align: justify;" class="type-3" @click="onClick(item.id)" >${ item.title }</td>
+                <td style="text-align: center;" class="type-1">${item.type}</td>
                 <td style="text-align: left;padding-left: 25px;">${item.content}</td>
                 <td style="text-align: justify;">${item.update_date}</td>
-                <td style="text-align: center;">
+                <td style="text-align: center;" class="type-2">
                     <button href="#" @click="onClick(item.id)">下載</button>
                 </td>
             </tr>
@@ -84,6 +84,7 @@
                 }
             }
         }
+
 
     })
 </script>
