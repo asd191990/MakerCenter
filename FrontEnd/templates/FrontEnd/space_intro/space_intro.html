@@ -16,25 +16,24 @@
     <input class="searchbox" type="text" v-model="search" placeholder="Search ..." />
 
 
-    <!-- <table cellpadding="10" ; style="width: 100%; " border=" 1px solid; border-collapse:collapse;" class="tablestyle"> -->
-    <table class="tablestyle" cellpadding="18" style="word-break:break-all;">
+    <table class="tablestyle" cellpadding="20" style="word-break:break-all;">
         <thead>
             <tr class="bg-danger" style="height: 80px; ">
-                <th style="width: 10%; padding:25px">教室代碼</th>
-                <th style="width: 18%; padding-left: 25px;">教室名稱</th>
-                <th style="width: 42%; padding-left: 25px;">空間介紹</th>
-                <th style="width: 8%; padding-left: 15px;">容納人數</th>
-                <th style="width: 22%; padding-left: 25px;">設備資訊</th>
+                <th style="width: 11%; text-align: center;" class="type-2">教室<br>代碼</th>
+                <th style="width: 18%; ">教室名稱</th>
+                <th style="width: 27%; ">空間介紹</th>
+                <th style="width: 11%; text-align: center;" class="type-1">容納<br>人數</th>
+                <th style="width: 33%; ">設備資訊</th>
             </tr>
         </thead>
         <tbody style="height: auto;">
-            <tr style="height: 280px; line-height: 32px;" v-for="item in ListSearch">
-                <td style="text-align: center;">${item.code}</td>
-                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">${item.name}</td>
-                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">
+            <tr style="height: auto; line-height: 32px;" v-for="item in ListSearch">
+                <td style="text-align: center;" class="type-2">${item.code}</td>
+                <td style="text-align: justify;">${item.name}</td>
+                <td style="text-align: justify;">
                     ${item.space_description}</td>
-                <td style="text-align: center;">${item.number}</td>
-                <td style="padding-left: 20px; padding-right: 20px; text-align: justify;">
+                <td style="text-align: center;" class="type-1">${item.number}</td>
+                <td style="text-align: justify;">
                     ${item.equipment_description}</td>
             </tr>
         </tbody>

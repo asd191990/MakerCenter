@@ -17,7 +17,7 @@
 }
 
 .tablestyle {
-    border-style: solid;
+    border: solid 2px;
     border-color: #000000;
     border-collapse: collapse;
     margin: 40px auto 110px;
@@ -49,4 +49,17 @@
     line-height: 24px;
     position: relative;
     top: 20%;
+}
+
+@media (max-width:1440px) {
+    .type-1{
+        display: none;
+    }
+
+}
+@media (max-width:1150px) {
+    .type-2{
+        display: none;
+    }
+
 }

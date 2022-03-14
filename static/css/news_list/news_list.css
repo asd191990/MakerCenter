@@ -45,6 +45,7 @@
 
 .content-1 {
     margin: auto 20px auto 10px;
+    cursor: pointer;
 }
 
 .wire {
@@ -57,12 +58,13 @@
     float: left;
     width: 340px;
     height: 135px;
-    margin: 22px 30px;
+    margin: 22px 35px;
     padding: auto;
     background: #FF7171;
     border: 3px solid #FF7171;
     box-sizing: border-box;
     box-shadow: 2px 2px 1px rgba(92, 3, 3, 0.25);
+    cursor: pointer;
 }
 
 .datebox {
