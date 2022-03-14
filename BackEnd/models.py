@@ -115,7 +115,7 @@ class DownLoadFiles(models.Model):
 
 class Memebers(models.Model):
     name = models.CharField(max_length=30, verbose_name='姓名')
-    extension = models.IntegerField(verbose_name='分機')
+    extension = models.CharField(verbose_name='分機',max_length=20)
     email = models.EmailField(max_length=30,unique=True, verbose_name='電子信箱')
     work = models.TextField(verbose_name='業務職掌')
     location = models.TextField(verbose_name='位置')

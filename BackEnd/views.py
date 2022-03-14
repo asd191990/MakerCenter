@@ -5,31 +5,19 @@ from .forms import NewsForm
 from .models import News,Course,Group,DownLoadFiles
 from .filters import NewsFilter
 
+from .fuc import DBprocess
 
 
 def DBlist(request,dbtype):
-    datalist=[]
-    if dbtype=="download":
-        getlist = DownLoadFiles.objects.all()
-        for v in getlist:
-            v =  v.__dict__
-            del v['_state']
-            del v['filepath']
-            del v['_django_cleanup_original_cache']
-            datalist.append(v)
-        print(datalist)
+    getdb =DBprocess(dbtype)
+    if getdb ==None:
+        return JsonResponse({"error":"請求失敗"})
+    else:        
+        getdata = getdb.objects.all()
+        for one_data in getdata:
+            data = one_data.to_dict()
+            print(data)
+        # getdata = getdb.objects.get(id=1).to_dict()
 
-    else:
-        print(dbtype)
-        
-        getlist = Course.objects.all()
-        print(getlist)
-        print(getlist[0].__dict__)
-        datalist = []
-        for v in getlist:
-            v.type = v.get_type_display()
-            v =  v.__dict__
-            del v['_state']
-            datalist.append(v)
-        print(datalist)
+
     return JsonResponse(datalist,safe=False)
