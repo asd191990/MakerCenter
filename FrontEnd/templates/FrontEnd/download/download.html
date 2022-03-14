@@ -62,7 +62,7 @@
             downloadList: [],
         },
         mounted: function () {
-            axios.post("{% url 'apigetdblist' 'download' %}")
+            axios.post("{% url 'apigetdblist' 'DownLoadFiles' %}")
                 .then((response) => {
                     let getdata = response.data;
                     console.log(getdata);
@@ -71,10 +71,7 @@
                 .catch((error) => console.log(error));
         },
         methods: {
-            onClick(id) {
-                window.open(id);
-                // window.open('http://127.0.0.1:8000/download/1')
-            }
+            
         }, computed: {
             downloadListSearch() {
                 if (this.type === "") {

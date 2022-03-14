@@ -4,19 +4,21 @@
 
 {% load static%}
 <link rel="stylesheet" href="{% static 'css/members_intro/members_intro.css' %}">
-<link rel="stylesheet" href="{% static 'base/css/bootstrap/bootstrap.min.css' %}">
+
+<script src="{% static 'js/vue.js' %}"> </script>
+<script src="{% static 'js/axios.min.js' %}"> </script>
 
 {% endblock %}
 
 {% block main %}
 
-
-<section class="container-1">
+<section class="container-1" id="app">
     <div class="title-1">成員快訊</div>
-    
-    <div class="searchbox"><p class="searchtext">　Search..</p></div>
-    
-    <table cellpadding="10"; style="width: 100%; " border=" 1px solid; border-collapse:collapse;" class="tablestyle">
+
+    <input class="searchbox" type="text" v-model="search" placeholder="Search ..." />
+
+    <!-- <table cellpadding="10"; style="width: 100%; " border=" 1px solid; border-collapse:collapse;" class="tablestyle"> -->
+    <table class="tablestyle" cellpadding="18" style="word-break:break-all;">
         <thead>
             <tr class="bg-danger" style="height: 100px; ">
                 <th style="width: 10%; padding-left: 2%;">姓名</th>
@@ -27,16 +29,54 @@
             </tr>
         </thead>
         <tbody style="height: auto;">
-            <tr style="height: auto; line-height: 32px;">
-                <td style="text-align: left; padding: 2%;">姓名</td>
-                <td style="word-break: break-all; padding: 2%; text-align: justify;">00000000</td>
-                <td style="word-break: break-all; padding: 2%; text-align: justify;">abc123@email.address</td>
-                <td style="text-align: justify; padding:2%;">內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容</td>
-                <td style="padding: 2%;  text-align: center;">地址<br>/<br>google map</td>                
+            <tr style="height: auto; line-height: 32px;" v-for="item in MemeberListSearch">
+                <td style="text-align: left; padding: 2%;">${item.name}</td>
+                <td style="word-break: break-all; padding: 2%; text-align: justify;">${item.extension}</td>
+                <td style="word-break: break-all; padding: 2%; text-align: justify;">${item.email}</td>
+                <td style="text-align: justify; padding:2%;">${item.work}</td>
+                <td style="padding: 2%;  text-align: center;">${item.location}</td>
             </tr>
         </tbody>
     </table>
 
 </section>
 
+<script>
+
+    axios.defaults.xsrfCookieName = 'csrftoken';
+    axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+    let downloadVue = new Vue({
+        el: '#app',
+        delimiters: ['${', '}'],
+        data: {
+            search: "",
+            type: "",
+            dataList: [],
+        },
+        mounted: function () {
+            axios.post("{% url 'apigetdblist' 'Memebers' %}")
+                .then((response) => {
+                    let getdata = response.data;
+                    console.log(getdata);
+                    this.dataList = getdata;
+                })
+                .catch((error) => console.log(error));
+        },
+        methods: {
+            onClick(id) {
+                window.open(id);
+            }
+        }, computed: {
+            MemeberListSearch() {
+                if (this.type === "") {
+                    return this.dataList.filter(box => {
+                        return box.name.includes(this.search);
+                    })
+                }
+            }
+        }
+
+
+    })
+</script>
 {% endblock %}
