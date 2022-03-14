@@ -4,7 +4,7 @@
 
 {% load static%}
 <link rel="stylesheet" href="{% static 'css/download/download.css' %}">
-
+<link rel="stylesheet" href="{% static 'css/fontawesome-free-6.0.0-web/css/all.min.css' %}">
 <script src="{% static 'js/vue.js' %}"> </script>
 <script src="{% static 'js/axios.min.js' %}"> </script>
 
@@ -20,9 +20,9 @@
         <div class="text-4">TA實習申請</div>
     </div>
 
-  
+
     <input class="searchbox" type="text" v-model="search" placeholder="Search .." />
-    
+
 
     <table class="tablestyle" cellpadding="18" style="word-break:break-all;">
         <thead>
@@ -36,12 +36,12 @@
         </thead>
         <tbody style="height: auto;">
             <tr style="height: auto; line-height: 32px;" v-for="item in downloadListSearch">
-                <td style="text-align: justify;" class="type-3" @click="onClick(item.id)" >${ item.title }</td>
+                <td style="text-align: justify;" class="type-3" @click="onClick(item.id)">${ item.title }</td>
                 <td style="text-align: center;" class="type-1">${item.type}</td>
                 <td style="text-align: left;padding-left: 25px;">${item.content}</td>
                 <td style="text-align: justify;">${item.update_date}</td>
-                <td style="text-align: center;" class="type-2">
-                    <button href="#" @click="onClick(item.id)">下載</button>
+                <td style="text-align: center;" class="type-2" @click="onClick(item.id)">
+                    <span class="fa-solid fa-download"></span>
                 </td>
             </tr>
         </tbody>
@@ -71,7 +71,9 @@
                 .catch((error) => console.log(error));
         },
         methods: {
-            
+            onClick(id) {
+                window.open(id);
+            }
         }, computed: {
             downloadListSearch() {
                 if (this.type === "") {
