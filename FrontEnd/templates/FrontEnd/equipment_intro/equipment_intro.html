@@ -4,19 +4,23 @@
 
 {% load static%}
 <link rel="stylesheet" href="{% static 'css/equipment_intro/equipment_intro.css' %}">
-<link rel="stylesheet" href="{% static 'base/css/bootstrap/bootstrap.min.css' %}">
 
+
+<script src="{% static 'js/vue.js' %}"> </script>
+<script src="{% static 'js/axios.min.js' %}"> </script>
 {% endblock %}
 
 {% block main %}
 
 
-<section class="container-1">
+<section class="container-1" id="app">
     <div class="title-1">設備介紹</div>
-    
-    <div class="searchbox"><p class="searchtext">　Search..</p></div>
-    
-    <table cellpadding="10"; style="width: 100%; " border=" 1px solid; border-collapse:collapse;" class="tablestyle">
+
+
+    <input class="searchbox" type="text" v-model="search" placeholder="Search ..." />
+
+    <!-- <table cellpadding="10"; style="width: 100%; " border=" 1px solid; border-collapse:collapse;" class="tablestyle"> -->
+    <table class="tablestyle" cellpadding="18" style="word-break:break-all;">
         <thead>
             <tr class="bg-danger" style="height: 100px; ">
                 <th style="width: 25%; padding:30px">設備名稱</th>
@@ -24,14 +28,55 @@
             </tr>
         </thead>
         <tbody style="height: auto;">
-            <tr style="height: auto; line-height: 32px;">
-                <td style="text-align: left; padding: 30px;">名稱名稱名稱</td>
-                <td style="padding: 30px; text-align: justify;">介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹</td>
+            <tr style="height: auto; line-height: 32px;" v-for="item in ListSearch">
+                <td style="text-align: left; padding: 30px;">${item.name}</td>
+                <td style="padding: 30px; text-align: justify;">
+                    ${item.description}</td>
             </tr>
         </tbody>
     </table>
 
 
 </section>
+
+
+<script>
+
+    axios.defaults.xsrfCookieName = 'csrftoken';
+    axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+    let downloadVue = new Vue({
+        el: '#app',
+        delimiters: ['${', '}'],
+        data: {
+            search: "",
+            type: "",
+            dataList: [],
+        },
+        mounted: function () {
+            axios.post("{% url 'apigetdblist' 'Equipment' %}")
+                .then((response) => {
+                    let getdata = response.data;
+                    console.log(getdata);
+                    this.dataList = getdata;
+                })
+                .catch((error) => console.log(error));
+        },
+        methods: {
+            onClick(id) {
+                window.open(id);
+            }
+        }, computed: {
+            ListSearch() {
+                if (this.type === "") {
+                    return this.dataList.filter(box => {
+                        return box.name.includes(this.search);
+                    })
+                }
+            }
+        }
+
+
+    })
+</script>
 
 {% endblock %}

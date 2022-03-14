@@ -12,13 +12,13 @@ from itertools import chain
 
 class News(models.Model):
     News_type = (
-        ('1', '專業實作課程'),
-        ('2', '核心實作課程'),
-        ('3', '微學分課程及工作坊'),
+        ('1', '最新消息'),
+        ('2', '學生活動'),
+        ('3', '學術動態'),
     )
     title = models.CharField(max_length=30, verbose_name="標題")
     content = RichTextUploadingField(verbose_name='編輯器內文' ,blank=True, null=True)
-    type = models.CharField(max_length=1, choices=News_type, null=True)
+    type = models.CharField(max_length=1, choices=News_type)
     created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
     class Meta:
