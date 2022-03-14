@@ -12,13 +12,13 @@ from itertools import chain
 
 class News(models.Model):
     News_type = (
-        ('1', '專業實作課程'),
-        ('2', '核心實作課程'),
-        ('3', '微學分課程及工作坊'),
+        ('1', '最新消息'),
+        ('2', '學生活動'),
+        ('3', '學術動態'),
     )
     title = models.CharField(max_length=30, verbose_name="標題")
     content = RichTextUploadingField(verbose_name='編輯器內文' ,blank=True, null=True)
-    type = models.CharField(max_length=1, choices=News_type, null=True)
+    type = models.CharField(max_length=1, choices=News_type)
     created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
     class Meta:
@@ -26,9 +26,15 @@ class News(models.Model):
         verbose_name_plural = verbose_name   #複數
     def __str__(self):
         return self.title
+    def to_dict(instance):
+        opts = instance._meta
+        data ={}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            data[f.name] = [i.id for i in f.value_from_object(instance)]
+        return data
 
 
-# 課程列表(專業、核心)
+# 課程(專業、核心)
 
 class Course(models.Model):
     Courese_type = (
@@ -43,19 +49,18 @@ class Course(models.Model):
     created_date = models.DateField(default=timezone.now, verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
     class Meta:
-        verbose_name = "課程列表"   # 單數
+        verbose_name = "課程"   # 單數
         verbose_name_plural = verbose_name   #複數
+    def __str__(self):
+        return self.title
     def to_dict(instance):
         opts = instance._meta
-        data = {}
-        # 用chain合併多個list
+        data ={}
         for f in chain(opts.concrete_fields, opts.private_fields):
-            # get the field’s value prior to serialization
-            data[f.name] = f.value_from_object(instance)
-        for f in opts.many_to_many:
             data[f.name] = [i.id for i in f.value_from_object(instance)]
         return data
-        
+
+
 #空間介紹 - 校級共用實驗室借用情形
 
 class ClassroomIntroducts(models.Model):
@@ -68,6 +73,14 @@ class ClassroomIntroducts(models.Model):
     class Meta:
         verbose_name = "教室借用情形"   # 單數
         verbose_name_plural = verbose_name   #複數
+    def __str__(self):
+        return self.title
+    def to_dict(instance):
+        opts = instance._meta
+        data ={}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            data[f.name] = [i.id for i in f.value_from_object(instance)]
+        return data
 
 
 # 各類申請及說明 / 相關辦法
@@ -88,12 +101,21 @@ class DownLoadFiles(models.Model):
     class Meta:
         verbose_name = "相關辦法"   # 單數
         verbose_name_plural = verbose_name   #複數
+    def __str__(self):
+        return self.title
+    def to_dict(instance):
+        opts = instance._meta
+        data ={}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            data[f.name] = [i.id for i in f.value_from_object(instance)]
+        return data
+
 
 # 成員
 
 class Memebers(models.Model):
     name = models.CharField(max_length=30, verbose_name='姓名')
-    extension = models.IntegerField(verbose_name='分機')
+    extension = models.CharField(verbose_name='分機',max_length=20)
     email = models.EmailField(max_length=30,unique=True, verbose_name='電子信箱')
     work = models.TextField(verbose_name='業務職掌')
     location = models.TextField(verbose_name='位置')
@@ -102,6 +124,15 @@ class Memebers(models.Model):
     class Meta:
         verbose_name = "成員"   # 單數
         verbose_name_plural = verbose_name   #複數
+    def __str__(self):
+        return self.name
+    def to_dict(instance):
+        opts = instance._meta
+        data ={}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            data[f.name] = [i.id for i in f.value_from_object(instance)]
+        return data
+
 
 # 專業領域小組
 
@@ -121,6 +152,15 @@ class Group(models.Model):
     class Meta:
         verbose_name = "專業領域小組"   # 單數
         verbose_name_plural = verbose_name   #複數
+    def __str__(self):
+        return self.title
+    def to_dict(instance):
+        opts = instance._meta
+        data ={}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            data[f.name] = [i.id for i in f.value_from_object(instance)]
+        return data
+
 
 # 空間介紹
 
@@ -129,12 +169,21 @@ class Space(models.Model):
     name = models.CharField(max_length=30,verbose_name='教室名稱')
     space_description = models.TextField(verbose_name='空間介紹')
     number = models.CharField(max_length=30,verbose_name='容納人數')
-    equipment_description = models.TextField(verbose_name='設備資訊')
+    equipment_description = models.CharField(max_length=30,verbose_name='設備資訊')
     created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
     class Meta:
         verbose_name = "空間介紹"   # 單數
         verbose_name_plural = verbose_name   #複數
+    def __str__(self):
+        return self.name
+    def to_dict(instance):
+        opts = instance._meta
+        data ={}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            data[f.name] = [i.id for i in f.value_from_object(instance)]
+        return data
+
 # 設備介紹
 
 class Equipment(models.Model):
@@ -145,3 +194,11 @@ class Equipment(models.Model):
     class Meta:
         verbose_name = "設備介紹"   # 單數
         verbose_name_plural = verbose_name   #複數
+    def __str__(self):
+        return self.name
+    def to_dict(instance):
+        opts = instance._meta
+        data ={}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            data[f.name] = [i.id for i in f.value_from_object(instance)]
+        return data

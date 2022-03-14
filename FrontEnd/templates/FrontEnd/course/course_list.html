@@ -46,7 +46,7 @@
             <div class="classdate">${classbox.update_date}</div>
 
             <div class="markbox">
-                <p class="amark">${classbox.type}</p>
+                <p class="amark">${classbox.typeshow}</p>
             </div>
 
             <div class="classtitle">${classbox.title}</div>
@@ -57,7 +57,7 @@
 </section>
 
 <script>
-    const url = "/single/classroom/"
+    const url = "/single/classroom/";
 
     axios.defaults.xsrfCookieName = 'csrftoken';
     axios.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -70,11 +70,11 @@
             classbox: []
         },
         mounted: function () {
-            axios.post("{% url 'apigetdblist' 'course' %}")
+            axios.post("{% url 'apigetdblist' 'classroom' %}")
                 .then((response) => {
                     let getdata = response.data;
                     for (let i = 0; i < getdata.length; i++) {
-                        if (getdata[i].type == "專業")
+                        if (getdata[i].type == "1")
                             getdata[i]["typecss"] = 'coursecolor-1';
                         else
                             getdata[i]["typecss"] = 'coursecolor-2';
@@ -93,7 +93,7 @@
             },
             urllead(getid) {
                 console.log(getid);
-                location.href = url+getid;
+                location.href = url + getid;
             }
 
         },

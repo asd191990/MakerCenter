@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'django_filters',
+    'django_cleanup',
     #scss
     'sass_processor',
 ]
@@ -167,8 +168,8 @@ USE_I18N = True
 USE_TZ = True
 
 USE_L10N = False
-DATE_FORMAT = "Y-m-d"
-DATETIME_FORMAT = "Y-m-d H:i:s"
+DATE_FORMAT = "Y/m/d"
+DATETIME_FORMAT = "Y/m/d H:i:s"
 
 
 # Static files (CSS, JavaScript, Images)

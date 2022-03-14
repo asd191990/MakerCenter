@@ -4,7 +4,7 @@
 
 {% load static%}
 <link rel="stylesheet" href="{% static 'css/download/download.css' %}">
-
+<link rel="stylesheet" href="{% static 'css/fontawesome-free-6.0.0-web/css/all.min.css' %}">
 <script src="{% static 'js/vue.js' %}"> </script>
 <script src="{% static 'js/axios.min.js' %}"> </script>
 
@@ -14,34 +14,34 @@
 
 <section class="container-1" id="app">
     <div class="rightspace">
-        <div class="text-1">專業領域小組</div>
-        <div class="text-2">課程</div>
-        <div class="text-3">設備及物品借用</div>
-        <div class="text-4">TA實習申請</div>
+        <div class="text-1" @click="changeType('1')">專業領域小組</div>
+        <div class="text-2" @click="changeType('2')">課程</div>
+        <div class="text-3" @click="changeType('3')">設備及物品借用</div>
+        <div class="text-4" @click="changeType('4')">TA實習申請</div>
     </div>
 
-  
-    <input class="searchbox" type="text" v-model="search" placeholder="Search .." />
-    
 
-    <table class="tablestyle" cellpadding="18">
+    <input class="searchbox" type="text" v-model="search" placeholder="Search .." />
+
+
+    <table class="tablestyle" cellpadding="18" style="word-break:break-all;">
         <thead>
             <tr class="bg-danger">
-                <th style="width: 20%; ">標題</th>
-                <th style="width: 14%; text-align: center;">類型</th>
-                <th style="width: 34%; padding-left: 25px;">說明</th>
-                <th style="width: 18%;">日期</th>
-                <th style="width: 14%; text-align: center;">下載</th>
+                <th style="width: 22%; ">標題</th>
+                <th style="width: 12%; text-align: center;" class="type-1">類型</th>
+                <th style="width: 32%; padding-left: 25px;">說明</th>
+                <th style="width: 20%;">日期</th>
+                <th style="width: 14%; text-align: center;" class="type-2">下載</th>
             </tr>
         </thead>
         <tbody style="height: auto;">
             <tr style="height: auto; line-height: 32px;" v-for="item in downloadListSearch">
-                <td style="text-align: justify;">${ item.title }</td>
-                <td style="text-align: center;">${item.type}</td>
+                <td style="text-align: justify;" class="type-3" @click="onClick(item.id)">${ item.title }</td>
+                <td style="text-align: center;" class="type-1">${item.typeshow}</td>
                 <td style="text-align: left;padding-left: 25px;">${item.content}</td>
                 <td style="text-align: justify;">${item.update_date}</td>
-                <td style="text-align: center;">
-                    <button href="#" @click="onClick(item.id)">下載</button>
+                <td style="text-align: center;" class="type-2" @click="onClick(item.id)">
+                    <span class="fa-solid fa-download"></span>
                 </td>
             </tr>
         </tbody>
@@ -62,7 +62,7 @@
             downloadList: [],
         },
         mounted: function () {
-            axios.post("{% url 'apigetdblist' 'download' %}")
+            axios.post("{% url 'apigetdblist' 'DownLoadFiles' %}")
                 .then((response) => {
                     let getdata = response.data;
                     console.log(getdata);
@@ -71,9 +71,14 @@
                 .catch((error) => console.log(error));
         },
         methods: {
+            changeType(gettype) {
+                if (this.type == gettype)
+                    this.type = ""
+                else
+                    this.type = gettype
+            },
             onClick(id) {
                 window.open(id);
-                // window.open('http://127.0.0.1:8000/download/1')
             }
         }, computed: {
             downloadListSearch() {
@@ -81,9 +86,14 @@
                     return this.downloadList.filter(box => {
                         return box.title.includes(this.search);
                     })
+                } else {
+                    return this.downloadList.filter(box => {
+                        return box.type.includes(this.type)
+                    })
                 }
             }
         }
+
 
     })
 </script>
