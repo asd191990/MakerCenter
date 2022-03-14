@@ -13,7 +13,8 @@ def DBlist(request,dbtype):
     if dbtype=="DownLoadFiles":
         getlist = DownLoadFiles.objects.all()
         for v in getlist:
-            v =  v.__dict__
+            v.typeshow = v.get_type_display()
+            v =  v.__dict__        
             del v['_state']
             del v['filepath']
             del v['_django_cleanup_original_cache']

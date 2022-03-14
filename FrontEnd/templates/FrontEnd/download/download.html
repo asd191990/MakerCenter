@@ -14,10 +14,10 @@
 
 <section class="container-1" id="app">
     <div class="rightspace">
-        <div class="text-1">專業領域小組</div>
-        <div class="text-2">課程</div>
-        <div class="text-3">設備及物品借用</div>
-        <div class="text-4">TA實習申請</div>
+        <div class="text-1" @click="changeType('1')">專業領域小組</div>
+        <div class="text-2" @click="changeType('2')">課程</div>
+        <div class="text-3" @click="changeType('3')">設備及物品借用</div>
+        <div class="text-4" @click="changeType('4')">TA實習申請</div>
     </div>
 
 
@@ -37,7 +37,7 @@
         <tbody style="height: auto;">
             <tr style="height: auto; line-height: 32px;" v-for="item in downloadListSearch">
                 <td style="text-align: justify;" class="type-3" @click="onClick(item.id)">${ item.title }</td>
-                <td style="text-align: center;" class="type-1">${item.type}</td>
+                <td style="text-align: center;" class="type-1">${item.typeshow}</td>
                 <td style="text-align: left;padding-left: 25px;">${item.content}</td>
                 <td style="text-align: justify;">${item.update_date}</td>
                 <td style="text-align: center;" class="type-2" @click="onClick(item.id)">
@@ -71,6 +71,12 @@
                 .catch((error) => console.log(error));
         },
         methods: {
+            changeType(gettype) {
+                if (this.type == gettype)
+                    this.type = ""
+                else
+                    this.type = gettype
+            },
             onClick(id) {
                 window.open(id);
             }
@@ -79,6 +85,10 @@
                 if (this.type === "") {
                     return this.downloadList.filter(box => {
                         return box.title.includes(this.search);
+                    })
+                } else {
+                    return this.downloadList.filter(box => {
+                        return box.type.includes(this.type)
                     })
                 }
             }
