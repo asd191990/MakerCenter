@@ -42,11 +42,11 @@
 
     <div class="container-1">
         <div class="box" v-for="classbox in filteredList" v-bind:class="classbox.typecss" @click='urllead(classbox.id)'>
-            <img class="coursephoto" v-bind:src="'{{MEDIA_URL}}'+classbox.image" v-bind:alt="classbox.image" />
+            <img class="coursephoto" v-bind:src="'{{MEDIA_URL}}' + classbox.image" v-bind:alt="classbox.image" />
             <div class="classdate">${classbox.update_date}</div>
 
             <div class="markbox">
-                <p class="amark">${classbox.typeshow}</p>
+                <p class="amark">${classbox.type}</p>
             </div>
 
             <div class="classtitle">${classbox.title}</div>
@@ -72,8 +72,14 @@
         mounted: function () {
             axios.post("{% url 'apigetdblist' 'classroom' %}")
                 .then((response) => {
+                    // getdata 得到的是陣列
                     let getdata = response.data;
+                    console.table(getdata);
+                    console.log(getdata)
                     for (let i = 0; i < getdata.length; i++) {
+                        // getdata[i]["url"] = getdata[i].image.path
+                        // getdata[i].image = getdata[i].image.path
+                        // console.log(getdata[i].typeshow)
                         if (getdata[i].type == "1")
                             getdata[i]["typecss"] = 'coursecolor-1';
                         else
@@ -102,11 +108,11 @@
             filteredList() {
                 if (this.type === "") {
                     return this.classbox.filter(box => {
-                        return box.title.includes(this.search)
+                        return box.title.includes(this.search);
                     })
                 } else {
                     return this.classbox.filter(box => {
-                        return box.type.includes(this.type)
+                        return box.type.includes(this.type);
                     })
                 }
             }
