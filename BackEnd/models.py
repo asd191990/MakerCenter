@@ -3,6 +3,7 @@ from importlib.resources import contents
 from turtle import update
 from django.db import models
 from django.utils import timezone
+from django.db.models.fields import DateTimeField
 # django-ckeditor
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -26,11 +27,17 @@ class News(models.Model):
         verbose_name_plural = verbose_name   #複數
     def __str__(self):
         return self.title
-    def to_dict(instance):
-        opts = instance._meta
+    def to_dict(self):
+        opts = self._meta
         data ={}
         for f in chain(opts.concrete_fields, opts.private_fields):
-            data[f.name] = [i.id for i in f.value_from_object(instance)]
+            print("_____________")
+            print(f.name)
+            if f.name == 'image':
+                data[f.name] = f.value_from_object(self).path
+                print(f.value_from_object(self).path)
+            else:
+                data[f.name] = f.value_from_object(self)
         return data
 
 
@@ -53,11 +60,17 @@ class Course(models.Model):
         verbose_name_plural = verbose_name   #複數
     def __str__(self):
         return self.title
-    def to_dict(instance):
-        opts = instance._meta
+    def to_dict(self):
+        opts = self._meta
         data ={}
         for f in chain(opts.concrete_fields, opts.private_fields):
-            data[f.name] = [i.id for i in f.value_from_object(instance)]
+            print("_____________")
+            print(f.name)
+            if f.name == 'image':
+                data[f.name] = f.value_from_object(self).path
+                print(f.value_from_object(self))
+            else:
+                data[f.name] = f.value_from_object(self)
         return data
 
 
@@ -75,11 +88,17 @@ class ClassroomIntroducts(models.Model):
         verbose_name_plural = verbose_name   #複數
     def __str__(self):
         return self.title
-    def to_dict(instance):
-        opts = instance._meta
+    def to_dict(self):
+        opts = self._meta
         data ={}
         for f in chain(opts.concrete_fields, opts.private_fields):
-            data[f.name] = [i.id for i in f.value_from_object(instance)]
+            print("_____________")
+            print(f.name)
+            if f.name == 'image':
+                data[f.name] = f.value_from_object(self).path
+                print(f.value_from_object(self).path)
+            else:
+                data[f.name] = f.value_from_object(self)
         return data
 
 
@@ -103,11 +122,18 @@ class DownLoadFiles(models.Model):
         verbose_name_plural = verbose_name   #複數
     def __str__(self):
         return self.title
-    def to_dict(instance):
-        opts = instance._meta
+    def to_dict(self):
+        opts = self._meta
         data ={}
         for f in chain(opts.concrete_fields, opts.private_fields):
-            data[f.name] = [i.id for i in f.value_from_object(instance)]
+            print("_____________")
+            print(f.name)
+            if f.name == 'filepath':
+                data[f.name] = f.value_from_object(self).path
+                print(f.value_from_object(self))
+            else:
+                data[f.name] = f.value_from_object(self)
+        print(data)
         return data
 
 
@@ -126,11 +152,13 @@ class Memebers(models.Model):
         verbose_name_plural = verbose_name   #複數
     def __str__(self):
         return self.name
-    def to_dict(instance):
-        opts = instance._meta
+    def to_dict(self):
+        opts = self._meta
         data ={}
         for f in chain(opts.concrete_fields, opts.private_fields):
-            data[f.name] = [i.id for i in f.value_from_object(instance)]
+            print("_____________")
+            print(f.name)
+            data[f.name] = f.value_from_object(self)
         return data
 
 
@@ -154,11 +182,17 @@ class Group(models.Model):
         verbose_name_plural = verbose_name   #複數
     def __str__(self):
         return self.title
-    def to_dict(instance):
-        opts = instance._meta
+    def to_dict(self):
+        opts = self._meta
         data ={}
         for f in chain(opts.concrete_fields, opts.private_fields):
-            data[f.name] = [i.id for i in f.value_from_object(instance)]
+            print("_____________")
+            print(f.name)
+            if f.name == 'image':
+                data[f.name] = f.value_from_object(self).path
+                print(f.value_from_object(self).path)
+            else:
+                data[f.name] = f.value_from_object(self)
         return data
 
 
@@ -177,11 +211,17 @@ class Space(models.Model):
         verbose_name_plural = verbose_name   #複數
     def __str__(self):
         return self.name
-    def to_dict(instance):
-        opts = instance._meta
+    def to_dict(self):
+        opts = self._meta
         data ={}
         for f in chain(opts.concrete_fields, opts.private_fields):
-            data[f.name] = [i.id for i in f.value_from_object(instance)]
+            print("_____________")
+            print(f.name)
+            if f.name == 'image':
+                data[f.name] = f.value_from_object(self).path
+                print(f.value_from_object(self).path)
+            else:
+                data[f.name] = f.value_from_object(self)
         return data
 
 # 設備介紹
@@ -196,9 +236,15 @@ class Equipment(models.Model):
         verbose_name_plural = verbose_name   #複數
     def __str__(self):
         return self.name
-    def to_dict(instance):
-        opts = instance._meta
+    def to_dict(self):
+        opts = self._meta
         data ={}
         for f in chain(opts.concrete_fields, opts.private_fields):
-            data[f.name] = [i.id for i in f.value_from_object(instance)]
+            print("_____________")
+            print(f.name)
+            if f.name == 'image':
+                data[f.name] = f.value_from_object(self).path
+                print(f.value_from_object(self).path)
+            else:
+                data[f.name] = f.value_from_object(self)
         return data

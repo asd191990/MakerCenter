@@ -19,18 +19,17 @@
 
     <input class="searchbox" type="text" v-model="search" placeholder="Search ..." />
 
-    <!-- <table cellpadding="10"; style="width: 100%; " border=" 1px solid; border-collapse:collapse;" class="tablestyle"> -->
-    <table class="tablestyle" cellpadding="18" style="word-break:break-all;">
+    <table class="tablestyle" cellpadding="20" style="word-break:break-all;">
         <thead>
-            <tr class="bg-danger" style="height: 100px; ">
-                <th style="width: 25%; padding:30px">設備名稱</th>
-                <th style="width: 75%; padding-left: 30px;">設備介紹</th>
+            <tr class="bg-danger" style="height: auto; ">
+                <th style="width: 30%;">設備名稱</th>
+                <th style="width: 70%;">設備介紹</th>
             </tr>
         </thead>
         <tbody style="height: auto;">
             <tr style="height: auto; line-height: 32px;" v-for="item in ListSearch">
-                <td style="text-align: left; padding: 30px;">${item.name}</td>
-                <td style="padding: 30px; text-align: justify;">
+                <td style="text-align: left;">${item.name}</td>
+                <td style="text-align: justify;">
                     ${item.description}</td>
             </tr>
         </tbody>

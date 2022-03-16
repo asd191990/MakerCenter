@@ -1,4 +1,4 @@
-from .models import News,Course,Group,DownLoadFiles,ClassroomIntroducts,Equipment,Space
+from .models import News,Course,Group,DownLoadFiles,ClassroomIntroducts,Equipment,Space,Memebers
 def DBprocess(dbtype):
     switch_db = {
         "classroom":Course,
@@ -6,6 +6,7 @@ def DBprocess(dbtype):
         "DownLoadFiles":DownLoadFiles,
         "News":News,
         "Equipment":Equipment,
-        "Space":Space
+        "Space":Space,
+        "Memebers":Memebers
     }
     return switch_db.get(dbtype)

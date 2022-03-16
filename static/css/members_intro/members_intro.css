@@ -1,7 +1,7 @@
 .container-1 {
     font-family: Roboto;
     font-style: normal;
-    width: 70%;
+    width: 65%;
     margin: auto;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .tablestyle {
-    border-style: solid;
+    border: 2px solid;
     border-color: #000000;
     border-collapse: collapse;
     margin: 40px auto 110px;
@@ -49,4 +49,17 @@
     line-height: 24px;
     position: relative;
     top: 20%;
+}
+
+@media (max-width:1460px) {
+    .type-1{
+        display: none;
+    }
+
+}
+@media (max-width:1280px) {
+    .type-2{
+        display: none;
+    }
+
 }

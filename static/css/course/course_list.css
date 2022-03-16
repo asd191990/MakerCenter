@@ -45,6 +45,7 @@
 
 .content {
     margin: auto 12px auto 10px;
+    cursor: pointer;
 }
 
 .color-1 {
@@ -111,7 +112,7 @@
 }
 
 .box {
-
+    cursor: pointer;
     width: 323px;
     margin-left: 42px;
     margin-right: 42px;
