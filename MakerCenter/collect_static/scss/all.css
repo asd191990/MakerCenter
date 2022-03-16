@@ -7318,4 +7318,60 @@ section {
       color: white;
       text-align: center; }
 
+.news .title {
+  position: relative;
+  top: -30px; }
+
+.news .news-section {
+  position: relative; }
+
+.news .news-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background-color: black;
+  transform: translateX(-50%); }
+
+@media (max-width: 576px) {
+  .news .news-section::after {
+    display: none; } }
+
+.news .pagination {
+  justify-content: center; }
+  .news .pagination .page-item:first-child .page-link, .news .pagination .page-item:last-child .page-link {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0; }
+  .news .pagination .page-item.active .page-link {
+    background-color: #ff5b5b;
+    border-color: #ff5b5b; }
+    .news .pagination .page-item.active .page-link:hover, .news .pagination .page-item.active .page-link:focus, .news .pagination .page-item.active .page-link:not(:disabled):not(.disabled):active {
+      background-color: #ff5b5b;
+      border-color: #ff5b5b;
+      box-shadow: 0 0 0 0.2rem rgba(253, 108, 108, 0.5); }
+  .news .pagination .page-item .page-link {
+    transform: skewX(-30deg);
+    background-color: #c9c9c9; }
+    .news .pagination .page-item .page-link:hover, .news .pagination .page-item .page-link:focus, .news .pagination .page-item .page-link:not(:disabled):not(.disabled):active {
+      box-shadow: 0 0 0 0.2rem rgba(253, 108, 108, 0.5); }
+
+.professional .bg-cover {
+  background-size: cover;
+  background-position: center center;
+  position: relative; }
+  .professional .bg-cover:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+    z-index: 2; }
+
+.professional .professional-title {
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  color: white; }
+
 /*# sourceMappingURL=all.css.map */

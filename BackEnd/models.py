@@ -128,11 +128,12 @@ class DownLoadFiles(models.Model):
         for f in chain(opts.concrete_fields, opts.private_fields):
             print("_____________")
             print(f.name)
-            if f.name == 'image':
+            if f.name == 'filepath':
                 data[f.name] = f.value_from_object(self).path
-                print(f.value_from_object(self).path)
+                print(f.value_from_object(self))
             else:
                 data[f.name] = f.value_from_object(self)
+        print(data)
         return data
 
 
@@ -157,11 +158,7 @@ class Memebers(models.Model):
         for f in chain(opts.concrete_fields, opts.private_fields):
             print("_____________")
             print(f.name)
-            if f.name == 'image':
-                data[f.name] = f.value_from_object(self).path
-                print(f.value_from_object(self).path)
-            else:
-                data[f.name] = f.value_from_object(self)
+            data[f.name] = f.value_from_object(self)
         return data
 
 
