@@ -20,7 +20,7 @@
 }
 
 .searchbox {
-    width: 24%;
+    width: 21.49%;
     height: 35px;
     position: relative;
     float: left;
@@ -28,7 +28,6 @@
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 5px;
-    /*padding-left: 10px;*/
 }
 
 .rightspace {
