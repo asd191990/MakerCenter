@@ -2,14 +2,23 @@ from django.shortcuts import render
 
 from django.http import Http404, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404
-from BackEnd.models import Group,ClassroomIntroducts,Course,DownLoadFiles
+from BackEnd.models import Group,ClassroomIntroducts,Course,DownLoadFiles,News
 from BackEnd.fuc import DBprocess
 from django.views.decorators.csrf import csrf_exempt
 import os
 from django.http import StreamingHttpResponse,FileResponse
+from django.core.paginator import Paginator
 
 def index(request):
-    return render(request, "FrontEnd/index/index.html")
+    news = News.objects.all().order_by('id')
+    # 顯示三筆資料
+    paginator = Paginator(news, 3)
+    page = request.GET.get('page')
+    news = paginator.get_page(page)
+    context = {
+        'news':news
+    }
+    return render(request, "FrontEnd/index/index.html",context)
 
 def coursepage(request):
     return render(request, "FrontEnd/course-page/course-page.html")

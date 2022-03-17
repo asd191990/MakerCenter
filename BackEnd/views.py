@@ -17,9 +17,10 @@ def DBlist(request,dbtype):
     else:        
         getdata = getdb.objects.all()
         for one_data in getdata:
-            if one_data.get_type_display() != None:
+            if getdb != Memebers and getdb != Space and getdb != Equipment:
+                # if one_data.get_type_display() != None:
                 one_data.type = one_data.get_type_display()
-                # print(one_data.typeshow)
+                print(one_data.type)
             data = one_data.to_dict()
             print("-------------------")
             print(data)
