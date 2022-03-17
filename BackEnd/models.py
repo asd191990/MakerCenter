@@ -199,7 +199,7 @@ class Group(models.Model):
 # 空間介紹
 
 class Space(models.Model):
-    code = models.CharField(max_length=4,verbose_name='教室代碼')
+    code = models.CharField(max_length=8,verbose_name='教室代碼')
     name = models.CharField(max_length=30,verbose_name='教室名稱')
     space_description = models.TextField(verbose_name='空間介紹')
     number = models.CharField(max_length=30,verbose_name='容納人數')

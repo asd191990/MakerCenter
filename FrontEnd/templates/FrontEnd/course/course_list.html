@@ -77,9 +77,10 @@
                     console.table(getdata);
                     console.log(getdata)
                     for (let i = 0; i < getdata.length; i++) {
-                        // getdata[i]["url"] = getdata[i].image.path
-                        // getdata[i].image = getdata[i].image.path
-                        // console.log(getdata[i].typeshow)
+                        getdata[i].content = getdata[i].content.replace(/(<([^>]+)>)/ig, "").substr(0,20);
+                        if (getdata[i].content.length >= 20) {
+                            getdata[i].content+="......"
+                        }
                         if (getdata[i].type == "1")
                             getdata[i]["typecss"] = 'coursecolor-1';
                         else
