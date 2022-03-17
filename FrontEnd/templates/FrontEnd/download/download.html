@@ -88,7 +88,7 @@
                     })
                 } else {
                     return this.downloadList.filter(box => {
-                        return box.type.includes(this.type)
+                        return box.type.includes(this.type)&&(box.title.includes(this.search)||box.content.includes(this.search))
                     })
                 }
             }
