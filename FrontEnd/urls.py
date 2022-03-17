@@ -12,6 +12,8 @@ urlpatterns = [
     path('news_list/', views.newslist, name='news_list'),
     path('space_intro/', views.spaceintro, name='space_intro'),
     path('course_list/', views.courselist, name='course_list'),
+    path('course_list/<str:type>', views.courselist_gettype, name='courselist_gettype'),
+    
     path('equipment_intro/', views.equipmentintro, name='equipment_intro'),
     path('members_intro/', views.membersintro, name='members_intro'),
     path('download/', views.download, name='download'),

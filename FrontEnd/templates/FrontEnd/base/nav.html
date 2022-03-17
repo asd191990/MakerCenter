@@ -40,8 +40,8 @@
                         課程列表
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                        <a class="dropdown-item" href="{%url 'course_list' %}">專業實作課程</a>
-                        <a class="dropdown-item" href="#">核心實作課程</a>
+                        <a class="dropdown-item" href="{% url 'courselist_gettype' '專業' %}">專業實作課程</a>
+                        <a class="dropdown-item" href="{% url 'courselist_gettype' '核心' %}">核心實作課程</a>
                         <a class="dropdown-item" href="#">微學分課程及工作坊</a>
                     </div>
                 </li>

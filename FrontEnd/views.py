@@ -47,9 +47,18 @@ def downloadFile(request, getid):
     return response
 
     # return render(request, "FrontEnd/index/index.html")
+def courselist_gettype(request, type):
+    print("得到的type")
+    print(type)
+    context = {
+        'coursetype':type
+    }
+    return render(request, "FrontEnd/course/course_list.html",context)
 
 def courselist(request):
     return render(request, "FrontEnd/course/course_list.html")
+
+
 
 def basesingle(request,dbtype,id):
     getdb = DBprocess(dbtype)
