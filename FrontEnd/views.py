@@ -2,14 +2,30 @@ from django.shortcuts import render
 
 from django.http import Http404, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404
-from BackEnd.models import Group,ClassroomIntroducts,Course,DownLoadFiles
+from BackEnd.models import Group,ClassroomIntroducts,Course,DownLoadFiles,News
 from BackEnd.fuc import DBprocess
 from django.views.decorators.csrf import csrf_exempt
 import os
 from django.http import StreamingHttpResponse,FileResponse
+from django.core.paginator import Paginator
 
 def index(request):
-    return render(request, "FrontEnd/index/index.html")
+    news = News.objects.all()
+    # 顯示三筆資料
+    paginator = Paginator(news, 3)
+    # 獲取url中的頁碼，比如第一頁，我們需要在url末尾中新增 ?page=1
+    page = request.GET.get('page')
+    # 獲取相應的頁碼的資料，比如page=1，第一頁，這裡獲取得到第一頁的資料內容
+    news = paginator.get_page(page)
+    # 獲取一共分出來了多少頁，前端展示所有頁碼數的時候需要用到該數
+    print("總共有",paginator.num_pages,"頁")
+    print("多少資料",paginator.object_list)
+    print(news.paginator.page_range)
+
+    context = {
+        'news': news
+    }
+    return render(request, "FrontEnd/index/index.html",context)
 
 def coursepage(request):
     return render(request, "FrontEnd/course-page/course-page.html")
