@@ -1,13 +1,13 @@
 .container-1 {
     font-family: Roboto;
     font-style: normal;
-    width: 58%;
+    width: 62%;
     margin: auto;
 }
 
 .wire {
     position: relative;
-    width: 75%;
+    width: 72%;
     border: 2px solid #000000;
 }
 
@@ -21,6 +21,11 @@
     text-align: center;
 }
 
+.content-1{
+    font-size: 20px;
+    margin: 70px auto;
+    width: 75%;
+}
 
 .second-title {
     width: 70%;
@@ -43,15 +48,6 @@
     margin: auto;
 }
 
-.tablesection {
-    width: 60%;
-    margin: 120px auto auto;
-}
-
-.tablestyle {
-    border-style: solid;
-    border-color: #000000;
-    border-collapse: collapse;
-    margin: 20px auto 110px;
-    font-size: 24px;
+.table {
+    border: none;
 }

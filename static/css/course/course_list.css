@@ -112,7 +112,7 @@
 
 .box {
     cursor: pointer;
-    width: 323px;
+    width: 324px;
     margin-left: 42px;
     margin-right: 42px;
     margin-bottom: 30px;
@@ -128,9 +128,8 @@
 }
 
 .coursephoto {
-    width: 100%;
-    position: relative;
-    /*top: -6.7%;*/
+    width: 320px;
+    height: 222px;
 }
 
 
