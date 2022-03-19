@@ -1,15 +1,17 @@
-<section class="news">
+<section class="news" id="app">
     <div class="container-fluid bg-light p-2">
         <div class="container text-center">
             <h2 class="title">最新消息</h2>
             <ul class="news-section list-unstyled">
+                <!-- 迴圈 news.paginator.object_list -->
+                <!-- 顯示三筆資料 -->
                 {% for n in news %}
                 <li class="row my-1">
                     <div class="col-sm-6">
-                        <h4>{{ n.created_date}}</h4>
+                        <h4>{{ n.created_date }}</h4>
                     </div>
                     <div class="col-sm-6">
-                        <h4>{{ n.title}}</h4>
+                        <h4>{{ n.title }}</h4>
                     </div>
                 </li>
                 {% endfor %}

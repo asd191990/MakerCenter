@@ -20,7 +20,7 @@
 }
 
 .searchbox {
-    width: 24%;
+    width: 21.49%;
     height: 35px;
     position: relative;
     float: left;
@@ -28,7 +28,6 @@
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 5px;
-    /*padding-left: 10px;*/
 }
 
 .rightspace {
@@ -113,7 +112,7 @@
 
 .box {
     cursor: pointer;
-    width: 323px;
+    width: 324px;
     margin-left: 42px;
     margin-right: 42px;
     margin-bottom: 30px;
@@ -129,9 +128,8 @@
 }
 
 .coursephoto {
-    width: 100%;
-    position: relative;
-    /*top: -6.7%;*/
+    width: 320px;
+    height: 222px;
 }
 
 
