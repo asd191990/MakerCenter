@@ -69,7 +69,7 @@
             MemeberListSearch() {
                 if (this.type === "") {
                     return this.dataList.filter(box => {
-                        return box.name.includes(this.search);
+                        return box.name.includes(this.search)||box.extension.includes(this.search)||box.email.includes(this.search)||box.work.includes(this.search)||box.location.includes(this.search);
                     })
                 }
             }

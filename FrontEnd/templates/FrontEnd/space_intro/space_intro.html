@@ -67,7 +67,7 @@
         }, computed: {
             ListSearch() {
                 return this.dataList.filter(box => {
-                    return box.name.includes(this.search);
+                    return box.name.includes(this.search)|| box.code.includes(this.search)|| box.equipment_description.includes(this.search);
                 })
             }
         }

@@ -55,7 +55,6 @@
             axios.post("{% url 'apigetdblist' 'Equipment' %}")
                 .then((response) => {
                     let getdata = response.data;
-                    console.log(getdata);
                     this.dataList = getdata;
                 })
                 .catch((error) => console.log(error));
