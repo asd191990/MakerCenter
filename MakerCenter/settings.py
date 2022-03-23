@@ -181,6 +181,7 @@ STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'collect_static')
  # 原來的靜態資料夾路徑
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "collect_static"),
 ]
 
 MEDIA_URL = '/media/'
@@ -208,12 +209,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CSRF_COOKIE_HTTPONLY = True
 if  DEBUG :
     # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-    SESSION_COOKIE_SECURE = False
+    # SESSION_COOKIE_SECURE = False
 #    SECURE_SSL_REDIRECT = False
 else:
+    # SECURE_BROWSER_XSS_FILTER = True
     # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-    SESSION_COOKIE_SECURE = True
  #   SECURE_SSL_REDIRECT = True
-    SECURE_BROWSER_XSS_FILTER = True
+    # SESSION_COOKIE_SECURE = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
 # MEDIA_ROOT = [os.path.join(BASE_DIR, "media")]
