@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath MakerCenter MakerCenter.wsgi
+web: gunicorn MakerCenter.wsgi –log-file -
