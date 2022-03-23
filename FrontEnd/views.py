@@ -78,9 +78,8 @@ def basesingle(request,dbtype,id):
 
 def classshow(request,id):
     data = Group.objects.get(id=id)
-    datatitle="課程教室 /"
+    # datatitle="課程教室 /"
     context = {
         'data': data,
-        'datatitle': datatitle,
     }
     return render(request, "Frontend/base_single/base_single.html", context)
