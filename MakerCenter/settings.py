@@ -27,15 +27,13 @@ SECRET_KEY = 'django-insecure-7%p9qm@(jy0t1zh)38v@@jjmg*6r2)da6%%bzgp4k(g&_p6$2r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-
-
 ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    #要加在admin前
+    # 要加在admin前
     'admin_volt',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,46 +41,49 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #app
+    # app
     'BackEnd',
     'FrontEnd',
-    #套件
+    # 套件
     'ckeditor',
     'ckeditor_uploader',
     'django_filters',
     'django_cleanup',
-    #scss
+    # scss
     'sass_processor',
 ]
- 
-    ####################################
-        ##  CKEDITOR CONFIGURATION ##
-    ####################################
-    
-CKEDITOR_UPLOAD_PATH = 'uploads/'  #上傳文件的目錄
-CKEDITOR_IMAGE_BACKEND = 'pillow'   #pillow做爲backend
+
+####################################
+##  CKEDITOR CONFIGURATION ##
+####################################
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'  # 上傳文件的目錄
+CKEDITOR_IMAGE_BACKEND = 'pillow'  # pillow做爲backend
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'skin': 'moono-lisa',        
-    'toolbar_Basic': [
+        'skin': 'moono-lisa',
+        'toolbar_Basic': [
             ['Source', '-', 'Bold', 'Italic']
-        ],        
-    'toolbar_Full': [        
-            [ 'SpellChecker', 'Scayt', 'Image','Flash','Table','HorizontalRule','Smiley' ],            
-            [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select'],            '/',        [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ],            
-            [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv', '-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ],            
-            [ 'Link','Unlink'],            '/',            
-            [ 'Styles','Format','Font','FontSize' ] ,            
-            [ 'TextColor','BGColor' ] ,            
-            [ 'ShowBlocks']
+        ],
+        'toolbar_Full': [
+            ['SpellChecker', 'Scayt', 'Image', 'Flash',
+                'Table', 'HorizontalRule', 'Smiley'],
+            ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select'],            '/',        [
+                'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
+                'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl'],
+            ['Link', 'Unlink'],            '/',
+            ['Styles', 'Format', 'Font', 'FontSize'],
+            ['TextColor', 'BGColor'],
+            ['ShowBlocks']
 
         ],
-    'tabSpaces': 2,
-    'width': '100%',
-    'height': '100%',   
-    'toolbar': 'Full', #工具欄全部功能     
-    'extraPlugins': 'codesnippet',   #插入程式code
+        'tabSpaces': 2,
+        'width': '100%',
+        'height': '100%',
+        'toolbar': 'Full',  # 工具欄全部功能
+        'extraPlugins': 'codesnippet',  # 插入程式code
     }
 }
 
@@ -153,8 +154,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -186,7 +185,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # MEDIA_ROOT = [os.path.join(BASE_DIR, "media")]
 
-#### scss setting
+# scss setting
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -215,5 +214,3 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 #  #   SECURE_SSL_REDIRECT = True
 #     # SESSION_COOKIE_SECURE = True
 #     SECURE_CONTENT_TYPE_NOSNIFF = True
-
-
