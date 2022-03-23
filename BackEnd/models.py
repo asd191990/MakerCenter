@@ -1,11 +1,7 @@
 import imp
-from importlib.resources import contents
-from turtle import update
 from django.db import models
 from django.utils import timezone
-from django.db.models.fields import DateTimeField
 # django-ckeditor
-from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 from itertools import chain
 
