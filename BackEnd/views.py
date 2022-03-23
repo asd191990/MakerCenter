@@ -8,7 +8,6 @@ from .fuc import DBprocess
 
 @csrf_exempt
 def DBlist(request,dbtype):
-    print(dbtype)
     getdb =DBprocess(dbtype)
     datalist = []
     if dbtype ==None:
