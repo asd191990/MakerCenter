@@ -39,10 +39,9 @@
         <input class="searchbox" type="text" v-model="search" placeholder="Search 課程名稱.." />
     </div>
 
-
     <div class="container-1">
         <div class="box" v-for="classbox in filteredList" v-bind:class="classbox.typecss" @click='urllead(classbox.id)'>
-            <img class="coursephoto" v-bind:src="'{{MEDIA_URL}}' + classbox.image" v-bind:alt="classbox.image" />
+            <img class="coursephoto" v-bind:src="classbox.image" v-bind:alt="classbox.image" />
             <div class="classdate">${classbox.update_date}</div>
 
             <div class="markbox">

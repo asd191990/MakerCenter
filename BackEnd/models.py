@@ -30,8 +30,8 @@ class News(models.Model):
             print("_____________")
             print(f.name)
             if f.name == 'image':
-                data[f.name] = f.value_from_object(self).path
-                print(f.value_from_object(self).path)
+                data[f.name] = f.value_from_object(self).url
+                print(f.value_from_object(self).url)
             else:
                 data[f.name] = f.value_from_object(self)
         return data
@@ -63,7 +63,7 @@ class Course(models.Model):
             print("_____________")
             print(f.name)
             if f.name == 'image':
-                data[f.name] = f.value_from_object(self).path
+                data[f.name] = f.value_from_object(self).url
                 print(f.value_from_object(self))
             else:
                 data[f.name] = f.value_from_object(self)
@@ -91,8 +91,8 @@ class ClassroomIntroducts(models.Model):
             print("_____________")
             print(f.name)
             if f.name == 'image':
-                data[f.name] = f.value_from_object(self).path
-                print(f.value_from_object(self).path)
+                data[f.name] = f.value_from_object(self).url
+                print(f.value_from_object(self).url)
             else:
                 data[f.name] = f.value_from_object(self)
         return data
@@ -125,7 +125,7 @@ class DownLoadFiles(models.Model):
             print("_____________")
             print(f.name)
             if f.name == 'filepath':
-                data[f.name] = f.value_from_object(self).path
+                data[f.name] = f.value_from_object(self).url
                 print(f.value_from_object(self))
             else:
                 data[f.name] = f.value_from_object(self)
@@ -185,8 +185,8 @@ class Group(models.Model):
             print("_____________")
             print(f.name)
             if f.name == 'image':
-                data[f.name] = f.value_from_object(self).path
-                print(f.value_from_object(self).path)
+                data[f.name] = f.value_from_object(self).url
+                print(f.value_from_object(self).url)
             else:
                 data[f.name] = f.value_from_object(self)
         return data
@@ -214,8 +214,8 @@ class Space(models.Model):
             print("_____________")
             print(f.name)
             if f.name == 'image':
-                data[f.name] = f.value_from_object(self).path
-                print(f.value_from_object(self).path)
+                data[f.name] = f.value_from_object(self).url
+                print(f.value_from_object(self).url)
             else:
                 data[f.name] = f.value_from_object(self)
         return data
@@ -239,8 +239,8 @@ class Equipment(models.Model):
             print("_____________")
             print(f.name)
             if f.name == 'image':
-                data[f.name] = f.value_from_object(self).path
-                print(f.value_from_object(self).path)
+                data[f.name] = f.value_from_object(self).url
+                print(f.value_from_object(self).url)
             else:
                 data[f.name] = f.value_from_object(self)
         return data
