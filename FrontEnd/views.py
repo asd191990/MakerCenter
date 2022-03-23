@@ -6,7 +6,7 @@ from BackEnd.models import Group,ClassroomIntroducts,Course,DownLoadFiles,News
 from BackEnd.fuc import DBprocess
 from django.views.decorators.csrf import csrf_exempt
 import os
-from django.http import StreamingHttpResponse,FileResponse
+from django.http import StreamingHttpResponse
 from django.core.paginator import Paginator
 
 def index(request):
