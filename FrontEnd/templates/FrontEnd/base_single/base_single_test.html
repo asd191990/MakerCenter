@@ -1,0 +1,23 @@
+{% extends 'FrontEnd/base/base.html' %}
+
+{% block import %}
+
+{% load static%}
+<link rel="stylesheet" href="{% static 'css/base_single/base_single.css' %}">
+
+{% endblock %}
+
+{% block main %}
+
+<section class="container-1">
+    <div class="title-1">{{data.datatitle}}{{data.title}}</div>
+    <hr class="wire">
+
+    
+    <div class="content-1">
+        {{data.content | safe}}
+    </div>
+
+</section>
+
+{% endblock %}

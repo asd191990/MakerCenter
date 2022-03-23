@@ -82,4 +82,4 @@ def classshow(request,id):
     context = {
         'data': data,
     }
-    return render(request, "Frontend/base_single/base_single.html", context)
+    return render(request, "Frontend/base_single/base_single_test.html", context)
