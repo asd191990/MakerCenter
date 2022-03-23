@@ -1,11 +1,15 @@
 
-from django.urls import path, re_path
+# from django.conf import settings
+# from django.views.static import serve
 
+from django.urls import path, re_path
 from . import views
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+    # path('media/', serve,{'document_root': settings.MEDIA_ROOT}),
+    # path('static/', serve,{'document_root': settings.STATIC_ROOT}),
     path('', views.index, name='index'),
     path('course-page/', views.coursepage, name='course-page'),
     path('position/', views.position, name='position'),

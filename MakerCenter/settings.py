@@ -176,7 +176,9 @@ DATETIME_FORMAT = "Y/m/d H:i:s"
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
+# 建立自己新的靜態資料夾
 STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'collect_static')
+ # 原來的靜態資料夾路徑
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
@@ -205,10 +207,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CSRF_COOKIE_HTTPONLY = True
 if  DEBUG :
+    # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
     SESSION_COOKIE_SECURE = False
 #    SECURE_SSL_REDIRECT = False
 else:
+    # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
     SESSION_COOKIE_SECURE = True
  #   SECURE_SSL_REDIRECT = True
     SECURE_BROWSER_XSS_FILTER = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
+# MEDIA_ROOT = [os.path.join(BASE_DIR, "media")]
