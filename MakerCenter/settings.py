@@ -206,15 +206,15 @@ SASS_PRECISION = 8
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# CSRF_COOKIE_HTTPONLY = True
-if  DEBUG :
-    # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-    # SESSION_COOKIE_SECURE = False
-#    SECURE_SSL_REDIRECT = False
-else:
-    # SECURE_BROWSER_XSS_FILTER = True
-    # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
- #   SECURE_SSL_REDIRECT = True
-    # SESSION_COOKIE_SECURE = True
-    SECURE_CONTENT_TYPE_NOSNIFF = True
+# # CSRF_COOKIE_HTTPONLY = True
+# if  DEBUG :
+#     # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+#     # SESSION_COOKIE_SECURE = False
+# #    SECURE_SSL_REDIRECT = False
+# else:
+#     # SECURE_BROWSER_XSS_FILTER = True
+#     # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#  #   SECURE_SSL_REDIRECT = True
+#     # SESSION_COOKIE_SECURE = True
+#     SECURE_CONTENT_TYPE_NOSNIFF = True
 # MEDIA_ROOT = [os.path.join(BASE_DIR, "media")]
