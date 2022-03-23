@@ -177,8 +177,8 @@ DATETIME_FORMAT = "Y/m/d H:i:s"
 
 STATIC_URL = '/static/'
 # 建立自己新的靜態資料夾
-STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'collect_static')
-print(BASE_DIR)
+STATIC_ROOT = os.path.join(BASE_DIR, 'collect_static')
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     os.path.join(BASE_DIR, "collect_static"),
@@ -217,4 +217,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #  #   SECURE_SSL_REDIRECT = True
 #     # SESSION_COOKIE_SECURE = True
 #     SECURE_CONTENT_TYPE_NOSNIFF = True
-# MEDIA_ROOT = [os.path.join(BASE_DIR, "media")]
+
+
+MEDIA_ROOT = [os.path.join(BASE_DIR, "media")]
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
