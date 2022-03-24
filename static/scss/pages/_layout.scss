@@ -1,7 +1,7 @@
 $primary: #be0000;
 $secondary: #d1ccd1;
 
-section{
+section {
     margin-bottom: 60px;
 }
 
@@ -70,6 +70,12 @@ section{
     border-right: 2px solid gray;
     &:last-child {
         border: none;
+    }
+}
+
+@media (min-width: 992px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
     }
 }
 

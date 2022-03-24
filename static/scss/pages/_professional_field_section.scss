@@ -16,3 +16,12 @@
         color: white;
     }
 }
+
+@media (max-width: 576px) {
+    .convener {
+        height: 50% !important;
+    }
+    .new-tech {
+        margin-top: 600px;
+    }
+}
