@@ -7,6 +7,8 @@ admin.site.site_header = '大勱客後台管理中心'
 admin.site.site_title = '大勱客後台管理中心'
 admin.site.index_title = '管理中心'
 
+admin.site.index_template = 'admin/index.html'
+admin.autodiscover()
 # 客製化欄位顯示
 class NewsAdmin(admin.ModelAdmin):
     list_display = ('title', 'content', 'type', 'created_date', 'update_date')
