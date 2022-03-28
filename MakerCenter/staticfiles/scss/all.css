@@ -7248,6 +7248,10 @@ section {
   .nav-item:last-child {
     border: none; }
 
+@media (min-width: 992px) {
+  .dropdown:hover .dropdown-menu {
+    display: block; } }
+
 @media (max-width: 992px) {
   .nav-item {
     border: none; }
@@ -7374,4 +7378,10 @@ section {
   bottom: 0;
   color: white; }
 
-/*# sourceMappingURL=../../../../static/scss/all.css.map */
+@media (max-width: 576px) {
+  .convener {
+    height: 50% !important; }
+  .new-tech {
+    margin-top: 600px; } }
+
+/*# sourceMappingURL=all.css.map */
