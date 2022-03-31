@@ -1,28 +1,29 @@
+{% load static %}
 <section class="professional overflow-hidden">
     <div class="container">
         <section>
             <h2 class="title text-center">專業領域小組</h2>
             <div class="row" style="height:50vh">
                 <a href="{% url 'members_intro' %}" class="col-12 col-sm-6 bg-cover h-100 convener"
-                    style="background-image: url(https://picsum.photos/1000/1000?random=8);">
+                    style="background-image:url({% static 'img/index/host.jpg' %})">
                     <h3 class="professional-title">召集人/副召集人</h3>
                 </a>
                 <div class="col-12 col-sm-6">
                     <div class="row" style="height:50vh">
-                        <a href="{% url 'classshow' 1 %}" class="col-sm-6 bg-cover h-50"
-                            style="background-image: url(https://picsum.photos/1000/1000?random=9);">
+                        <a href="{% url 'thesingle' 'Group' 1 %}" class="col-sm-6 bg-cover h-50"
+                            style="background-image:url({% static 'img/index/SmartManufacturing.jpg' %});">
                             <h3 class="professional-title">智慧製造</h3>
                         </a>
-                        <a href="{% url 'classshow' 2 %}" class="col-sm-6 bg-cover h-50"
-                            style="background-image: url(https://picsum.photos/1000/1000?random=10);">
+                        <a href="{% url 'thesingle' 'Group' 2 %}" class="col-sm-6 bg-cover h-50"
+                            style="background-image: url({% static 'img/index/Infocom.jpg' %});">
                             <h3 class="professional-title">資訊通</h3>
                         </a>
-                        <a href="{% url 'classshow' 3 %}" class="col-sm-6 bg-cover h-50"
-                            style="background-image: url(https://picsum.photos/1000/1000?random=11);">
+                        <a href="{% url 'thesingle' 'Group' 3 %}" class="col-sm-6 bg-cover h-50"
+                            style="background-image: url({% static 'img/index/robot.jpg' %});">
                             <h3 class="professional-title">機器人</h3>
                         </a>
-                        <a href="{% url 'classshow' 4 %}" class="col-sm-6 bg-cover h-50"
-                            style="background-image: url(https://picsum.photos/1000/1000?random=12);">
+                        <a href="{% url 'thesingle' 'Group' 4 %}" class="col-sm-6 bg-cover h-50"
+                            style="background-image: url({% static 'img/index/Maker.jpg' %});">
                             <h3 class="professional-title">創課</h3>
                         </a>
                     </div>
@@ -32,10 +33,13 @@
         <section class="new-tech">
             <h2 class="title text-center">元宇宙 最新科技</h2>
             <div class="text-center">
-                <img src="https://picsum.photos/1000/1000?random=13" class="img-fluid" alt="最新科技">
+            <a href="{% url 'thesingle' 'Group' 1 %}">
+                <img src="{% static 'img/index/FormerUniverse.jpg' %}" style="width: 100%;height: 100%;"
+                    class="img-fluid" alt="最新科技">
+                    </a>
             </div>
             <h4 class="text-right">
-                <a href="#" class="text-dark"> > 快速了解他們！</a>
+                <a href="{% url 'thesingle' 'Group' 1 %}" class="text-dark"> > 快速了解他們！</a>
             </h4>
         </section>
     </div>

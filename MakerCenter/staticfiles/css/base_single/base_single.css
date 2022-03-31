@@ -1,0 +1,53 @@
+.container-1 {
+    font-family: Roboto;
+    font-style: normal;
+    width: 62%;
+    margin: auto;
+}
+
+.wire {
+    position: relative;
+    width: 72%;
+    border: 2px solid #000000;
+}
+
+.title-1 {
+    width: 74%;
+    font-size: 48px;
+    line-height: 56px;
+    display: flex;
+    margin: 90px auto 30px;
+    align-items: center;
+    text-align: center;
+}
+
+.content-1{
+    font-size: 20px;
+    margin: 70px auto;
+    width: 75%;
+}
+
+.second-title {
+    width: 70%;
+    margin: 60px auto 50px;
+    font-size: 36px;
+    line-height: 42px;
+    display: flex;
+    align-items: center;
+}
+
+.second-title-2 {
+    font-size: 36px;
+    line-height: 42px;
+    position: relative;
+    /*display: flex;  align-items: center; */
+}
+
+.img {
+    display: block;
+    margin: auto;
+}
+
+.table {
+    border: none;
+}

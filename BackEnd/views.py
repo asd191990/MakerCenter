@@ -1,4 +1,3 @@
-from multiprocessing import context
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect,JsonResponse
 from .forms import NewsForm
@@ -9,7 +8,6 @@ from .fuc import DBprocess
 
 @csrf_exempt
 def DBlist(request,dbtype):
-    print(dbtype)
     getdb =DBprocess(dbtype)
     datalist = []
     if dbtype ==None:

@@ -11,7 +11,7 @@
                         <h4>{{ n.created_date }}</h4>
                     </div>
                     <div class="col-sm-6">
-                        <h4>{{ n.title }}</h4>
+                        <h4><a href="{% url 'thesingle' 'News' n.pk %}">{{ n.title }}</a></h4>
                     </div>
                 </li>
                 {% endfor %}

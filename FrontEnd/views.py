@@ -6,7 +6,7 @@ from BackEnd.models import Group,ClassroomIntroducts,Course,DownLoadFiles,News
 from BackEnd.fuc import DBprocess
 from django.views.decorators.csrf import csrf_exempt
 import os
-from django.http import StreamingHttpResponse,FileResponse
+from django.http import StreamingHttpResponse
 from django.core.paginator import Paginator
 
 def index(request):
@@ -54,9 +54,18 @@ def downloadFile(request, getid):
     return response
 
     # return render(request, "FrontEnd/index/index.html")
+def courselist_gettype(request, type):
+    print("得到的type")
+    print(type)
+    context = {
+        'coursetype':type
+    }
+    return render(request, "FrontEnd/course/course_list.html",context)
 
 def courselist(request):
     return render(request, "FrontEnd/course/course_list.html")
+
+
 
 def basesingle(request,dbtype,id):
     getdb = DBprocess(dbtype)
@@ -69,9 +78,8 @@ def basesingle(request,dbtype,id):
 
 def classshow(request,id):
     data = Group.objects.get(id=id)
-    datatitle="課程教室 /"
+    # datatitle="課程教室 /"
     context = {
         'data': data,
-        'datatitle': datatitle,
     }
-    return render(request, "Frontend/base_single/base_single.html", context)
+    return render(request, "Frontend/base_single/base_single_test.html", context)
