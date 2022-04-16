@@ -7297,9 +7297,10 @@ section {
       border-bottom: 4px solid white;
       margin: auto; }
   .about-us-bg-primary .title {
+    font-size: 60px;
     margin-top: 60px; }
   .about-us-bg-primary .sub-title {
-    margin-top: 120px; }
+    font-size: 50px; }
   .about-us-bg-primary p {
     margin-left: 45px;
     padding-bottom: 60px; }
@@ -7311,12 +7312,14 @@ section {
   align-items: center;
   justify-content: space-between; }
   .about-us-bg-secondary .title {
+    font-size: 60px;
     margin-top: 60px; }
   .about-us-bg-secondary .sub-title {
+    font-size: 50px;
     padding-bottom: 60px; }
   .about-us-bg-secondary .heightlight {
     font-weight: 700;
-    font-size: 30px; }
+    font-size: 50px; }
     .about-us-bg-secondary .heightlight span {
       display: block;
       color: white;
@@ -7364,6 +7367,7 @@ section {
       box-shadow: 0 0 0 0.2rem rgba(253, 108, 108, 0.5); }
 
 .professional .bg-cover {
+  border: solid 2px white;
   background-size: cover;
   background-position: center center;
   position: relative; }
