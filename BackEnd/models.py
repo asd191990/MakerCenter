@@ -225,6 +225,7 @@ class Space(models.Model):
 class Equipment(models.Model):
     name = models.CharField(max_length=30,verbose_name='設備名稱')
     description = models.TextField(verbose_name='設備介紹')
+    image = models.ImageField(upload_to="equipmentimage", null=True)
     created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
     class Meta:
