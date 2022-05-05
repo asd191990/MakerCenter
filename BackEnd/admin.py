@@ -29,7 +29,7 @@ class GroupsAdmin(admin.ModelAdmin):
 class SpaceAdmin(admin.ModelAdmin):
     list_display = ('code', 'name', 'space_description', 'number', 'equipment_description', 'created_date', 'update_date')
 class EquipmentAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'created_date', 'update_date')
+    list_display = ('id','content', 'number', 'remark', 'created_date', 'update_date')
 
 # admin要註冊才可以管理這些Table
 admin.site.register(News, NewsAdmin)

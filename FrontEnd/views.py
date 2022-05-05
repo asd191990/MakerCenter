@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from django.http import Http404, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404
-from BackEnd.models import Group,ClassroomIntroducts,Course,DownLoadFiles,News
+from BackEnd.models import Group,ClassroomIntroducts,Course,DownLoadFiles,News,Equipment
 from BackEnd.fuc import DBprocess
 from django.views.decorators.csrf import csrf_exempt
 import os
@@ -35,8 +35,16 @@ def newslist(request):
     return render(request, "FrontEnd/news_list/news_list.html")
 def spaceintro(request):
     return render(request, "FrontEnd/space_intro/space_intro.html")
+
 def equipmentintro(request):
-    return render(request, "FrontEnd/equipment_intro/equipment_intro.html")
+
+    equipment = Equipment.objects.all()
+
+    context = {
+        'equipment': equipment
+    }
+    return render(request, "FrontEnd/equipment_intro/equipment_intro.html",context)
+
 def membersintro(request):
     return render(request, "FrontEnd/members_intro/members_intro.html")
 def download(request):

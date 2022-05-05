@@ -223,16 +223,19 @@ class Space(models.Model):
 # 設備介紹
 
 class Equipment(models.Model):
-    name = models.CharField(max_length=30,verbose_name='設備名稱')
-    description = models.TextField(verbose_name='設備介紹')
-    image = models.ImageField(upload_to="equipmentimage", null=True)
+
+    content = RichTextUploadingField(verbose_name='設備內文' ,blank=True, null=True)
+    number = models.TextField(verbose_name='數量' ,blank=True, null=True)
+    remark = models.TextField(verbose_name='備註' ,blank=True, null=True)
+
     created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
+
     class Meta:
         verbose_name = "設備介紹"   # 單數
         verbose_name_plural = verbose_name   #複數
     def __str__(self):
-        return self.name
+        return str(self.id)
     def to_dict(self):
         opts = self._meta
         data ={}

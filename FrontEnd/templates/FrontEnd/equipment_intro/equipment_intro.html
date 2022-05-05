@@ -22,20 +22,30 @@
     <table class="tablestyle" cellpadding="20" style="word-break:break-all;">
         <thead>
             <tr class="bg-danger" style="height: auto; ">
-                <th style="width: 30%;">設備名稱</th>
-                <th style="width: 70%;">設備介紹</th>
-                <th style="width: 70%;">設備圖片</th>
+                <th style="width: 60%;">設備內容</th>
+                <th style="width: 10%;">設備數量</th>
+                <th style="width: 70%;">備註</th>
             </tr>
         </thead>
         <tbody style="height: auto;">
-            <tr style="height: auto; line-height: 32px;" v-for="item in ListSearch">
-                <td style="text-align: left;">${item.name}</td>
-                <td style="text-align: justify;">
-                    ${item.description}</td>
+            {% for e in equipment %}
+            <!-- v-for="item in ListSearch" -->
+            <tr style="height: auto; line-height: 32px;">
                 <td style="text-align: left;">
-                    <img class="" v-bind:src="item.image" v-bind:alt="item.image" />
+                    <!-- ${item.content | safe} -->
+                    {{ e.content | safe }}
+                </td>
+                <td style="text-align: justify;">
+                    <!-- ${item.number | linebreaksbr} -->
+                    {{ e.number | linebreaksbr}}
+                </td>
+                <td style="text-align: left;">
+                    <!-- <img class="" v-bind:src="item.image" v-bind:alt="item.image" /> -->
+                    <!-- ${item.remark | linebreaksbr} -->
+                    {{ e.remark | linebreaksbr}}
                 </td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
 
@@ -71,7 +81,7 @@
             ListSearch() {
                 if (this.type === "") {
                     return this.dataList.filter(box => {
-                        return box.name.includes(this.search);
+                        return box.content.includes(this.search);
                     })
                 }
             }

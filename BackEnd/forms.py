@@ -168,15 +168,17 @@ class EquipmentForm(forms.ModelForm):
     class Meta:
         model = Equipment
         
-        fields = ('name', 'description')
+        fields = ('content', 'number', 'remark')
 
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'description': forms.TextInput(attrs={'class': 'form-control'}),
+            'content': forms.TextInput(attrs={'class': 'form-control'}),
+            'number': forms.TextInput(attrs={'class': 'form-control'}),
+            'remark': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
         #預設會是顯示英文欄位，可用labels改成對應中文欄位
         labels = {
-            'name': '設備名稱',
-            'description': '設備描述',
+            'content': '設備說明',
+            'number': '設備數量',
+            'remark': '備註',
         }
