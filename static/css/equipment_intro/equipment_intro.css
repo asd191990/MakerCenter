@@ -9,7 +9,7 @@
     font-size: 48px;
     line-height: 56px;
     display: flex;
-    margin: 60px auto 50px;
+    margin: 90px auto 30px;
     align-items: center;
     text-align: center;
     justify-content: center;
@@ -49,4 +49,8 @@
     line-height: 24px;
     position: relative;
     top: 20%;
+}
+
+.image_1 {
+    width: 100%;
 }
