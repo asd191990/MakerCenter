@@ -52,14 +52,14 @@
     top: 20%;
 }
 
-@media (max-width:689px) {
+@media (max-width:650px) {
     .type-1{
         display: none;
     }
 
 }
 
-@media (max-width:900px) {
+@media (max-width:1300px) {
     img{
         display: none;
     }
