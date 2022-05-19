@@ -45,3 +45,34 @@
     display: block;
     margin: 30px auto;
 }
+
+
+@media (max-width: 1280px) {
+    .contenttext-0 {
+        font-size: 30px;
+        line-height: 33px;
+    }
+    .contenttext-1{
+        font-size: 30px;
+        line-height: 33px;
+    }
+    .container-1 {
+        font-size: 40px;
+        line-height: 46px;
+    }
+}
+
+@media (max-width: 850px) {
+    .contenttext-0 {
+        font-size: 24px;
+        line-height: 28px;
+    }
+    .contenttext-1{
+        font-size: 24px;
+        line-height: 28px;
+    }
+    .container-1 {
+        font-size: 35px;
+        line-height: 40px;
+    }
+}

@@ -208,3 +208,37 @@
         width: 70%;
     }
 }
+
+
+@media (max-width: 1280px) {
+    .classdate{
+        font-size: 22px;
+        line-height: 27px;
+    }
+    .classcontent{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .rightspace{
+        font-size: 20px;
+    }
+    .classtitle {
+        font-size: 24px;
+        line-height: 28px;
+    }
+}
+
+@media (max-width: 767px) {
+    .classdate{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .classcontent{
+        font-size: 18px;
+        line-height: 22px;
+    }
+    .classtitle {
+        font-size: 22px;
+        line-height: 26px;
+    }
+}

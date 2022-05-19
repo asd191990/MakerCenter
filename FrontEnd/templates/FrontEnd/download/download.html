@@ -38,7 +38,7 @@
         </thead>
         <tbody style="height: auto;">
             
-            <tr style="height: auto; line-height: 32px;" v-for="item in downloadListSearch">
+            <tr style="height: auto; line-height: 32px;" v-for="item in downloadListSearch"  class="bg-danger-1">
                 <td style="text-align: justify;" @click="onClick(item.id)"><span class="type-3">${ item.title }</span></td>
                 <td class="type-1">${item.type}</td>
                 <td style="text-align: left;padding-left: 25px;">${item.content}</td>

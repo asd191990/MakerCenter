@@ -126,3 +126,33 @@
         margin-bottom: 30px;
     }
 }
+
+@media (max-width: 1280px) {
+    .second_title{
+        font-size: 22px;
+        line-height: 27px;
+    }
+    .content-1{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .title-1 {
+        font-size: 40px;
+        line-height: 46px;
+    }
+}
+
+@media (max-width: 767px) {
+    .second_title{
+        font-size: 20px;
+        line-height: 23px;
+    }
+    .content-1{
+        font-size: 18px;
+        line-height: 21px;
+    }
+    .title-1 {
+        font-size: 34px;
+        line-height: 38px;
+    }
+}
