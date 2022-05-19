@@ -30,9 +30,9 @@
         <thead>
             <tr class="bg-danger">
                 <th style="width: 28%; ">標題</th>
-                <th style="width: 20%; " class="type-1">類型</th>
-                <th style="width: 25%; padding-left: 25px;">說明</th>
-                <th style="width: 15%;">日期</th>
+                <th style="width: 25%; " class="type-1">類型</th>
+                <th style="width: 17%; padding-left: 25px;">說明</th>
+                <th style="width: 18%;" class="type-4">日期</th>
                 <th style="width: 12%; text-align: center;" class="type-2">下載</th>
             </tr>
         </thead>
@@ -42,7 +42,7 @@
                 <td style="text-align: justify;" @click="onClick(item.id)"><span class="type-3">${ item.title }</span></td>
                 <td class="type-1">${item.type}</td>
                 <td style="text-align: left;padding-left: 25px;">${item.content}</td>
-                <td style="text-align: justify;">${item.update_date}</td>
+                <td style="text-align: justify;" class="type-4">${item.update_date}</td>
                 <td style="text-align: center;" class="type-2" @click="onClick(item.id)">
                     <span class="fa-solid fa-download type-4"></span>
                 </td>
