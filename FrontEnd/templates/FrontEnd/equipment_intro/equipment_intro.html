@@ -22,20 +22,20 @@
     <table class="tablestyle" cellpadding="20" style="word-break:break-all;">
         <thead>
             <tr class="bg-danger" style="height: auto; ">
-                <th style="width: 60%;">設備內容</th>
-                <th style="width: 10%;">設備數量</th>
-                <th style="width: 70%;">備註</th>
+                <th style="width: 50%;" class="type-3">設備內容</th>
+                <th style="width: 10%;" class="type-2">設備數量</th>
+                <th style="width: 40%;" class="type-1">備註</th>
             </tr>
         </thead>
         <tbody style="height: auto;">
-            <tr style="height: auto; line-height: 32px; " v-for="item in ListSearch">
+            <tr style="height: auto; line-height: 32px;" v-for="item in ListSearch" class="bg-danger-1">
                 <td style="text-align: left;" v-html="item.content">
                     ${item.content | safe}
                 </td>
-                <td style="text-align: justify;" >
+                <td style="text-align: justify;"  class="type-2">
                     ${item.number}
                 </td>
-                <td style="text-align: left;" v-html="item.remark">
+                <td style="text-align: left;" v-html="item.remark"  class="type-1">
                     ${item.remark}
                 </td>
             </tr>

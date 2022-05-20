@@ -19,17 +19,17 @@
 
     <table class="tablestyle" cellpadding="20" style="word-break:break-all;">
         <thead>
-            <tr class="bg-danger" style="height: 100px; ">
-                <th style="width: 11%;">姓名</th>
+            <tr class="bg-danger" style="height: auto; ">
+                <th style="width: 11%;" class="type-3">姓名</th>
                 <th style="width: 20%;" class="type-2">分機</th>
-                <th style="width: 23%;">信箱</th>
-                <th style="width: 26%;">業務職掌</th>
-                <th style="width: 22%;" class="type-1">位置</th>
+                <th style="width: 24%;">信箱</th>
+                <th style="width: 27%;">業務職掌</th>
+                <th style="width: 20%;" class="type-1">位置</th>
             </tr>
         </thead>
         <tbody style="height: auto;">
-            <tr style="height: auto; line-height: 32px;" v-for="item in MemeberListSearch">
-                <td style="text-align: left;">${item.name}</td>
+            <tr style="height: auto; line-height: 32px;" v-for="item in MemeberListSearch" class="bg-danger-1">
+                <td style="text-align: left;" class="type-3">${item.name}</td>
                 <td style="text-align: justify;" class="type-2">${item.extension}</td>
                 <td style="text-align: justify;">${item.email}</td>
                 <td style="text-align: justify;">${item.work}</td>
