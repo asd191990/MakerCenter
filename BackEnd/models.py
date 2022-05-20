@@ -21,6 +21,10 @@ class News(models.Model):
     class Meta:
         verbose_name = "最新公告"   # 單數
         verbose_name_plural = verbose_name   #複數
+        ordering = ['-id']
+        # order_with_respect_to = 'id'
+    
+
     def __str__(self):
         return self.title
     def to_dict(self):
@@ -35,7 +39,7 @@ class News(models.Model):
             else:
                 data[f.name] = f.value_from_object(self)
         return data
-
+# News.objects.order_by('id')
 
 # 課程(專業、核心)
 

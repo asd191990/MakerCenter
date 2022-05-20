@@ -28,24 +28,17 @@
             </tr>
         </thead>
         <tbody style="height: auto;">
-            {% for e in equipment %}
-            <!-- v-for="item in ListSearch" -->
-            <tr style="height: auto; line-height: 32px;">
-                <td style="text-align: left;">
-                    <!-- ${item.content | safe} -->
-                    {{ e.content | safe }}
+            <tr style="height: auto; line-height: 32px; " v-for="item in ListSearch">
+                <td style="text-align: left;" v-html="item.content">
+                    ${item.content | safe}
                 </td>
-                <td style="text-align: justify;">
-                    <!-- ${item.number | linebreaksbr} -->
-                    {{ e.number | linebreaksbr}}
+                <td style="text-align: justify;" >
+                    ${item.number}
                 </td>
-                <td style="text-align: left;">
-                    <!-- <img class="" v-bind:src="item.image" v-bind:alt="item.image" /> -->
-                    <!-- ${item.remark | linebreaksbr} -->
-                    {{ e.remark | linebreaksbr}}
+                <td style="text-align: left;" v-html="item.remark">
+                    ${item.remark}
                 </td>
             </tr>
-            {% endfor %}
         </tbody>
     </table>
 
@@ -69,7 +62,20 @@
             axios.post("{% url 'apigetdblist' 'Equipment' %}")
                 .then((response) => {
                     let getdata = response.data;
+                    console.log("測試")
+                    console.log(getdata)
+                    console.log("---------------------")
+
+                    for(var x in getdata){
+                        console.log(getdata[x].remark);
+                        let r = getdata[x].remark.replaceAll("\n", "<br>");
+                        console.log(r);
+                        getdata[x].remark = r;
+                        console.log(getdata[x]);
+                    }
+                    console.log(getdata);
                     this.dataList = getdata;
+                    
                 })
                 .catch((error) => console.log(error));
         },
@@ -81,9 +87,14 @@
             ListSearch() {
                 if (this.type === "") {
                     return this.dataList.filter(box => {
-                        return box.content.includes(this.search);
+                        return box.content.includes(this.search)||box.number.includes(this.search)||box.remark.includes(this.search);
+                        // return box.content.includes(this.search);
                     })
                 }
+                //     return this.dataList.filter(box => {
+                //         return box.content.includes(this.search)||box.number.includes(this.search)||box.remark.includes(this.search);
+                //     })
+                // }
             }
         }
 
