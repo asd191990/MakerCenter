@@ -16,6 +16,18 @@
         bottom: 0;
         color: white;
     }
+    .img-fluid {
+        width: 70%;
+        height: 70%;
+    }
+    .new-tech {
+        .text-right {
+            .text-dark {
+                margin-right: 15%; 
+                line-height: 5rem;
+            }
+        }
+    }
 }
 
 @media (max-width: 576px) {
@@ -24,5 +36,13 @@
     }
     .new-tech {
         margin-top: 600px;
+        .img-fluid {   //new
+            width: 100%;
+        }
+        .text-right {
+            .text-dark {
+                margin-right: 0px !important;
+            }
+        }
     }
 }
