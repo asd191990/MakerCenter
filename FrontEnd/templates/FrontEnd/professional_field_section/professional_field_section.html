@@ -1,7 +1,7 @@
 {% load static %}
 <section class="professional overflow-hidden">
     <div class="container">
-        <section>
+        <section class="interduce">
             <h2 class="title text-center">專業領域小組</h2>
             <div class="row" style="height:50vh">
                 <a href="{% url 'members_intro' %}" class="col-12 col-sm-6 bg-cover h-100 convener"
@@ -34,12 +34,12 @@
             <h2 class="title text-center">元宇宙 最新科技</h2>
             <div class="text-center">
             <a href="{% url 'thesingle' 'Group' 1 %}">
-                <img src="{% static 'img/index/FormerUniverse.jpg' %}" 
-                    class="img-fluid" alt="最新科技">
+                <img src="{% static 'img/index/FormerUniverse.jpg' %}"
+                    class="img-fluid" style="width: 70%;" alt="最新科技">
                     </a>
             </div>
             <h4 class="text-right">
-                <a href="{% url 'thesingle' 'Group' 1 %}" class="text-dark"> > 快速了解他們！</a>
+                <a href="{% url 'thesingle' 'Group' 1 %}" class="text-dark" style="line-height: 5rem; margin-right: 15%;"> > 快速了解他們！</a>
             </h4>
         </section>
     </div>

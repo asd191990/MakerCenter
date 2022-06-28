@@ -13,17 +13,14 @@
 {% block main %}
 
 <section class="container-1" id="app">
+    <input class="searchbox" type="text" v-model="search" placeholder="Search .." />
+
     <div class="rightspace">
         <div class="wire"><div class="text-1" @click="changeType('專業領域小組')">專業領域小組</div></div>
         <div class="wire"><div class="text-2" @click="changeType('課程')">課程</div></div>
         <div class="wire"><div class="text-3" @click="changeType('設備及物品借用')">設備及物品借用</div></div>
         <div class="text-4" @click="changeType('TA實習申請')">TA實習申請</div>
     </div>
-
-
-    
-
-    <input class="searchbox" type="text" v-model="search" placeholder="Search .." />
 
 
     <table class="tablestyle" cellpadding="18" style="word-break:break-all;">
@@ -38,7 +35,7 @@
         </thead>
         <tbody style="height: auto;">
             
-            <tr style="height: auto; line-height: 32px;" v-for="item in downloadListSearch"  class="bg-danger-1">
+            <tr style="height: auto; line-height: 32px;" v-for="item in downloadListSearch" class="bg-danger-1">
                 <td style="text-align: justify;" @click="onClick(item.id)"><span class="type-3">${ item.title }</span></td>
                 <td class="type-1">${item.type}</td>
                 <td style="text-align: left;padding-left: 25px;">${item.content}</td>

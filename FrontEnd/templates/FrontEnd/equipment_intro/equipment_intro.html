@@ -14,10 +14,8 @@
 
 
 <section class="container-1" id="app">
-    <div class="title-1">設備介紹</div>
-
-
     <input class="searchbox" type="text" v-model="search" placeholder="Search ..." />
+    <div class="title-1">設備介紹</div>
 
     <table class="tablestyle" cellpadding="20" style="word-break:break-all;">
         <thead>
@@ -28,17 +26,18 @@
             </tr>
         </thead>
         <tbody style="height: auto;">
-            <tr style="height: auto; line-height: 32px;" v-for="item in ListSearch" class="bg-danger-1">
+            <tr style="height: auto; line-height: 32px;" class="bg-danger-1" v-for="item in ListSearch">
                 <td style="text-align: left;" v-html="item.content">
                     ${item.content | safe}
                 </td>
-                <td style="text-align: justify;"  class="type-2">
+                <td style="text-align: justify;" class="type-2">
                     ${item.number}
                 </td>
-                <td style="text-align: left;" v-html="item.remark"  class="type-1">
+                <td style="text-align: left;"  class="type-1" v-html="item.remark">
                     ${item.remark}
                 </td>
             </tr>
+           
         </tbody>
     </table>
 
@@ -62,20 +61,12 @@
             axios.post("{% url 'apigetdblist' 'Equipment' %}")
                 .then((response) => {
                     let getdata = response.data;
-                    console.log("測試")
-                    console.log(getdata)
-                    console.log("---------------------")
 
-                    for(var x in getdata){
-                        console.log(getdata[x].remark);
-                        let r = getdata[x].remark.replaceAll("\n", "<br>");
-                        console.log(r);
-                        getdata[x].remark = r;
-                        console.log(getdata[x]);
-                    }
-                    console.log(getdata);
+		    for(var x in getdata){
+			let r = getdata[x].remark.replaceAll("\n","<br>");
+			getdata[x].remark = r;
+		    }
                     this.dataList = getdata;
-                    
                 })
                 .catch((error) => console.log(error));
         },
@@ -87,14 +78,9 @@
             ListSearch() {
                 if (this.type === "") {
                     return this.dataList.filter(box => {
-                        return box.content.includes(this.search)||box.number.includes(this.search)||box.remark.includes(this.search);
-                        // return box.content.includes(this.search);
+                        return box.content.includes(this.search);
                     })
                 }
-                //     return this.dataList.filter(box => {
-                //         return box.content.includes(this.search)||box.number.includes(this.search)||box.remark.includes(this.search);
-                //     })
-                // }
             }
         }
 

@@ -14,23 +14,25 @@
 {% block main %}
 
 <section class="container-0" id="app">
+    <input class="searchbox" type="text" v-model="search" placeholder="Search.." />
     <div class="title-1"><img src="../../../../static/img/news-list/img.png">所有公告</div>
 
     <div class="rightspace">
-
-        <span class="fa-solid fa-wrench"></span>
-        <div class="wire" @click="changeType('最新消息')">
-            <p class="content-1">最新消息</p>
+        <div class="textimg">        
+            <span class="fa-solid fa-wrench "></span>
+            <p class="content-1" @click="changeType('最新消息')">最新消息</p>
+            
         </div>
-        <span class="fa-solid fa-gavel"></span>
-        <div class="wire" @click="changeType('學生活動')">
-            <p class="content-1">學生活動</p>
+        <div class="textimg">   
+            <span class="fa-solid fa-gavel"></span>
+            <p class="content-1" @click="changeType('學生活動')">學生活動</p>
+        </div>
+        <div class="textimg">   
+            <span class="fa-solid fa-hammer"></span>
+            <p class="content-1" @click="changeType('學術動態')">學術動態</p>
         </div>
 
-        <span class="fa-solid fa-hammer"></span>
-        <p class="content-1" @click="changeType('學術動態')">學術動態</p>
     </div>
-    <input class="searchbox" type="text" v-model="search" placeholder="Search.." />
 
 
     <div class="container-1">

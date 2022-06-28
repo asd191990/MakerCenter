@@ -31,14 +31,15 @@
 }
 
 .searchbox {
-    width: 20.57%;
+    width: 15%;
     height: 35px;
-    position: relative;
+    position: static;
+    float: right;
     background-color: #ffffff;
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 5px;
-    margin-top: -3%;
+    margin-top: -135px;
     display: flex;
     align-items: center;
 }
@@ -51,17 +52,19 @@
     top: 20%;
 }
 
-
 @media (max-width:1670px) {
     .type-1{
         width: 10%;
     }
 }
+
 @media (max-width:1440px) {
     .type-1{
         display: none;
     }
+
 }
+
 @media (max-width:1516px) {
     .type-2{
         width: 16%;
@@ -76,14 +79,13 @@
     .type-2{
         display: none;
     }
+
 }
 @media (max-width: 480px) {
     .type-3{
         display: none;
     }
 }
-
-
 @media (max-width: 1280px) {
     .bg-danger {
         font-size: 24px;
@@ -96,6 +98,9 @@
     .title-1 {
         font-size: 40px;
         line-height: 46px;
+    }
+    .searchbox {
+        margin-right: -10%;
     }
 }
 
@@ -111,10 +116,21 @@
     .title-1 {
         font-size: 30px;
         line-height: 35px;
+        margin-top: 50px;
+    }
+    .searchbox {
+        margin-top: -95px;
     }
 }
 @media (max-width: 416px) {
     .type-4{
         max-width: 12%;
+    }
+}
+
+@media (max-width: 991px) {
+    .searchbox {
+        width: 40%;
+        margin-right: 0%;
     }
 }
