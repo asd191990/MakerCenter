@@ -141,6 +141,7 @@ class DownLoadFiles(models.Model):
 
 class Memebers(models.Model):
     name = models.CharField(max_length=30, verbose_name='姓名')
+    image = models.ImageField(upload_to="membersimage", verbose_name='照片', null=True)
     extension = models.CharField(verbose_name='分機',max_length=20)
     email = models.EmailField(max_length=30,unique=True, verbose_name='電子信箱')
     work = models.TextField(verbose_name='業務職掌')
@@ -158,7 +159,11 @@ class Memebers(models.Model):
         for f in chain(opts.concrete_fields, opts.private_fields):
             print("_____________")
             print(f.name)
-            data[f.name] = f.value_from_object(self)
+            if f.name == 'image':
+                data[f.name] = f.value_from_object(self).url
+                print(f.value_from_object(self).url)
+            else:
+                data[f.name] = f.value_from_object(self)
         return data
 
 

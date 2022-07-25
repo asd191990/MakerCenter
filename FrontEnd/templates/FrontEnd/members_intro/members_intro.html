@@ -29,6 +29,9 @@
         <tbody style="height: auto;">
             <tr style="height: auto; line-height: 32px;" v-for="item in MemeberListSearch" class="bg-danger-1">
                 <td style="text-align: left;" class="type-3">${item.name}</td>
+                <td style="text-align: justify;" class="type-2">
+                    <img v-bind:src="item.image" v-bind:alt="item.image" />
+                </td>
                 <td style="text-align: justify;" class="type-2">${item.extension}</td>
                 <td style="text-align: justify;">${item.email}</td>
                 <td style="text-align: justify;">${item.work}</td>
