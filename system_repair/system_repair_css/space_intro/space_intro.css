@@ -1,0 +1,65 @@
+.container-1 {
+    font-family: Roboto;
+    font-style: normal;
+    width: 70%;
+    margin: auto;
+}
+
+.title-1 {
+    font-size: 48px;
+    line-height: 56px;
+    display: flex;
+    margin: 90px auto 30px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    text-shadow: 1px 1px 0.5px rgba(106, 106, 106, 0.67);
+}
+
+.tablestyle {
+    border: solid 2px;
+    border-color: #000000;
+    border-collapse: collapse;
+    margin: 40px auto 110px;
+    font-size: 24px;
+    color: #000000;
+}
+
+.bg-danger {
+    font-size: 28px;
+    line-height: 33px;
+}
+
+.searchbox {
+    width: 20.57%;
+    height: 35px;
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-top: -3%;
+    display: flex;
+    align-items: center;
+}
+
+.searchtext {
+    font-size: 20px;
+    color: #CCCCCC;
+    line-height: 24px;
+    position: relative;
+    top: 20%;
+}
+
+@media (max-width:1440px) {
+    .type-1{
+        display: none;
+    }
+
+}
+@media (max-width:1150px) {
+    .type-2{
+        display: none;
+    }
+
+}

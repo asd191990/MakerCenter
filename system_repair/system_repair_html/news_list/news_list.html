@@ -1,0 +1,114 @@
+{% extends 'FrontEnd/base/base.html' %}
+
+{% block import %}
+
+{% load static%}
+<link rel="stylesheet" href="{% static 'css/news_list/news_list.css' %}">
+<link rel="stylesheet" href="{% static 'css/fontawesome-free-6.0.0-web/css/all.min.css' %}">
+
+<!--script src="{% static 'js/vue.js' %}"> </script>
+<script src="{% static 'js/axios.min.js' %}"> </script-->
+
+{% endblock %}
+
+{% block main %}
+
+<section class="container-0" id="app">
+    <!--searchbox 位置變動-->
+    <input class="searchbox" type="text" v-model="search" placeholder="Search.." />
+    <div class="title-1"><img src="../../../../static/img/news-list/img.png">所有公告</div>
+
+    <div class="rightspace">
+        <div class="color-1">        
+            <span class="fa-solid fa-wrench "></span>
+            <p class="content-1" @click="changeType('最新消息')">最新消息</p>
+            
+        </div>
+        <div class="color-2">   
+            <span class="fa-solid fa-gavel"></span>
+            <p class="content-1" @click="changeType('學生活動')">學生活動</p>
+        </div>
+        <div class="color-3">   
+            <span class="fa-solid fa-hammer"></span>
+            <p class="content-1" @click="changeType('學術動態')">學術動態</p>
+        </div>
+
+    </div>
+
+
+
+    <div class="container-1">
+        <div class="newbox" v-for="item in ListSearch" @click="urllead(item.id)">
+            <div class="datebox">
+                <p class="date">
+                    ${item.update_date.split('-')[0]}<br>　/<br>${item.update_date.split('-')[1]}-${item.update_date.split('-')[2]}
+                </p>
+                <!-- <p class="date">2022<br>　/<br>01.29</p> -->
+            </div>
+            <div class="whitebox">
+                <div class="second_title">${item.title}</div>
+            </div>
+        </div>
+
+
+    </div>
+
+</section>
+
+<!--script>
+
+    const url = "/single/News/";
+    axios.defaults.xsrfCookieName = 'csrftoken';
+    axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+    let setVue = new Vue({
+        el: '#app',
+        delimiters: ['${', '}'],
+        data: {
+            search: "",
+            type: "",
+            dataList: [],
+        },
+        mounted: function () {
+            axios.post("{% url 'apigetdblist' 'News' %}")
+                .then((response) => {
+                    let getdata = response.data;
+                    console.log(getdata);
+                    this.dataList = getdata;
+                })
+                .catch((error) => console.log(error));
+        },
+        methods: {
+            changeType(gettype) {
+                console.log(gettype);
+                if (this.type == gettype)
+                    this.type = "";
+                else
+                    this.type = gettype;
+                console.log(this.type);
+            },
+            urllead(getid) {
+                console.log(getid);
+                location.href = url + getid;
+            }
+
+        }, computed: {
+            ListSearch() {
+                if (this.type === "") {
+                    return this.dataList.filter(box => {
+                        return box.title.includes(this.search);
+                    })
+                } else {
+                    console.log(this.type);
+                    return this.dataList.filter(box => {
+                        console.log(box.type)
+                        return box.type.includes(this.type) && (box.title.includes(this.search));
+                    })
+                }
+            }
+        }
+
+
+    })
+</script-->
+
+{% endblock %}

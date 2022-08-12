@@ -1,0 +1,120 @@
+{% extends 'FrontEnd/base/base.html' %}
+
+{% block import %}
+
+{% load static%}
+<link rel="stylesheet" href="{% static 'css/course/course_list.css' %}">
+<link rel="stylesheet" href="{% static 'css/fontawesome-free-6.0.0-web/css/all.min.css' %}">
+<!--script src="{% static 'js/vue.js' %}"> </script>
+<script src="{% static 'js/axios.min.js' %}"> </script-->
+
+
+{% endblock %}
+
+{% block main %}
+
+
+<section class="container-0" id="app">
+    <input class="searchbox" type="text" v-model="search" placeholder="Search 課程名稱.." />
+
+        <div class="rightspace">
+            <div class="wire">
+                <div class="color-1">
+                    <span class="fa-solid fa-wrench"></span>
+                    <p class="content" @click="changeType('專業')">專業實作課程</p>
+                </div>
+            </div>
+            <div class="wire">
+                <div class="color-2">
+                    <span class="fa-solid fa-gavel"></span>
+                    <p class="content" @click="changeType('核心')">核心實作課程</p>
+                </div>
+            </div>
+            <div class="color-3">
+                <span class="fa-solid fa-hammer"></span>
+                <p class="content">微學分課程及工作坊</p>
+            </div>
+
+    </div>
+
+    <div class="container-1">
+        <div class="box" v-for="classbox in filteredList" v-bind:class="classbox.typecss" @click='urllead(classbox.id)'>
+
+            <div class="boxcontent">
+                <div class="classtitle">${classbox.title}</div>
+                <img class="coursephoto" v-bind:src="classbox.image" v-bind:alt="classbox.image" />
+            </div>
+            
+        </div>
+
+    </div>
+</section>
+
+<!--script>
+    const url = "/single/classroom/";
+
+    axios.defaults.xsrfCookieName = 'csrftoken';
+    axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+    let classvue = new Vue({
+        el: '#app',
+        delimiters: ['${', '}'],
+        data: {
+            search: "",
+            type: "{{ coursetype }}",
+            classbox: []
+        },
+        mounted: function () {
+            axios.post("{% url 'apigetdblist' 'classroom' %}")
+                .then((response) => {
+                    // getdata 得到的是陣列
+                    let getdata = response.data;
+                    console.table(getdata);
+                    console.log(getdata)
+                    for (let i = 0; i < getdata.length; i++) {
+                        getdata[i].content = getdata[i].content.replace(/(<([^>]+)>)/ig, "").substr(0,20);
+                        if (getdata[i].content.length >= 20) {
+                            getdata[i].content+="......"
+                        }
+                        if (getdata[i].type == "1")
+                            getdata[i]["typecss"] = 'coursecolor-1';
+                        else
+                            getdata[i]["typecss"] = 'coursecolor-2';
+                    }
+                    this.classbox = getdata;
+                })
+                .catch((error) => console.log(error));
+        },
+        methods: {
+            changeType(gettype) {
+                if (this.type == gettype)
+                    this.type = ""
+                else
+                    this.type = gettype
+            },
+            urllead(getid) {
+                console.log(getid);
+                location.href = url + getid;
+            }
+
+        },
+        computed: {
+
+            filteredList() {
+                if (this.type === "") {
+                    return this.classbox.filter(box => {
+                        return box.title.includes(this.search);
+                    })
+                } else {
+                    return this.classbox.filter(box => {
+                        return box.type.includes(this.type);
+                    })
+                }
+            }
+        }
+
+    })
+
+
+</script-->
+
+{% endblock %}

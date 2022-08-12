@@ -1,0 +1,78 @@
+
+<!--script>
+
+    function mouseover(url){
+        console.log(url);
+        var intFrameWidth = window.innerWidth;
+        console.log(intFrameWidth);//當前螢幕框度
+        if(intFrameWidth >992){
+            location.href =url;
+        }
+    }
+
+</script-->
+
+<div class="container-fluid sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown1" role="button"
+                         aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" onclick='mouseover("{%url 'thesingle' 'Group' 6 %}")'>
+                        大勵客基地
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                        <a class="dropdown-item" href="#">召集人</a>
+                        <a class="dropdown-item" href="#">成員</a>
+                        <a class="dropdown-item" href="#">位置</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown1" role="button"
+                         aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" onclick='mouseover("{%url 'thesingle' 'Group' 5 %}")'>
+                        專業領域小組
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                        <a class="dropdown-item" href="#">智慧製造</a>
+                        <a class="dropdown-item" href="#">資訊通</a>
+                        <a class="dropdown-item" href="#">機器人</a>
+                        <a class="dropdown-item" href="#">創課</a>
+                        <a class="dropdown-item" href="#">元宇宙</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="#">最新公告</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown3" role="button"
+                         aria-haspopup="true" data-toggle="dropdown" aria-expanded="false" onclick='mouseover("{%url 'courselist_gettype' '專業' %}")'>
+                        課程列表
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                        <a class="dropdown-item" href="#">專業實作課程</a>
+                        <a class="dropdown-item" href="#">核心實作課程</a>
+                        <a class="dropdown-item" href="#">微學分課程及工作坊</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown4" role="button"
+                         aria-haspopup="true" data-toggle="dropdown" aria-expanded="false" onclick='mouseover("{%url 'space_intro' %}")'> <!--data-toggle="dropdown"-->
+                        空間介紹
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
+                        <a class="dropdown-item" href="#">空間介紹</a>
+                        <a class="dropdown-item" href="#">設備介紹</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="#">相關辦法</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

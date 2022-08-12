@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Maker</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome-free-6.0.0-web/css/all.min.css '%}" />
+
+    {% load sass_tags %}
+    <link href="{% sass_src 'scss/all.scss' %}" rel="stylesheet" type="text/css" />
+
+    <!-- 外加引入 -->
+    {% block import %}
+
+    {% endblock %}
+</head>
+
+<body>
+    {% include 'FrontEnd/base/header.html' %}
+    {% include 'FrontEnd/base/nav.html' %}
+
+    {% block main %}
+
+    {% endblock %}
+
+    {% include 'FrontEnd/base/footer.html' %}
+    <!--script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script-->
+</body>
+
+</html>
