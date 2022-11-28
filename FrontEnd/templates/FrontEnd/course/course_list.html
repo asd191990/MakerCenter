@@ -33,7 +33,7 @@
             </div>
             <div class="color-3">
                 <span class="fa-solid fa-hammer"></span>
-                <p class="content">微學分課程及工作訪</p>
+                <p class="content extraset">微學分課程及工作坊</p>
             </div>
 
         <!--/div-->
@@ -41,15 +41,19 @@
 
     <div class="container-1">
         <div class="box" v-for="classbox in filteredList" v-bind:class="classbox.typecss" @click='urllead(classbox.id)'>
-            <img class="coursephoto" v-bind:src="classbox.image" v-bind:alt="classbox.image" />
-            <div class="classdate">${classbox.update_date}</div>
+            
+            <!--div class="classdate">${classbox.update_date}</div>
 
             <div class="markbox">
                 <p class="amark">${classbox.type}</p>
-            </div>
+            </div-->
 
-            <div class="classtitle">${classbox.title}</div>
-            <div class="classcontent" v-html="classbox.content"> </div>
+            <div class="boxcontent">
+                <div class="classtitle">${classbox.title}</div>
+                <img class="coursephoto" v-bind:src="classbox.image" v-bind:alt="classbox.image" />
+                <!--div class="classcontent" v-html="classbox.content"> </div-->
+            </div>
+            
         </div>
 
     </div>

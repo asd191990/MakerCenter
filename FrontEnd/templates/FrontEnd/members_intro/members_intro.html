@@ -15,31 +15,20 @@
 <section class="container-1" id="app">
     <input class="searchbox" type="text" v-model="search" placeholder="Search ..." />
     <div class="title-1">成員快訊</div>
+    <hr class="wire">
 
-    <table class="tablestyle" cellpadding="20" style="word-break:break-all;">
-        <thead>
-            <tr class="bg-danger" style="height: auto; ">
-                <th style="width: 11%;" class="type-3">姓名</th>
-                <th style="width: 20%;" class="type-2">照片</th>
-                <th style="width: 20%;" class="type-2">分機</th>
-                <th style="width: 24%;">信箱</th>
-                <th style="width: 27%;">業務職掌</th>
-                <th style="width: 20%;" class="type-1">位置</th>
-            </tr>
-        </thead>
-        <tbody style="height: auto;">
-            <tr style="height: auto; line-height: 32px;" v-for="item in MemeberListSearch" class="bg-danger-1">
-                <td style="text-align: left;" class="type-3">${item.name}</td>
-                <td style="text-align: justify;" class="type-2">
-                    <img v-bind:src="item.image" v-bind:alt="item.image" />
-                </td>
-                <td style="text-align: justify;" class="type-2">${item.extension}</td>
-                <td style="text-align: justify;">${item.email}</td>
-                <td style="text-align: justify;">${item.work}</td>
-                <td style="text-align: justify;" class="type-1">${item.location}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="content-00">
+        <div class="box" v-for="item in MemeberListSearch" >
+                
+                <img v-bind:src="item.image" v-bind:alt="item.image" class="coursephoto"/>
+            <div class="boxcontent">
+                
+                <div class="teacher">${item.name}老師</div>
+                <div class="phone">分機${item.extension}</div>
+                <div class="mail">${item.email}</div>
+            </div>
+            
+        </div></div>
 
 </section>
 
@@ -58,6 +47,7 @@
         mounted: function () {
             axios.post("{% url 'apigetdblist' 'Memebers' %}")
                 .then((response) => {
+                    // getdata 得到的是陣列
                     let getdata = response.data;
                     console.log(getdata);
                     this.dataList = getdata;

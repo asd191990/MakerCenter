@@ -6,8 +6,8 @@
 }
 
 .title-1 {
-    font-size: 48px;
-    line-height: 56px;
+    font-size: 36px;
+    line-height: 46px;
     display: flex;
     margin: 90px auto 30px;
     align-items: center;
@@ -21,13 +21,13 @@
     border-color: #000000;
     border-collapse: collapse;
     margin: 40px auto 110px;
-    font-size: 24px;
+    font-size: 18px;
     color: #000000;
 }
 
 
 .bg-danger {
-    font-size: 28px;
+    font-size: 24px;
     line-height: 33px;
 }
 
@@ -139,7 +139,7 @@ img{
 
 @media (max-width: 1280px) {
     .bg-danger {
-        font-size: 24px;
+        font-size: 20px;
         line-height: 27px;
     }
     .bg-danger-1{
@@ -147,8 +147,8 @@ img{
         line-height: 24px;
     }
     .title-1 {
-        font-size: 40px;
-        line-height: 46px;
+        font-size: 34px;
+        line-height: 42px;
     }
     .searchbox {
         margin-right: -16%;
@@ -157,7 +157,7 @@ img{
 
 @media (max-width: 767px) {
     .bg-danger {
-        font-size: 20px;
+        font-size: 18px;
         line-height: 23px;
     }
     .bg-danger-1{

@@ -32,33 +32,81 @@
 }
 
 .rightspace {
-    /*display: flex;
-    align-items: center;*/
     width: auto;
     position: absolute;
     float: left;
-    font-size: 24px;
-    line-height: 30px;
+    font-size: 20px;
+    line-height: 26px;
     text-shadow: 1px 1px 0.5px rgba(106, 106, 106, 0.67);
     margin-left: -8%;
-    margin-top: 20px;
+    margin-top: 35px;
 }
 
 .textimg {
     display: flex;
     align-items: center;
 }
-
-.content-1 {
-    margin: auto 20px auto 10px;
-    cursor: pointer;
+.color-1 {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: justify;
 }
 
-/*.wire {
-    border-right: 2px solid #C4C4c4;
-    margin-right: 18px;
-    margin: auto 20px;
-}*/
+.color-1:hover {
+    background-color: #f5a626;
+    color: #ffffff;
+    padding: 2px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    text-align: justify;
+}
+
+.color-2 {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: justify;
+}
+
+.color-2:hover {
+    background-color: #7dc3c2;
+    color: #ffffff;
+    padding: 2px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    text-align: justify;
+}
+
+.color-3 {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: justify;
+}
+
+.color-3:hover {
+    background-color: #00908d;
+    color: #ffffff;
+    padding: 2px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    text-align: justify;
+}
+
+.content-1 {
+    margin: auto 10px auto 10px;
+    cursor: pointer;
+}
 
 .newbox {
     float: left;
@@ -66,8 +114,8 @@
     height: 135px;
     margin: 22px 25px;
     padding: auto;
-    background: #FF7171;
-    border: 3px solid #FF7171;
+    background: #7dc3c2;
+    border: 3px solid #7dc3c2;
     box-sizing: border-box;
     box-shadow: 2px 2px 1px rgba(92, 3, 3, 0.25);
     cursor: pointer;
@@ -78,7 +126,7 @@
     height: 100%;
     position: relative;
     right: 0;
-    background-color: #FA7575;
+    background-color: #7dc3c2;
     font-weight: 500;
     font-size: 20px;
     line-height: 23px;
@@ -108,12 +156,12 @@
 .title-1 {
     display: flex;
     align-items: center;
-    margin: 50px auto;
+    margin: 36px auto;
     width: 80%;
     /*flex-flow: row wrap;*/
     justify-content: center;
-    line-height: 56px;
-    font-size: 48px;
+    line-height: 46px;
+    font-size: 36px;
     text-shadow: 1px 1px 0.5px rgba(106, 106, 106, 0.67);
 }
 
@@ -121,8 +169,8 @@
     width: 85%;
     position: relative;
     margin-left: 5%;
-    font-size: 26px;
-    line-height: 36px;
+    font-size: 24px;
+    line-height: 32px;
     color: #000000;
     text-align: center;
 }
@@ -143,8 +191,8 @@
         line-height: 24px;
     }
     .title-1 {
-        font-size: 40px;
-        line-height: 46px;
+        font-size: 32px;
+        line-height: 40px;
     }
     .newbox {
         height: 120px;
@@ -171,6 +219,7 @@
         float: inherit;
         position: relative;
         margin-left: 0px;
+        width:fit-content;
     }
     .container-1 {
         margin: 10px auto;
@@ -192,8 +241,8 @@
         line-height: 21px;
     }
     .title-1 {
-        font-size: 34px;
-        line-height: 38px;
+        font-size: 30px;
+        line-height: 36px;
     }
     .searchbox {
         width: 30%;
@@ -201,9 +250,6 @@
 }
 
 @media (max-width: 767px) {
-    /*.newbox {
-        height: 85px;
-    }*/
     .second_title {
         font-size: 18px;
     }
@@ -215,8 +261,39 @@
         font-size: 14px;
     }
 }
-@media (max-width: 480px) {
+
+@media (max-width: 580px) {
+    .second_title {
+        font-size: 16px;
+    }
+    .datebox {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 520px) {
     .newbox {
-        height: 130px;
+        height: 120px;
+        width: 60%;
+    }
+    .second_title {
+        font-size: 18px;
+    }
+    .datebox {
+        font-size: 15px;
+    }
+}
+
+@media (max-width:460px) {
+    .datebox {
+        font-size: 13px;
+    }
+    .second_title{
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .title-1 {
+        font-size: 28px;
+        line-height: 32px;
     }
 }

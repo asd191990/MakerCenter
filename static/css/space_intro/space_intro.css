@@ -4,15 +4,18 @@
     width: 70%;
     margin: auto;
 }
-
+.wire {
+    position: relative;
+    width: 80%;
+    border: 1.5px solid #000000;
+    margin-bottom: 40px;
+}
 .title-1 {
-    font-size: 48px;
-    line-height: 56px;
-    display: flex;
+    width: 78%;
+    font-size: 36px;
+    line-height: 46px;
     margin: 90px auto 30px;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+    text-align: left;
     text-shadow: 1px 1px 0.5px rgba(106, 106, 106, 0.67);
 }
 
@@ -52,40 +55,56 @@
     top: 20%;
 }
 
-@media (max-width:1670px) {
-    .type-1{
-        width: 10%;
+
+.coursephoto {
+    width: 176px;
+    height: auto;
+    float: left;
+    background-color: #ffffff ;
+    margin-right: 8px;
+}
+.box {
+    cursor: pointer;
+    width: 38%;
+    margin-left: 22px;
+    margin-right: 22px;
+    margin-bottom: 26px;
+    padding: auto;
+    background-color: #7dc3c2;
+    border: 3px solid #7dc3c2;
+    height: fit-content;
+}
+.content-00 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 18px;
+}
+.boxcontent {
+    display: block;
+    /*margin-top: 4%;*/
+}
+
+
+
+
+@media (max-width:1690px) {
+    .box {
+        width: 40%;
+        height: fit-content;
+    }
+
+}
+@media (max-width:1540px) {
+    .box {
+        height: fit-content;
+    }
+    .boxcontent {
+        word-break: break-all;
+        padding: 3px;
     }
 }
 
-@media (max-width:1440px) {
-    .type-1{
-        display: none;
-    }
-
-}
-
-@media (max-width:1516px) {
-    .type-2{
-        width: 16%;
-    }
-}
-@media (max-width:1237px) {
-    .type-2{
-        width: 18%;
-    }
-}
-@media (max-width:1070px) {
-    .type-2{
-        display: none;
-    }
-
-}
-@media (max-width: 480px) {
-    .type-3{
-        display: none;
-    }
-}
 @media (max-width: 1280px) {
     .bg-danger {
         font-size: 24px;
@@ -96,8 +115,8 @@
         line-height: 24px;
     }
     .title-1 {
-        font-size: 40px;
-        line-height: 46px;
+        font-size: 34px;
+        line-height: 42px;
     }
     .searchbox {
         margin-right: -10%;
@@ -122,11 +141,26 @@
         margin-top: -95px;
     }
 }
-@media (max-width: 416px) {
-    .type-4{
-        max-width: 12%;
+
+
+@media (max-width: 721px) {
+    .box {
+        height: fit-content;
+        width: 182px;
+    }
+    .coursephoto {
+        margin-right: 0px;
     }
 }
+
+@media (max-width: 450px) {
+
+    .boxcontent {
+        word-break: break-all;
+        padding: 3px;
+    }
+}
+
 
 @media (max-width: 991px) {
     .searchbox {

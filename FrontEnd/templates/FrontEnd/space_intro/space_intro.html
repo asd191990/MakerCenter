@@ -13,29 +13,20 @@
 <section class="container-1" id="app">
     <input class="searchbox" type="text" v-model="search" placeholder="Search ..." />
     <div class="title-1">空間介紹</div>
+    <hr class="wire">
 
-    <table class="tablestyle" cellpadding="20" style="word-break:break-all;">
-        <thead>
-            <tr class="bg-danger" style="height: 80px; ">
-                <th style="width: 13%; text-align: center;" class="type-2">教室<br>代碼</th>
-                <th style="width: 23; "  class="type-4">教室名稱</th>
-                <th style="width: 32%; ">空間介紹</th>
-                <th style="width: 8%; text-align: center;" class="type-1">容納<br>人數</th>
-                <th style="width: 24%; "class="type-3">設備資訊</th>
-            </tr>
-        </thead>
-        <tbody style="height: auto;">
-            <tr class="bg-danger-1" style="height: auto; line-height: 32px;" v-for="item in ListSearch">
-                <td style="text-align: center;" class="type-2">${item.code}</td>
-                <td style="text-align: justify;" class="type-4">${item.name}</td>
-                <td style="text-align: justify;">
-                    ${item.space_description}</td>
-                <td style="text-align: center;" class="type-1">${item.number}</td>
-                <td style="text-align: justify;" class="type-3">
-                    ${item.equipment_description}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="content-00">
+        <div class="box" v-for="item in ListSearch" >
+                <img class="coursephoto" src="/media/membersimage/637448536226063566_DJbU6Vh.png">
+            <div class="boxcontent">
+                
+                <div class="classcode">${item.code}</div>
+                <div class="classname">${item.name}</div>
+                <div class="equp_infor">${item.equipment_description}</div>
+            </div>
+            
+    </div></div>
+
 
 
 </section>

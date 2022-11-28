@@ -38,10 +38,10 @@
     display: block;
     align-items: center;
     width: 196px;
-    height: 50%;
+    /*height: 50%;*/
     float: left;
     position: absolute;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 26px;
     text-shadow: 1px 1px 0.5px rgba(106, 106, 106, 0.67);
     margin-left: 10%;
@@ -53,6 +53,11 @@
     cursor: pointer;
 }
 
+.extraset {
+    margin-left: 7px;
+    margin-right: 35px;
+}
+
 .color-1 {
     display: flex;
     align-items: center;
@@ -62,7 +67,7 @@
 }
 
 .color-1:hover {
-    background-color: #FF4F18;
+    background-color: #f5a626;
     color: #ffffff;
     padding: 2px;
     border-radius: 5px;
@@ -70,6 +75,7 @@
     align-items: center;
     padding-left: 5px;
     text-align: justify;
+    font-size: 21px;
 }
 
 .color-2 {
@@ -81,7 +87,7 @@
 }
 
 .color-2:hover {
-    background-color: #449BEB;
+    background-color: #7dc3c2;
     color: #ffffff;
     padding: 2px;
     border-radius: 5px;
@@ -89,6 +95,7 @@
     align-items: center;
     padding-left: 5px;
     text-align: justify;
+    font-size: 21px;
 }
 
 .color-3 {
@@ -99,7 +106,7 @@
 }
 
 .color-3:hover {
-    background-color: #A237C8;
+    background-color: #00908d;
     color: #ffffff;
     padding: 2px;
     border-radius: 5px;
@@ -109,87 +116,37 @@
     text-align: justify;
 }
 
-/*.wire {
-    border-right: 2px solid #C4C4c4;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-}*/
 
 .box {
     cursor: pointer;
     width: 324px;
-    margin-left: 26px;
-    margin-right: 26px;
+    margin-left: 20px;
+    margin-right: 20px;
     margin-bottom: 26px;
     padding: auto;
+    background-color: #7dc3c2;
+    border: 3px solid #7dc3c2;
 }
 
-.coursecolor-1:hover{
-    border: solid #FF4F18 3px;
-}
-
-.coursecolor-2:hover{
-    border: solid #449BEB 3px;
-}
 
 .coursephoto {
-    width: 320px;
-    height: 222px;
+    width: 176px;
+    height: 122.1px;
+    float: right;
+    background-color: #ffffff ;
 }
 
-
+.boxcontent {
+    display: flex;
+}
 .classtitle {
     font-weight: 500;
-    font-size: 28px;
-    line-height: 33px;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #000000;
-}
-
-.markbox {
-    width: 20%;
-    height: 32px;
-    position: relative;
-    margin-top: -8%;
-    left: 80%;
-    background-color: #FA7575;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 23px;
-    display: flex;
-}
-
-.amark {
-    padding-left: 12px;
-    color: rgb(255, 255, 255);
-    padding-top: 2px;
-}
-
-.classdate {
-    font-weight: 500;
     font-size: 24px;
-    line-height: 28px;
-    display: flex;
-    align-items: center;
     text-align: center;
-    color: #000000;
-    margin-top: 9px;
-    margin-bottom: 12px;
-}
-
-.classcontent {
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 26px;
-    display: block;
-    align-items: center;
-    color: #000000;
-    text-align: justify;
-    word-break: break-all;
+    color: #ffffff;
+    width: 155px;
+    float: left;
+    margin: auto 2px;
 }
 
 @media (max-width:1340px) {
@@ -205,36 +162,33 @@
 @media (max-width:497px) {
     .rightspace {
         float: left;
-        /*margin-bottom: 20px;*/
     }
     .box{
         margin: auto auto 30px;
     }
-    /*.searchbox{
-        width: 70%;
-    }*/
 }
 @media (max-width: 1280px) {
-    .classdate{
-        font-size: 22px;
-        line-height: 27px;
-    }
-    .classcontent{
-        font-size: 20px;
-        line-height: 24px;
-    }
     .rightspace{
+        font-size: 18px;
+    }
+    .color-1:hover {
+        font-size: 20px;
+    }
+    .color-2:hover {
         font-size: 20px;
     }
     .classtitle {
-        font-size: 24px;
-        line-height: 28px;
+        font-size: 22px;
+        line-height: 26px;
     }
     .searchbox {
         margin-right: 5%;
     }
     .container-1 {
         padding-left: 15%;
+    }
+    .extraset {
+        margin-right: 49px;
     }
 }
 
@@ -244,24 +198,10 @@
     }
 }
 
-/*@media (max-width: 800px) {
-    .container-1 {
-        padding-left: 17%;
-    }
-}*/
-
 @media (max-width: 767px) {
-    .classdate{
+    .classtitle {
         font-size: 20px;
         line-height: 24px;
-    }
-    .classcontent{
-        font-size: 18px;
-        line-height: 22px;
-    }
-    .classtitle {
-        font-size: 22px;
-        line-height: 26px;
     }
     .rightspace {
         position: relative;
@@ -270,5 +210,17 @@
     }
     .container-1 {
         padding-left: 0%;
+    }
+}
+
+@media (max-width: 400px) {
+    .box {
+        width: 315px;
+    }
+}
+
+@media (max-width: 280px) {
+    .box {
+        width: 270px;
     }
 }
